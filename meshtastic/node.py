@@ -5,7 +5,7 @@ import base64
 import logging
 import time
 
-from typing import Union
+from typing import List, Optional, Union
 
 from meshtastic import admin_pb2, apponly_pb2, channel_pb2, localonly_pb2, portnums_pb2
 from meshtastic.util import (
@@ -25,15 +25,15 @@ class Node:
     Includes methods for localConfig, moduleConfig and channels
     """
 
-    def __init__(self, iface, nodeNum, noProto=False):
+    def __init__(self, iface, nodeNum, noProto=False) -> None:
         """Constructor"""
         self.iface = iface
         self.nodeNum = nodeNum
         self.localConfig = localonly_pb2.LocalConfig()
         self.moduleConfig = localonly_pb2.LocalModuleConfig()
-        self.channels = None
+        self.channels: Optional[List[channel_pb2.Channel]] = None
         self._timeout = Timeout(maxSecs=300)
-        self.partialChannels = None
+        self.partialChannels: Optional[List[channel_pb2.Channel]] = None
         self.noProto = noProto
         self.cannedPluginMessage = None
         self.cannedPluginMessageMessages = None
@@ -682,7 +682,7 @@ class Node:
         print(f"\nfirmware_version: {c.firmware_version}")
         print(f"device_state_version: {c.device_state_version}")
 
-    def onResponseRequestChannel(self, p):
+    def onResponseRequestChannel(self, p: dict) -> None:
         """Handle the response packet for requesting a channel _requestChannel()"""
         logging.debug(f"onResponseRequestChannel() p:{p}")
 
@@ -696,14 +696,15 @@ class Node:
                 self._timeout.expireTime = time.time()  # Do not wait any longer
                 return  # Don't try to parse this routing message
             lastTried = 0
-            if len(self.partialChannels) > 0:
+            if self.partialChannels and len(self.partialChannels) > 0:
                 lastTried = self.partialChannels[-1].index
             logging.debug(f"Retrying previous channel request.")
             self._requestChannel(lastTried)
             return
 
         c = p["decoded"]["admin"]["raw"].get_channel_response
-        self.partialChannels.append(c)
+        if self.partialChannels is not None:
+            self.partialChannels.append(c)
         self._timeout.reset()  # We made forward progress
         logging.debug(f"Received channel {stripnl(c)}")
         index = c.index

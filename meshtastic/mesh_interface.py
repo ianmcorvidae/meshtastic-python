@@ -247,7 +247,7 @@ class MeshInterface:
         destinationId: Union[int, str]=BROADCAST_ADDR,
         wantAck: bool=False,
         wantResponse: bool=False,
-        onResponse: Optional[Callable[[mesh_pb2.MeshPacket], Any]]=None,
+        onResponse: Optional[Callable]=None,
         channelIndex: int=0,
     ):
         """Send a utf8 string to some other node, if the node has a display it
@@ -287,7 +287,7 @@ class MeshInterface:
         portNum: portnums_pb2.PortNum.ValueType=portnums_pb2.PortNum.PRIVATE_APP,
         wantAck: bool=False,
         wantResponse: bool=False,
-        onResponse: Optional[Callable[[mesh_pb2.MeshPacket], Any]]=None,
+        onResponse: Optional[Callable]=None,
         channelIndex: int=0,
     ):
         """Send a data packet to some other node
