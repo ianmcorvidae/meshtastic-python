@@ -819,7 +819,8 @@ class MeshInterface:
         )
         asDict = google.protobuf.json_format.MessageToDict(fromRadio)
         logging.debug(f"Received from radio: {fromRadio}")
-        if fromRadio.HasField("my_info"):
+
+        if fromRadio.HasField("my_info"): # 3
             self.myInfo = fromRadio.my_info
             self.localNode.nodeNum = self.myInfo.my_node_num
             logging.debug(f"Received myinfo: {stripnl(fromRadio.my_info)}")
@@ -831,11 +832,14 @@ class MeshInterface:
                 self.isConnected.set()  # let waitConnected return this exception
                 self.close()
 
-        elif fromRadio.HasField("metadata"):
+        #elif fromRadio.HasField("channel"): # 10
+        #    logging.debug(f"Got channel info: {stripnl(fromRadio.channel)}")
+
+        elif fromRadio.HasField("metadata"): # 13
             self.metadata = fromRadio.metadata
             logging.debug(f"Received device metadata: {stripnl(fromRadio.metadata)}")
 
-        elif fromRadio.HasField("node_info"):
+        elif fromRadio.HasField("node_info"): # 4
             node = asDict["nodeInfo"]
             try:
                 newpos = self._fixupPosition(node["position"])
@@ -854,26 +858,27 @@ class MeshInterface:
                     "meshtastic.node.updated", node=node, interface=self
                 )
             )
-        elif fromRadio.config_complete_id == self.configId:
+
+        elif fromRadio.HasField("config_complete_id") and fromRadio.config_complete_id == self.configId: # 7
             # we ignore the config_complete_id, it is unneeded for our
             # stream API fromRadio.config_complete_id
             logging.debug(f"Config complete ID {self.configId}")
             self._handleConfigComplete()
 
-        elif fromRadio.HasField("packet"):
+        elif fromRadio.HasField("packet"): # 2
             self._handlePacketFromRadio(fromRadio.packet)
 
-        elif fromRadio.HasField("queueStatus"):
+        elif fromRadio.HasField("queueStatus"): # 11
             self._handleQueueStatusFromRadio(fromRadio.queueStatus)
 
-        elif fromRadio.rebooted:
+        elif fromRadio.HasField("rebooted") and fromRadio.rebooted: # 8
             # Tell clients the device went away.  Careful not to call the overridden
             # subclass version that closes the serial port
             MeshInterface._disconnected(self)
 
             self._startConfig()  # redownload the node db etc...
 
-        elif fromRadio.config or fromRadio.moduleConfig:
+        elif fromRadio.HasField("config") or fromRadio.HasField("moduleConfig"): # 5 / 9
             if fromRadio.config.HasField("device"):
                 self.localNode.localConfig.device.CopyFrom(fromRadio.config.device)
             elif fromRadio.config.HasField("position"):
@@ -939,6 +944,11 @@ class MeshInterface:
                 self.localNode.moduleConfig.paxcounter.CopyFrom(
                     fromRadio.moduleConfig.paxcounter
                 )
+
+        # Missing bits as of max value being 14:
+        # log_record (6)
+        # xmodemPacket (12)
+        # mqttClientProxyMessage (14)
 
         else:
             logging.debug("Unexpected FromRadio payload")
