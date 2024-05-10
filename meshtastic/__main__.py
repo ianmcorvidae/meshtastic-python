@@ -481,7 +481,7 @@ def onConnected(interface):
                     print(
                         f"Writing GPIO mask 0x{bitmask:x} with value 0x{bitval:x} to {args.dest}"
                     )
-                    rhc.writeGPIOs(args.dest, bitmask, bitval)
+                    rhc.writeGPIOs(args.dest, bitmask, bitval, onResponse=rhc.iface.getNode(args.dest, False).onAckNak)
                     closeNow = True
 
                 if args.gpio_rd:

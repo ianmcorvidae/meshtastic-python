@@ -71,7 +71,7 @@ class RemoteHardwareClient:
             onResponse=onResponse,
         )
 
-    def writeGPIOs(self, nodeid, mask, vals):
+    def writeGPIOs(self, nodeid, mask, vals, onResponse=None):
         """
         Write the specified vals bits to the device GPIOs.  Only bits in mask that
         are 1 will be changed
@@ -81,7 +81,7 @@ class RemoteHardwareClient:
         r.type = remote_hardware_pb2.HardwareMessage.Type.WRITE_GPIOS
         r.gpio_mask = mask
         r.gpio_value = vals
-        return self._sendHardware(nodeid, r)
+        return self._sendHardware(nodeid, r, wantResponse=(onResponse is not None), onResponse=onResponse)
 
     def readGPIOs(self, nodeid, mask, onResponse=None):
         """Read the specified bits from GPIO inputs on the device"""
