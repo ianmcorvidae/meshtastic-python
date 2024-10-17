@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.supported_device API documentation</title>
+<meta name="description" content="Supported Meshtastic Devices - This is a class and collection of Meshtastic devices.
+It is used for auto detection as to which device might be connected." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.supported_device</code></h1>
+</header>
+<section id="section-intro">
+<p>Supported Meshtastic Devices - This is a class and collection of Meshtastic devices.
+It is used for auto detection as to which device might be connected.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34; Supported Meshtastic Devices - This is a class and collection of Meshtastic devices.
+    It is used for auto detection as to which device might be connected.
+&#34;&#34;&#34;
+
+# Goal is to detect which device and port to use from the supported devices
+# without installing any libraries that are not currently in the python meshtastic library
+
+
+class SupportedDevice:
+    &#34;&#34;&#34;Devices supported on Meshtastic&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        name,
+        version=None,
+        for_firmware=None,
+        device_class=&#34;esp32&#34;,
+        baseport_on_linux=None,
+        baseport_on_mac=None,
+        baseport_on_windows=&#34;COM&#34;,
+        usb_vendor_id_in_hex=None,
+        usb_product_id_in_hex=None,
+    ):
+        &#34;&#34;&#34;constructor&#34;&#34;&#34;
+        self.name = name
+        self.version = version
+        self.for_firmware = for_firmware
+        self.device_class = device_class  # could be &#34;nrf52&#34;
+
+        # when you run &#34;lsusb -d xxxx:&#34; in linux
+        self.usb_vendor_id_in_hex = usb_vendor_id_in_hex  # store in lower case
+        self.usb_product_id_in_hex = usb_product_id_in_hex  # store in lower case
+
+        self.baseport_on_linux = baseport_on_linux  # ex: ttyUSB or ttyACM
+        self.baseport_on_mac = baseport_on_mac
+        self.baseport_on_windows = baseport_on_windows
+
+
+# supported devices
+tbeam_v0_7 = SupportedDevice(
+    name=&#34;T-Beam&#34;,
+    version=&#34;0.7&#34;,
+    for_firmware=&#34;tbeam0.7&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+tbeam_v1_1 = SupportedDevice(
+    name=&#34;T-Beam&#34;,
+    version=&#34;1.1&#34;,
+    for_firmware=&#34;tbeam&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+tbeam_M8N = SupportedDevice(
+    name=&#34;T-Beam&#34;,
+    version=&#34;M8N&#34;,
+    for_firmware=&#34;tbeam&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+tbeam_M8N_SX1262 = SupportedDevice(
+    name=&#34;T-Beam&#34;,
+    version=&#34;M8N_SX1262&#34;,
+    for_firmware=&#34;tbeam&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+tlora_v1 = SupportedDevice(
+    name=&#34;T-Lora&#34;,
+    version=&#34;1&#34;,
+    for_firmware=&#34;tlora-v1&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+tlora_v1_3 = SupportedDevice(
+    name=&#34;T-Lora&#34;,
+    version=&#34;1.3&#34;,
+    for_firmware=&#34;tlora-v1-3&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial&#34;,
+    usb_vendor_id_in_hex=&#34;10c4&#34;,
+    usb_product_id_in_hex=&#34;ea60&#34;,
+)
+tlora_v2 = SupportedDevice(
+    name=&#34;T-Lora&#34;,
+    version=&#34;2&#34;,
+    for_firmware=&#34;tlora-v2&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+tlora_v2_1_1_6 = SupportedDevice(
+    name=&#34;T-Lora&#34;,
+    version=&#34;2.1-1.6&#34;,
+    for_firmware=&#34;tlora-v2-1-1.6&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+heltec_v1 = SupportedDevice(
+    name=&#34;Heltec&#34;,
+    version=&#34;1&#34;,
+    for_firmware=&#34;heltec-v1&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial-&#34;,
+    usb_vendor_id_in_hex=&#34;10c4&#34;,
+    usb_product_id_in_hex=&#34;ea60&#34;,
+)
+heltec_v2_0 = SupportedDevice(
+    name=&#34;Heltec&#34;,
+    version=&#34;2.0&#34;,
+    for_firmware=&#34;heltec-v2.0&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial-&#34;,
+    usb_vendor_id_in_hex=&#34;10c4&#34;,
+    usb_product_id_in_hex=&#34;ea60&#34;,
+)
+heltec_v2_1 = SupportedDevice(
+    name=&#34;Heltec&#34;,
+    version=&#34;2.1&#34;,
+    for_firmware=&#34;heltec-v2.1&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial-&#34;,
+    usb_vendor_id_in_hex=&#34;10c4&#34;,
+    usb_product_id_in_hex=&#34;ea60&#34;,
+)
+rak11200 = SupportedDevice(
+    name=&#34;RAK 11200&#34;,
+    version=&#34;&#34;,
+    for_firmware=&#34;rak11200&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial-&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;7523&#34;,
+)
+meshtastic_diy_v1 = SupportedDevice(
+    name=&#34;Meshtastic DIY&#34;,
+    version=&#34;1&#34;,
+    for_firmware=&#34;meshtastic-diy-v1&#34;,
+    baseport_on_linux=&#34;ttyUSB&#34;,
+    baseport_on_mac=&#34;cu.usbserial-&#34;,
+    usb_vendor_id_in_hex=&#34;10c4&#34;,
+    usb_product_id_in_hex=&#34;ea60&#34;,
+)
+# Note: The T-Echo reports product id in boot mode
+techo_1 = SupportedDevice(
+    name=&#34;T-Echo&#34;,
+    version=&#34;1&#34;,
+    for_firmware=&#34;t-echo-1&#34;,
+    device_class=&#34;nrf52&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;239a&#34;,
+    usb_product_id_in_hex=&#34;0029&#34;,
+)
+rak4631_5005 = SupportedDevice(
+    name=&#34;RAK 4631 5005&#34;,
+    version=&#34;&#34;,
+    for_firmware=&#34;rak4631_5005&#34;,
+    device_class=&#34;nrf52&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;239a&#34;,
+    usb_product_id_in_hex=&#34;0029&#34;,
+)
+rak4631_5005_epaper = SupportedDevice(
+    name=&#34;RAK 4631 5005 14000 epaper&#34;,
+    version=&#34;&#34;,
+    for_firmware=&#34;rak4631_5005_epaper&#34;,
+    device_class=&#34;nrf52&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;239a&#34;,
+    usb_product_id_in_hex=&#34;0029&#34;,
+)
+# Note: The 19003 reports same product id as 5005 in boot mode
+rak4631_19003 = SupportedDevice(
+    name=&#34;RAK 4631 19003&#34;,
+    version=&#34;&#34;,
+    for_firmware=&#34;rak4631_19003&#34;,
+    device_class=&#34;nrf52&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;239a&#34;,
+    usb_product_id_in_hex=&#34;8029&#34;,
+)
+nano_g1 = SupportedDevice(
+    name=&#34;Nano G1&#34;,
+    version=&#34;&#34;,
+    for_firmware=&#34;nano-g1&#34;,
+    baseport_on_linux=&#34;ttyACM&#34;,
+    baseport_on_mac=&#34;cu.usbmodem&#34;,
+    usb_vendor_id_in_hex=&#34;1a86&#34;,
+    usb_product_id_in_hex=&#34;55d4&#34;,
+)
+
+supported_devices = [
+    tbeam_v0_7,
+    tbeam_v1_1,
+    tbeam_M8N,
+    tbeam_M8N_SX1262,
+    tlora_v1,
+    tlora_v1_3,
+    tlora_v2,
+    tlora_v2_1_1_6,
+    heltec_v1,
+    heltec_v2_0,
+    heltec_v2_1,
+    meshtastic_diy_v1,
+    techo_1,
+    rak4631_5005,
+    rak4631_5005_epaper,
+    rak4631_19003,
+    rak11200,
+    nano_g1,
+]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="meshtastic.supported_device.SupportedDevice"><code class="flex name class">
+<span>class <span class="ident">SupportedDevice</span></span>
+<span>(</span><span>name, version=None, for_firmware=None, device_class='esp32', baseport_on_linux=None, baseport_on_mac=None, baseport_on_windows='COM', usb_vendor_id_in_hex=None, usb_product_id_in_hex=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Devices supported on Meshtastic</p>
+<p>constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SupportedDevice:
+    &#34;&#34;&#34;Devices supported on Meshtastic&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        name,
+        version=None,
+        for_firmware=None,
+        device_class=&#34;esp32&#34;,
+        baseport_on_linux=None,
+        baseport_on_mac=None,
+        baseport_on_windows=&#34;COM&#34;,
+        usb_vendor_id_in_hex=None,
+        usb_product_id_in_hex=None,
+    ):
+        &#34;&#34;&#34;constructor&#34;&#34;&#34;
+        self.name = name
+        self.version = version
+        self.for_firmware = for_firmware
+        self.device_class = device_class  # could be &#34;nrf52&#34;
+
+        # when you run &#34;lsusb -d xxxx:&#34; in linux
+        self.usb_vendor_id_in_hex = usb_vendor_id_in_hex  # store in lower case
+        self.usb_product_id_in_hex = usb_product_id_in_hex  # store in lower case
+
+        self.baseport_on_linux = baseport_on_linux  # ex: ttyUSB or ttyACM
+        self.baseport_on_mac = baseport_on_mac
+        self.baseport_on_windows = baseport_on_windows</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic" href="index.html">meshtastic</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="meshtastic.supported_device.SupportedDevice" href="#meshtastic.supported_device.SupportedDevice">SupportedDevice</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

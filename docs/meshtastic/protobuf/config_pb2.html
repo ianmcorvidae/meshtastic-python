@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.protobuf.config_pb2 API documentation</title>
+<meta name="description" content="Generated protocol buffer code." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.protobuf.config_pb2</code></h1>
+</header>
+<section id="section-intro">
+<p>Generated protocol buffer code.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+# Generated by the protocol buffer compiler.  DO NOT EDIT!
+# source: meshtastic/protobuf/config.proto
+&#34;&#34;&#34;Generated protocol buffer code.&#34;&#34;&#34;
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import descriptor_pool as _descriptor_pool
+from google.protobuf import symbol_database as _symbol_database
+from google.protobuf.internal import builder as _builder
+# @@protoc_insertion_point(imports)
+
+_sym_db = _symbol_database.Default()
+
+
+
+
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b&#39;\n meshtastic/protobuf/config.proto\x12\x13meshtastic.protobuf\&#34;\xaa&amp;\n\x06\x43onfig\x12:\n\x06\x64\x65vice\x18\x01 \x01(\x0b\x32(.meshtastic.protobuf.Config.DeviceConfigH\x00\x12&gt;\n\x08position\x18\x02 \x01(\x0b\x32*.meshtastic.protobuf.Config.PositionConfigH\x00\x12\x38\n\x05power\x18\x03 \x01(\x0b\x32\&#39;.meshtastic.protobuf.Config.PowerConfigH\x00\x12&lt;\n\x07network\x18\x04 \x01(\x0b\x32).meshtastic.protobuf.Config.NetworkConfigH\x00\x12&lt;\n\x07\x64isplay\x18\x05 \x01(\x0b\x32).meshtastic.protobuf.Config.DisplayConfigH\x00\x12\x36\n\x04lora\x18\x06 \x01(\x0b\x32&amp;.meshtastic.protobuf.Config.LoRaConfigH\x00\x12@\n\tbluetooth\x18\x07 \x01(\x0b\x32+.meshtastic.protobuf.Config.BluetoothConfigH\x00\x12&gt;\n\x08security\x18\x08 \x01(\x0b\x32*.meshtastic.protobuf.Config.SecurityConfigH\x00\x12\x42\n\nsessionkey\x18\t \x01(\x0b\x32,.meshtastic.protobuf.Config.SessionkeyConfigH\x00\x1a\x94\x05\n\x0c\x44\x65viceConfig\x12;\n\x04role\x18\x01 \x01(\x0e\x32-.meshtastic.protobuf.Config.DeviceConfig.Role\x12\x1a\n\x0eserial_enabled\x18\x02 \x01(\x08\x42\x02\x18\x01\x12\x13\n\x0b\x62utton_gpio\x18\x04 \x01(\r\x12\x13\n\x0b\x62uzzer_gpio\x18\x05 \x01(\r\x12R\n\x10rebroadcast_mode\x18\x06 \x01(\x0e\x32\x38.meshtastic.protobuf.Config.DeviceConfig.RebroadcastMode\x12 \n\x18node_info_broadcast_secs\x18\x07 \x01(\r\x12\&#34;\n\x1a\x64ouble_tap_as_button_press\x18\x08 \x01(\x08\x12\x16\n\nis_managed\x18\t \x01(\x08\x42\x02\x18\x01\x12\x1c\n\x14\x64isable_triple_click\x18\n \x01(\x08\x12\r\n\x05tzdef\x18\x0b \x01(\t\x12\x1e\n\x16led_heartbeat_disabled\x18\x0c \x01(\x08\&#34;\xae\x01\n\x04Role\x12\n\n\x06\x43LIENT\x10\x00\x12\x0f\n\x0b\x43LIENT_MUTE\x10\x01\x12\n\n\x06ROUTER\x10\x02\x12\x15\n\rROUTER_CLIENT\x10\x03\x1a\x02\x08\x01\x12\x0c\n\x08REPEATER\x10\x04\x12\x0b\n\x07TRACKER\x10\x05\x12\n\n\x06SENSOR\x10\x06\x12\x07\n\x03TAK\x10\x07\x12\x11\n\rCLIENT_HIDDEN\x10\x08\x12\x12\n\x0eLOST_AND_FOUND\x10\t\x12\x0f\n\x0bTAK_TRACKER\x10\n\&#34;Q\n\x0fRebroadcastMode\x12\x07\n\x03\x41LL\x10\x00\x12\x15\n\x11\x41LL_SKIP_DECODING\x10\x01\x12\x0e\n\nLOCAL_ONLY\x10\x02\x12\x0e\n\nKNOWN_ONLY\x10\x03\x1a\x9a\x05\n\x0ePositionConfig\x12\x1f\n\x17position_broadcast_secs\x18\x01 \x01(\r\x12(\n position_broadcast_smart_enabled\x18\x02 \x01(\x08\x12\x16\n\x0e\x66ixed_position\x18\x03 \x01(\x08\x12\x17\n\x0bgps_enabled\x18\x04 \x01(\x08\x42\x02\x18\x01\x12\x1b\n\x13gps_update_interval\x18\x05 \x01(\r\x12\x1c\n\x10gps_attempt_time\x18\x06 \x01(\rB\x02\x18\x01\x12\x16\n\x0eposition_flags\x18\x07 \x01(\r\x12\x0f\n\x07rx_gpio\x18\x08 \x01(\r\x12\x0f\n\x07tx_gpio\x18\t \x01(\r\x12(\n broadcast_smart_minimum_distance\x18\n \x01(\r\x12-\n%broadcast_smart_minimum_interval_secs\x18\x0b \x01(\r\x12\x13\n\x0bgps_en_gpio\x18\x0c \x01(\r\x12\x44\n\x08gps_mode\x18\r \x01(\x0e\x32\x32.meshtastic.protobuf.Config.PositionConfig.GpsMode\&#34;\xab\x01\n\rPositionFlags\x12\t\n\x05UNSET\x10\x00\x12\x0c\n\x08\x41LTITUDE\x10\x01\x12\x10\n\x0c\x41LTITUDE_MSL\x10\x02\x12\x16\n\x12GEOIDAL_SEPARATION\x10\x04\x12\x07\n\x03\x44OP\x10\x08\x12\t\n\x05HVDOP\x10\x10\x12\r\n\tSATINVIEW\x10 \x12\n\n\x06SEQ_NO\x10@\x12\x0e\n\tTIMESTAMP\x10\x80\x01\x12\x0c\n\x07HEADING\x10\x80\x02\x12\n\n\x05SPEED\x10\x80\x04\&#34;5\n\x07GpsMode\x12\x0c\n\x08\x44ISABLED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\x0f\n\x0bNOT_PRESENT\x10\x02\x1a\x84\x02\n\x0bPowerConfig\x12\x17\n\x0fis_power_saving\x18\x01 \x01(\x08\x12&amp;\n\x1eon_battery_shutdown_after_secs\x18\x02 \x01(\r\x12\x1f\n\x17\x61\x64\x63_multiplier_override\x18\x03 \x01(\x02\x12\x1b\n\x13wait_bluetooth_secs\x18\x04 \x01(\r\x12\x10\n\x08sds_secs\x18\x06 \x01(\r\x12\x0f\n\x07ls_secs\x18\x07 \x01(\r\x12\x15\n\rmin_wake_secs\x18\x08 \x01(\r\x12\&#34;\n\x1a\x64\x65vice_battery_ina_address\x18\t \x01(\r\x12\x18\n\x10powermon_enables\x18  \x01(\x04\x1a\x90\x03\n\rNetworkConfig\x12\x14\n\x0cwifi_enabled\x18\x01 \x01(\x08\x12\x11\n\twifi_ssid\x18\x03 \x01(\t\x12\x10\n\x08wifi_psk\x18\x04 \x01(\t\x12\x12\n\nntp_server\x18\x05 \x01(\t\x12\x13\n\x0b\x65th_enabled\x18\x06 \x01(\x08\x12K\n\x0c\x61\x64\x64ress_mode\x18\x07 \x01(\x0e\x32\x35.meshtastic.protobuf.Config.NetworkConfig.AddressMode\x12I\n\x0bipv4_config\x18\x08 \x01(\x0b\x32\x34.meshtastic.protobuf.Config.NetworkConfig.IpV4Config\x12\x16\n\x0ersyslog_server\x18\t \x01(\t\x1a\x46\n\nIpV4Config\x12\n\n\x02ip\x18\x01 \x01(\x07\x12\x0f\n\x07gateway\x18\x02 \x01(\x07\x12\x0e\n\x06subnet\x18\x03 \x01(\x07\x12\x0b\n\x03\x64ns\x18\x04 \x01(\x07\&#34;#\n\x0b\x41\x64\x64ressMode\x12\x08\n\x04\x44HCP\x10\x00\x12\n\n\x06STATIC\x10\x01\x1a\xfa\x07\n\rDisplayConfig\x12\x16\n\x0escreen_on_secs\x18\x01 \x01(\r\x12Q\n\ngps_format\x18\x02 \x01(\x0e\x32=.meshtastic.protobuf.Config.DisplayConfig.GpsCoordinateFormat\x12!\n\x19\x61uto_screen_carousel_secs\x18\x03 \x01(\r\x12\x19\n\x11\x63ompass_north_top\x18\x04 \x01(\x08\x12\x13\n\x0b\x66lip_screen\x18\x05 \x01(\x08\x12\x45\n\x05units\x18\x06 \x01(\x0e\x32\x36.meshtastic.protobuf.Config.DisplayConfig.DisplayUnits\x12@\n\x04oled\x18\x07 \x01(\x0e\x32\x32.meshtastic.protobuf.Config.DisplayConfig.OledType\x12J\n\x0b\x64isplaymode\x18\x08 \x01(\x0e\x32\x35.meshtastic.protobuf.Config.DisplayConfig.DisplayMode\x12\x14\n\x0cheading_bold\x18\t \x01(\x08\x12\x1d\n\x15wake_on_tap_or_motion\x18\n \x01(\x08\x12Y\n\x13\x63ompass_orientation\x18\x0b \x01(\x0e\x32&lt;.meshtastic.protobuf.Config.DisplayConfig.CompassOrientation\&#34;M\n\x13GpsCoordinateFormat\x12\x07\n\x03\x44\x45\x43\x10\x00\x12\x07\n\x03\x44MS\x10\x01\x12\x07\n\x03UTM\x10\x02\x12\x08\n\x04MGRS\x10\x03\x12\x07\n\x03OLC\x10\x04\x12\x08\n\x04OSGR\x10\x05\&#34;(\n\x0c\x44isplayUnits\x12\n\n\x06METRIC\x10\x00\x12\x0c\n\x08IMPERIAL\x10\x01\&#34;M\n\x08OledType\x12\r\n\tOLED_AUTO\x10\x00\x12\x10\n\x0cOLED_SSD1306\x10\x01\x12\x0f\n\x0bOLED_SH1106\x10\x02\x12\x0f\n\x0bOLED_SH1107\x10\x03\&#34;A\n\x0b\x44isplayMode\x12\x0b\n\x07\x44\x45\x46\x41ULT\x10\x00\x12\x0c\n\x08TWOCOLOR\x10\x01\x12\x0c\n\x08INVERTED\x10\x02\x12\t\n\x05\x43OLOR\x10\x03\&#34;\xba\x01\n\x12\x43ompassOrientation\x12\r\n\tDEGREES_0\x10\x00\x12\x0e\n\nDEGREES_90\x10\x01\x12\x0f\n\x0b\x44\x45GREES_180\x10\x02\x12\x0f\n\x0b\x44\x45GREES_270\x10\x03\x12\x16\n\x12\x44\x45GREES_0_INVERTED\x10\x04\x12\x17\n\x13\x44\x45GREES_90_INVERTED\x10\x05\x12\x18\n\x14\x44\x45GREES_180_INVERTED\x10\x06\x12\x18\n\x14\x44\x45GREES_270_INVERTED\x10\x07\x1a\x8b\x07\n\nLoRaConfig\x12\x12\n\nuse_preset\x18\x01 \x01(\x08\x12H\n\x0cmodem_preset\x18\x02 \x01(\x0e\x32\x32.meshtastic.protobuf.Config.LoRaConfig.ModemPreset\x12\x11\n\tbandwidth\x18\x03 \x01(\r\x12\x15\n\rspread_factor\x18\x04 \x01(\r\x12\x13\n\x0b\x63oding_rate\x18\x05 \x01(\r\x12\x18\n\x10\x66requency_offset\x18\x06 \x01(\x02\x12\x41\n\x06region\x18\x07 \x01(\x0e\x32\x31.meshtastic.protobuf.Config.LoRaConfig.RegionCode\x12\x11\n\thop_limit\x18\x08 \x01(\r\x12\x12\n\ntx_enabled\x18\t \x01(\x08\x12\x10\n\x08tx_power\x18\n \x01(\x05\x12\x13\n\x0b\x63hannel_num\x18\x0b \x01(\r\x12\x1b\n\x13override_duty_cycle\x18\x0c \x01(\x08\x12\x1e\n\x16sx126x_rx_boosted_gain\x18\r \x01(\x08\x12\x1a\n\x12override_frequency\x18\x0e \x01(\x02\x12\x17\n\x0fpa_fan_disabled\x18\x0f \x01(\x08\x12\x17\n\x0fignore_incoming\x18g \x03(\r\x12\x13\n\x0bignore_mqtt\x18h \x01(\x08\x12\x19\n\x11\x63onfig_ok_to_mqtt\x18i \x01(\x08\&#34;\xcd\x01\n\nRegionCode\x12\t\n\x05UNSET\x10\x00\x12\x06\n\x02US\x10\x01\x12\n\n\x06\x45U_433\x10\x02\x12\n\n\x06\x45U_868\x10\x03\x12\x06\n\x02\x43N\x10\x04\x12\x06\n\x02JP\x10\x05\x12\x07\n\x03\x41NZ\x10\x06\x12\x06\n\x02KR\x10\x07\x12\x06\n\x02TW\x10\x08\x12\x06\n\x02RU\x10\t\x12\x06\n\x02IN\x10\n\x12\n\n\x06NZ_865\x10\x0b\x12\x06\n\x02TH\x10\x0c\x12\x0b\n\x07LORA_24\x10\r\x12\n\n\x06UA_433\x10\x0e\x12\n\n\x06UA_868\x10\x0f\x12\n\n\x06MY_433\x10\x10\x12\n\n\x06MY_919\x10\x11\x12\n\n\x06SG_923\x10\x12\&#34;\xa9\x01\n\x0bModemPreset\x12\r\n\tLONG_FAST\x10\x00\x12\r\n\tLONG_SLOW\x10\x01\x12\x16\n\x0eVERY_LONG_SLOW\x10\x02\x1a\x02\x08\x01\x12\x0f\n\x0bMEDIUM_SLOW\x10\x03\x12\x0f\n\x0bMEDIUM_FAST\x10\x04\x12\x0e\n\nSHORT_SLOW\x10\x05\x12\x0e\n\nSHORT_FAST\x10\x06\x12\x11\n\rLONG_MODERATE\x10\x07\x12\x0f\n\x0bSHORT_TURBO\x10\x08\x1a\xb6\x01\n\x0f\x42luetoothConfig\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\x12\x45\n\x04mode\x18\x02 \x01(\x0e\x32\x37.meshtastic.protobuf.Config.BluetoothConfig.PairingMode\x12\x11\n\tfixed_pin\x18\x03 \x01(\r\&#34;8\n\x0bPairingMode\x12\x0e\n\nRANDOM_PIN\x10\x00\x12\r\n\tFIXED_PIN\x10\x01\x12\n\n\x06NO_PIN\x10\x02\x1a\xb6\x01\n\x0eSecurityConfig\x12\x12\n\npublic_key\x18\x01 \x01(\x0c\x12\x13\n\x0bprivate_key\x18\x02 \x01(\x0c\x12\x11\n\tadmin_key\x18\x03 \x03(\x0c\x12\x12\n\nis_managed\x18\x04 \x01(\x08\x12\x16\n\x0eserial_enabled\x18\x05 \x01(\x08\x12\x1d\n\x15\x64\x65\x62ug_log_api_enabled\x18\x06 \x01(\x08\x12\x1d\n\x15\x61\x64min_channel_enabled\x18\x08 \x01(\x08\x1a\x12\n\x10SessionkeyConfigB\x11\n\x0fpayload_variantBa\n\x13\x63om.geeksville.meshB\x0c\x43onfigProtosZ\&#34;github.com/meshtastic/go/generated\xaa\x02\x14Meshtastic.Protobufs\xba\x02\x00\x62\x06proto3&#39;)
+
+_globals = globals()
+_builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, &#39;meshtastic.protobuf.config_pb2&#39;, _globals)
+if _descriptor._USE_C_DESCRIPTORS == False:
+  DESCRIPTOR._options = None
+  DESCRIPTOR._serialized_options = b&#39;\n\023com.geeksville.meshB\014ConfigProtosZ\&#34;github.com/meshtastic/go/generated\252\002\024Meshtastic.Protobufs\272\002\000&#39;
+  _CONFIG_DEVICECONFIG_ROLE.values_by_name[&#34;ROUTER_CLIENT&#34;]._options = None
+  _CONFIG_DEVICECONFIG_ROLE.values_by_name[&#34;ROUTER_CLIENT&#34;]._serialized_options = b&#39;\010\001&#39;
+  _CONFIG_DEVICECONFIG.fields_by_name[&#39;serial_enabled&#39;]._options = None
+  _CONFIG_DEVICECONFIG.fields_by_name[&#39;serial_enabled&#39;]._serialized_options = b&#39;\030\001&#39;
+  _CONFIG_DEVICECONFIG.fields_by_name[&#39;is_managed&#39;]._options = None
+  _CONFIG_DEVICECONFIG.fields_by_name[&#39;is_managed&#39;]._serialized_options = b&#39;\030\001&#39;
+  _CONFIG_POSITIONCONFIG.fields_by_name[&#39;gps_enabled&#39;]._options = None
+  _CONFIG_POSITIONCONFIG.fields_by_name[&#39;gps_enabled&#39;]._serialized_options = b&#39;\030\001&#39;
+  _CONFIG_POSITIONCONFIG.fields_by_name[&#39;gps_attempt_time&#39;]._options = None
+  _CONFIG_POSITIONCONFIG.fields_by_name[&#39;gps_attempt_time&#39;]._serialized_options = b&#39;\030\001&#39;
+  _CONFIG_LORACONFIG_MODEMPRESET.values_by_name[&#34;VERY_LONG_SLOW&#34;]._options = None
+  _CONFIG_LORACONFIG_MODEMPRESET.values_by_name[&#34;VERY_LONG_SLOW&#34;]._serialized_options = b&#39;\010\001&#39;
+  _globals[&#39;_CONFIG&#39;]._serialized_start=58
+  _globals[&#39;_CONFIG&#39;]._serialized_end=4964
+  _globals[&#39;_CONFIG_DEVICECONFIG&#39;]._serialized_start=629
+  _globals[&#39;_CONFIG_DEVICECONFIG&#39;]._serialized_end=1289
+  _globals[&#39;_CONFIG_DEVICECONFIG_ROLE&#39;]._serialized_start=1032
+  _globals[&#39;_CONFIG_DEVICECONFIG_ROLE&#39;]._serialized_end=1206
+  _globals[&#39;_CONFIG_DEVICECONFIG_REBROADCASTMODE&#39;]._serialized_start=1208
+  _globals[&#39;_CONFIG_DEVICECONFIG_REBROADCASTMODE&#39;]._serialized_end=1289
+  _globals[&#39;_CONFIG_POSITIONCONFIG&#39;]._serialized_start=1292
+  _globals[&#39;_CONFIG_POSITIONCONFIG&#39;]._serialized_end=1958
+  _globals[&#39;_CONFIG_POSITIONCONFIG_POSITIONFLAGS&#39;]._serialized_start=1732
+  _globals[&#39;_CONFIG_POSITIONCONFIG_POSITIONFLAGS&#39;]._serialized_end=1903
+  _globals[&#39;_CONFIG_POSITIONCONFIG_GPSMODE&#39;]._serialized_start=1905
+  _globals[&#39;_CONFIG_POSITIONCONFIG_GPSMODE&#39;]._serialized_end=1958
+  _globals[&#39;_CONFIG_POWERCONFIG&#39;]._serialized_start=1961
+  _globals[&#39;_CONFIG_POWERCONFIG&#39;]._serialized_end=2221
+  _globals[&#39;_CONFIG_NETWORKCONFIG&#39;]._serialized_start=2224
+  _globals[&#39;_CONFIG_NETWORKCONFIG&#39;]._serialized_end=2624
+  _globals[&#39;_CONFIG_NETWORKCONFIG_IPV4CONFIG&#39;]._serialized_start=2517
+  _globals[&#39;_CONFIG_NETWORKCONFIG_IPV4CONFIG&#39;]._serialized_end=2587
+  _globals[&#39;_CONFIG_NETWORKCONFIG_ADDRESSMODE&#39;]._serialized_start=2589
+  _globals[&#39;_CONFIG_NETWORKCONFIG_ADDRESSMODE&#39;]._serialized_end=2624
+  _globals[&#39;_CONFIG_DISPLAYCONFIG&#39;]._serialized_start=2627
+  _globals[&#39;_CONFIG_DISPLAYCONFIG&#39;]._serialized_end=3645
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_GPSCOORDINATEFORMAT&#39;]._serialized_start=3191
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_GPSCOORDINATEFORMAT&#39;]._serialized_end=3268
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_DISPLAYUNITS&#39;]._serialized_start=3270
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_DISPLAYUNITS&#39;]._serialized_end=3310
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_OLEDTYPE&#39;]._serialized_start=3312
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_OLEDTYPE&#39;]._serialized_end=3389
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_DISPLAYMODE&#39;]._serialized_start=3391
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_DISPLAYMODE&#39;]._serialized_end=3456
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_COMPASSORIENTATION&#39;]._serialized_start=3459
+  _globals[&#39;_CONFIG_DISPLAYCONFIG_COMPASSORIENTATION&#39;]._serialized_end=3645
+  _globals[&#39;_CONFIG_LORACONFIG&#39;]._serialized_start=3648
+  _globals[&#39;_CONFIG_LORACONFIG&#39;]._serialized_end=4555
+  _globals[&#39;_CONFIG_LORACONFIG_REGIONCODE&#39;]._serialized_start=4178
+  _globals[&#39;_CONFIG_LORACONFIG_REGIONCODE&#39;]._serialized_end=4383
+  _globals[&#39;_CONFIG_LORACONFIG_MODEMPRESET&#39;]._serialized_start=4386
+  _globals[&#39;_CONFIG_LORACONFIG_MODEMPRESET&#39;]._serialized_end=4555
+  _globals[&#39;_CONFIG_BLUETOOTHCONFIG&#39;]._serialized_start=4558
+  _globals[&#39;_CONFIG_BLUETOOTHCONFIG&#39;]._serialized_end=4740
+  _globals[&#39;_CONFIG_BLUETOOTHCONFIG_PAIRINGMODE&#39;]._serialized_start=4684
+  _globals[&#39;_CONFIG_BLUETOOTHCONFIG_PAIRINGMODE&#39;]._serialized_end=4740
+  _globals[&#39;_CONFIG_SECURITYCONFIG&#39;]._serialized_start=4743
+  _globals[&#39;_CONFIG_SECURITYCONFIG&#39;]._serialized_end=4925
+  _globals[&#39;_CONFIG_SESSIONKEYCONFIG&#39;]._serialized_start=4927
+  _globals[&#39;_CONFIG_SESSIONKEYCONFIG&#39;]._serialized_end=4945
+# @@protoc_insertion_point(module_scope)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="meshtastic.protobuf.config_pb2.Config"><code class="flex name class">
+<span>class <span class="ident">Config</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>google._upb._message.Message</li>
+<li>google.protobuf.message.Message</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="meshtastic.protobuf.config_pb2.Config.BluetoothConfig"><code class="name">var <span class="ident">BluetoothConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.DESCRIPTOR"><code class="name">var <span class="ident">DESCRIPTOR</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.DeviceConfig"><code class="name">var <span class="ident">DeviceConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.DisplayConfig"><code class="name">var <span class="ident">DisplayConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.LoRaConfig"><code class="name">var <span class="ident">LoRaConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.NetworkConfig"><code class="name">var <span class="ident">NetworkConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.PositionConfig"><code class="name">var <span class="ident">PositionConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.PowerConfig"><code class="name">var <span class="ident">PowerConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.SecurityConfig"><code class="name">var <span class="ident">SecurityConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+<dt id="meshtastic.protobuf.config_pb2.Config.SessionkeyConfig"><code class="name">var <span class="ident">SessionkeyConfig</span></code></dt>
+<dd>
+<div class="desc"><p>A ProtocolMessage</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic.protobuf" href="index.html">meshtastic.protobuf</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="meshtastic.protobuf.config_pb2.Config" href="#meshtastic.protobuf.config_pb2.Config">Config</a></code></h4>
+<ul class="two-column">
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.BluetoothConfig" href="#meshtastic.protobuf.config_pb2.Config.BluetoothConfig">BluetoothConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.DESCRIPTOR" href="#meshtastic.protobuf.config_pb2.Config.DESCRIPTOR">DESCRIPTOR</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.DeviceConfig" href="#meshtastic.protobuf.config_pb2.Config.DeviceConfig">DeviceConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.DisplayConfig" href="#meshtastic.protobuf.config_pb2.Config.DisplayConfig">DisplayConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.LoRaConfig" href="#meshtastic.protobuf.config_pb2.Config.LoRaConfig">LoRaConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.NetworkConfig" href="#meshtastic.protobuf.config_pb2.Config.NetworkConfig">NetworkConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.PositionConfig" href="#meshtastic.protobuf.config_pb2.Config.PositionConfig">PositionConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.PowerConfig" href="#meshtastic.protobuf.config_pb2.Config.PowerConfig">PowerConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.SecurityConfig" href="#meshtastic.protobuf.config_pb2.Config.SecurityConfig">SecurityConfig</a></code></li>
+<li><code><a title="meshtastic.protobuf.config_pb2.Config.SessionkeyConfig" href="#meshtastic.protobuf.config_pb2.Config.SessionkeyConfig">SessionkeyConfig</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,3127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.node API documentation</title>
+<meta name="description" content="Node class" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.node</code></h1>
+</header>
+<section id="section-intro">
+<p>Node class</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Node class
+&#34;&#34;&#34;
+
+import base64
+import logging
+import time
+
+from typing import Optional, Union, List
+
+from meshtastic.protobuf import admin_pb2, apponly_pb2, channel_pb2, localonly_pb2, mesh_pb2, portnums_pb2
+from meshtastic.util import (
+    Timeout,
+    camel_to_snake,
+    fromPSK,
+    our_exit,
+    pskToString,
+    stripnl,
+    message_to_json,
+)
+
+
+class Node:
+    &#34;&#34;&#34;A model of a (local or remote) node in the mesh
+
+    Includes methods for localConfig, moduleConfig and channels
+    &#34;&#34;&#34;
+
+    def __init__(self, iface, nodeNum, noProto=False, timeout: int = 300):
+        &#34;&#34;&#34;Constructor&#34;&#34;&#34;
+        self.iface = iface
+        self.nodeNum = nodeNum
+        self.localConfig = localonly_pb2.LocalConfig()
+        self.moduleConfig = localonly_pb2.LocalModuleConfig()
+        self.channels = None
+        self._timeout = Timeout(maxSecs=timeout)
+        self.partialChannels: Optional[List] = None
+        self.noProto = noProto
+        self.cannedPluginMessage = None
+        self.cannedPluginMessageMessages = None
+        self.ringtone = None
+        self.ringtonePart = None
+
+        self.gotResponse = None
+
+    def showChannels(self):
+        &#34;&#34;&#34;Show human readable description of our channels.&#34;&#34;&#34;
+        print(&#34;Channels:&#34;)
+        if self.channels:
+            logging.debug(f&#34;self.channels:{self.channels}&#34;)
+            for c in self.channels:
+                cStr = message_to_json(c.settings)
+                # don&#39;t show disabled channels
+                if channel_pb2.Channel.Role.Name(c.role) != &#34;DISABLED&#34;:
+                    print(
+                        f&#34;  Index {c.index}: {channel_pb2.Channel.Role.Name(c.role)} psk={pskToString(c.settings.psk)} {cStr}&#34;
+                    )
+        publicURL = self.getURL(includeAll=False)
+        adminURL = self.getURL(includeAll=True)
+        print(f&#34;\nPrimary channel URL: {publicURL}&#34;)
+        if adminURL != publicURL:
+            print(f&#34;Complete URL (includes all channels): {adminURL}&#34;)
+
+    def showInfo(self):
+        &#34;&#34;&#34;Show human readable description of our node&#34;&#34;&#34;
+        prefs = &#34;&#34;
+        if self.localConfig:
+            prefs = message_to_json(self.localConfig, multiline=True)
+        print(f&#34;Preferences: {prefs}\n&#34;)
+        prefs = &#34;&#34;
+        if self.moduleConfig:
+            prefs = message_to_json(self.moduleConfig, multiline=True)
+        print(f&#34;Module preferences: {prefs}\n&#34;)
+        self.showChannels()
+
+    def setChannels(self, channels):
+        &#34;&#34;&#34;Set the channels for this node&#34;&#34;&#34;
+        self.channels = channels
+        self._fixupChannels()
+
+    def requestChannels(self, startingIndex: int = 0):
+        &#34;&#34;&#34;Send regular MeshPackets to ask channels.&#34;&#34;&#34;
+        logging.debug(f&#34;requestChannels for nodeNum:{self.nodeNum}&#34;)
+        # only initialize if we&#39;re starting out fresh
+        if startingIndex == 0:
+            self.channels = None
+            self.partialChannels = []  # We keep our channels in a temp array until finished
+        self._requestChannel(startingIndex)
+
+    def onResponseRequestSettings(self, p):
+        &#34;&#34;&#34;Handle the response packets for requesting settings _requestSettings()&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestSetting() p:{p}&#34;)
+        config_values = None
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+                self.iface._acknowledgment.receivedNak = True
+        else:
+            self.iface._acknowledgment.receivedAck = True
+            print(&#34;&#34;)
+            adminMessage = p[&#34;decoded&#34;][&#34;admin&#34;]
+            if &#34;getConfigResponse&#34; in adminMessage:
+                oneof = &#34;get_config_response&#34;
+                resp = adminMessage[&#34;getConfigResponse&#34;]
+                field = list(resp.keys())[0]
+                config_type = self.localConfig.DESCRIPTOR.fields_by_name.get(
+                    camel_to_snake(field)
+                )
+                if config_type is not None:
+                    config_values = getattr(self.localConfig, config_type.name)
+            elif &#34;getModuleConfigResponse&#34; in adminMessage:
+                oneof = &#34;get_module_config_response&#34;
+                resp = adminMessage[&#34;getModuleConfigResponse&#34;]
+                field = list(resp.keys())[0]
+                config_type = self.moduleConfig.DESCRIPTOR.fields_by_name.get(
+                    camel_to_snake(field)
+                )
+                config_values = getattr(self.moduleConfig, config_type.name)
+            else:
+                print(
+                    &#34;Did not receive a valid response. Make sure to have a shared channel named &#39;admin&#39;.&#34;
+                )
+                return
+            if config_values is not None:
+                raw_config = getattr(getattr(adminMessage[&#39;raw&#39;], oneof), field)
+                config_values.CopyFrom(raw_config)
+                print(f&#34;{str(camel_to_snake(field))}:\n{str(config_values)}&#34;)
+
+    def requestConfig(self, configType):
+        &#34;&#34;&#34;Request the config from the node via admin message&#34;&#34;&#34;
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onResponseRequestSettings
+            print(&#34;Requesting current config from remote node (this can take a while).&#34;)
+        p = admin_pb2.AdminMessage()
+        if isinstance(configType, int):
+            p.get_config_request = configType
+
+        else:
+            msgIndex = configType.index
+            if configType.containing_type.name == &#34;LocalConfig&#34;:
+                p.get_config_request = msgIndex
+            else:
+                p.get_module_config_request = msgIndex
+
+        self._sendAdmin(p, wantResponse=True, onResponse=onResponse)
+        if onResponse:
+            self.iface.waitForAckNak()
+
+    def turnOffEncryptionOnPrimaryChannel(self):
+        &#34;&#34;&#34;Turn off encryption on primary channel.&#34;&#34;&#34;
+        self.channels[0].settings.psk = fromPSK(&#34;none&#34;)
+        print(&#34;Writing modified channels to device&#34;)
+        self.writeChannel(0)
+
+    def waitForConfig(self, attribute=&#34;channels&#34;):
+        &#34;&#34;&#34;Block until radio config is received. Returns True if config has been received.&#34;&#34;&#34;
+        return self._timeout.waitForSet(self, attrs=(&#34;localConfig&#34;, attribute))
+
+    def writeConfig(self, config_name):
+        &#34;&#34;&#34;Write the current (edited) localConfig to the device&#34;&#34;&#34;
+        if self.localConfig is None:
+            our_exit(&#34;Error: No localConfig has been read&#34;)
+
+        p = admin_pb2.AdminMessage()
+
+        if config_name == &#34;device&#34;:
+            p.set_config.device.CopyFrom(self.localConfig.device)
+        elif config_name == &#34;position&#34;:
+            p.set_config.position.CopyFrom(self.localConfig.position)
+        elif config_name == &#34;power&#34;:
+            p.set_config.power.CopyFrom(self.localConfig.power)
+        elif config_name == &#34;network&#34;:
+            p.set_config.network.CopyFrom(self.localConfig.network)
+        elif config_name == &#34;display&#34;:
+            p.set_config.display.CopyFrom(self.localConfig.display)
+        elif config_name == &#34;lora&#34;:
+            p.set_config.lora.CopyFrom(self.localConfig.lora)
+        elif config_name == &#34;bluetooth&#34;:
+            p.set_config.bluetooth.CopyFrom(self.localConfig.bluetooth)
+        elif config_name == &#34;security&#34;:
+            p.set_config.security.CopyFrom(self.localConfig.security)
+        elif config_name == &#34;mqtt&#34;:
+            p.set_module_config.mqtt.CopyFrom(self.moduleConfig.mqtt)
+        elif config_name == &#34;serial&#34;:
+            p.set_module_config.serial.CopyFrom(self.moduleConfig.serial)
+        elif config_name == &#34;external_notification&#34;:
+            p.set_module_config.external_notification.CopyFrom(
+                self.moduleConfig.external_notification
+            )
+        elif config_name == &#34;store_forward&#34;:
+            p.set_module_config.store_forward.CopyFrom(self.moduleConfig.store_forward)
+        elif config_name == &#34;range_test&#34;:
+            p.set_module_config.range_test.CopyFrom(self.moduleConfig.range_test)
+        elif config_name == &#34;telemetry&#34;:
+            p.set_module_config.telemetry.CopyFrom(self.moduleConfig.telemetry)
+        elif config_name == &#34;canned_message&#34;:
+            p.set_module_config.canned_message.CopyFrom(
+                self.moduleConfig.canned_message
+            )
+        elif config_name == &#34;audio&#34;:
+            p.set_module_config.audio.CopyFrom(self.moduleConfig.audio)
+        elif config_name == &#34;remote_hardware&#34;:
+            p.set_module_config.remote_hardware.CopyFrom(
+                self.moduleConfig.remote_hardware
+            )
+        elif config_name == &#34;neighbor_info&#34;:
+            p.set_module_config.neighbor_info.CopyFrom(self.moduleConfig.neighbor_info)
+        elif config_name == &#34;detection_sensor&#34;:
+            p.set_module_config.detection_sensor.CopyFrom(self.moduleConfig.detection_sensor)
+        elif config_name == &#34;ambient_lighting&#34;:
+            p.set_module_config.ambient_lighting.CopyFrom(self.moduleConfig.ambient_lighting)
+        elif config_name == &#34;paxcounter&#34;:
+            p.set_module_config.paxcounter.CopyFrom(self.moduleConfig.paxcounter)
+        else:
+            our_exit(f&#34;Error: No valid config with name {config_name}&#34;)
+
+        logging.debug(f&#34;Wrote: {config_name}&#34;)
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        self._sendAdmin(p, onResponse=onResponse)
+
+    def writeChannel(self, channelIndex, adminIndex=0):
+        &#34;&#34;&#34;Write the current (edited) channel to the device&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.set_channel.CopyFrom(self.channels[channelIndex])
+        self._sendAdmin(p, adminIndex=adminIndex)
+        logging.debug(f&#34;Wrote channel {channelIndex}&#34;)
+
+    def getChannelByChannelIndex(self, channelIndex):
+        &#34;&#34;&#34;Get channel by channelIndex
+        channelIndex: number, typically 0-7; based on max number channels
+        returns: None if there is no channel found
+        &#34;&#34;&#34;
+        ch = None
+        if self.channels and 0 &lt;= channelIndex &lt; len(self.channels):
+            ch = self.channels[channelIndex]
+        return ch
+
+    def deleteChannel(self, channelIndex):
+        &#34;&#34;&#34;Delete the specified channelIndex and shift other channels up&#34;&#34;&#34;
+        ch = self.channels[channelIndex]
+        if ch.role not in (
+            channel_pb2.Channel.Role.SECONDARY,
+            channel_pb2.Channel.Role.DISABLED,
+        ):
+            our_exit(&#34;Warning: Only SECONDARY channels can be deleted&#34;)
+
+        # we are careful here because if we move the &#34;admin&#34; channel the channelIndex we need to use
+        # for sending admin channels will also change
+        adminIndex = self.iface.localNode._getAdminChannelIndex()
+
+        self.channels.pop(channelIndex)
+        self._fixupChannels()  # expand back to 8 channels
+
+        index = channelIndex
+        while index &lt; 8:
+            self.writeChannel(index, adminIndex=adminIndex)
+            index += 1
+
+            # if we are updating the local node, we might end up
+            # *moving* the admin channel index as we are writing
+            if (self.iface.localNode == self) and index &gt;= adminIndex:
+                # We&#39;ve now passed the old location for admin index
+                # (and written it), so we can start finding it by name again
+                adminIndex = 0
+
+    def getChannelByName(self, name):
+        &#34;&#34;&#34;Try to find the named channel or return None&#34;&#34;&#34;
+        for c in self.channels or []:
+            if c.settings and c.settings.name == name:
+                return c
+        return None
+
+    def getDisabledChannel(self):
+        &#34;&#34;&#34;Return the first channel that is disabled (i.e. available for some new use)&#34;&#34;&#34;
+        for c in self.channels:
+            if c.role == channel_pb2.Channel.Role.DISABLED:
+                return c
+        return None
+
+    def _getAdminChannelIndex(self):
+        &#34;&#34;&#34;Return the channel number of the admin channel, or 0 if no reserved channel&#34;&#34;&#34;
+        for c in self.channels or []:
+            if c.settings and c.settings.name.lower() == &#34;admin&#34;:
+                return c.index
+        return 0
+
+    def setOwner(self, long_name: Optional[str]=None, short_name: Optional[str]=None, is_licensed: bool=False):
+        &#34;&#34;&#34;Set device owner name&#34;&#34;&#34;
+        logging.debug(f&#34;in setOwner nodeNum:{self.nodeNum}&#34;)
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+
+        nChars = 4
+        if long_name is not None:
+            long_name = long_name.strip()
+            p.set_owner.long_name = long_name
+            p.set_owner.is_licensed = is_licensed
+        if short_name is not None:
+            short_name = short_name.strip()
+            if len(short_name) &gt; nChars:
+                short_name = short_name[:nChars]
+                print(f&#34;Maximum is 4 characters, truncated to {short_name}&#34;)
+            p.set_owner.short_name = short_name
+
+        # Note: These debug lines are used in unit tests
+        logging.debug(f&#34;p.set_owner.long_name:{p.set_owner.long_name}:&#34;)
+        logging.debug(f&#34;p.set_owner.short_name:{p.set_owner.short_name}:&#34;)
+        logging.debug(f&#34;p.set_owner.is_licensed:{p.set_owner.is_licensed}&#34;)
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def getURL(self, includeAll: bool = True):
+        &#34;&#34;&#34;The sharable URL that describes the current channel&#34;&#34;&#34;
+        # Only keep the primary/secondary channels, assume primary is first
+        channelSet = apponly_pb2.ChannelSet()
+        if self.channels:
+            for c in self.channels:
+                if c.role == channel_pb2.Channel.Role.PRIMARY or (
+                    includeAll and c.role == channel_pb2.Channel.Role.SECONDARY
+                ):
+                    channelSet.settings.append(c.settings)
+
+        if len(self.localConfig.ListFields()) == 0:
+            self.requestConfig(self.localConfig.DESCRIPTOR.fields_by_name.get(&#39;lora&#39;))
+        channelSet.lora_config.CopyFrom(self.localConfig.lora)
+        some_bytes = channelSet.SerializeToString()
+        s = base64.urlsafe_b64encode(some_bytes).decode(&#34;ascii&#34;)
+        s = s.replace(&#34;=&#34;, &#34;&#34;).replace(&#34;+&#34;, &#34;-&#34;).replace(&#34;/&#34;, &#34;_&#34;)
+        return f&#34;https://meshtastic.org/e/#{s}&#34;
+
+    def setURL(self, url):
+        &#34;&#34;&#34;Set mesh network URL&#34;&#34;&#34;
+        if self.localConfig is None:
+            our_exit(&#34;Warning: No Config has been read&#34;)
+
+        # URLs are of the form https://meshtastic.org/d/#{base64_channel_set}
+        # Split on &#39;/#&#39; to find the base64 encoded channel settings
+        splitURL = url.split(&#34;/#&#34;)
+        b64 = splitURL[-1]
+
+        # We normally strip padding to make for a shorter URL, but the python parser doesn&#39;t like
+        # that.  So add back any missing padding
+        # per https://stackoverflow.com/a/9807138
+        missing_padding = len(b64) % 4
+        if missing_padding:
+            b64 += &#34;=&#34; * (4 - missing_padding)
+
+        decodedURL = base64.urlsafe_b64decode(b64)
+        channelSet = apponly_pb2.ChannelSet()
+        channelSet.ParseFromString(decodedURL)
+
+        if len(channelSet.settings) == 0:
+            our_exit(&#34;Warning: There were no settings.&#34;)
+
+        i = 0
+        for chs in channelSet.settings:
+            ch = channel_pb2.Channel()
+            ch.role = (
+                channel_pb2.Channel.Role.PRIMARY
+                if i == 0
+                else channel_pb2.Channel.Role.SECONDARY
+            )
+            ch.index = i
+            ch.settings.CopyFrom(chs)
+            self.channels[ch.index] = ch
+            logging.debug(f&#34;Channel i:{i} ch:{ch}&#34;)
+            self.writeChannel(ch.index)
+            i = i + 1
+
+        p = admin_pb2.AdminMessage()
+        p.set_config.lora.CopyFrom(channelSet.lora_config)
+        self.ensureSessionKey()
+        self._sendAdmin(p)
+
+    def onResponseRequestRingtone(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting ringtone part 1&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestRingtone() p:{p}&#34;)
+        errorFound = False
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                errorFound = True
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+        if errorFound is False:
+            if &#34;decoded&#34; in p:
+                if &#34;admin&#34; in p[&#34;decoded&#34;]:
+                    if &#34;raw&#34; in p[&#34;decoded&#34;][&#34;admin&#34;]:
+                        self.ringtonePart = p[&#34;decoded&#34;][&#34;admin&#34;][
+                            &#34;raw&#34;
+                        ].get_ringtone_response
+                        logging.debug(f&#34;self.ringtonePart:{self.ringtonePart}&#34;)
+                        self.gotResponse = True
+
+    def get_ringtone(self):
+        &#34;&#34;&#34;Get the ringtone. Concatenate all pieces together and return a single string.&#34;&#34;&#34;
+        logging.debug(f&#34;in get_ringtone()&#34;)
+        if not self.ringtone:
+            p1 = admin_pb2.AdminMessage()
+            p1.get_ringtone_request = True
+            self.gotResponse = False
+            self._sendAdmin(
+                p1, wantResponse=True, onResponse=self.onResponseRequestRingtone
+            )
+            while self.gotResponse is False:
+                time.sleep(0.1)
+
+            logging.debug(f&#34;self.ringtone:{self.ringtone}&#34;)
+
+            self.ringtone = &#34;&#34;
+            if self.ringtonePart:
+                self.ringtone += self.ringtonePart
+
+        print(f&#34;ringtone:{self.ringtone}&#34;)
+        logging.debug(f&#34;ringtone:{self.ringtone}&#34;)
+        return self.ringtone
+
+    def set_ringtone(self, ringtone):
+        &#34;&#34;&#34;Set the ringtone. The ringtone length must be less than 230 character.&#34;&#34;&#34;
+
+        if len(ringtone) &gt; 230:
+            our_exit(&#34;Warning: The ringtone must be less than 230 characters.&#34;)
+        self.ensureSessionKey()
+        # split into chunks
+        chunks = []
+        chunks_size = 230
+        for i in range(0, len(ringtone), chunks_size):
+            chunks.append(ringtone[i : i + chunks_size])
+
+        # for each chunk, send a message to set the values
+        # for i in range(0, len(chunks)):
+        for i, chunk in enumerate(chunks):
+            p = admin_pb2.AdminMessage()
+
+            # TODO: should be a way to improve this
+            if i == 0:
+                p.set_ringtone_message = chunk
+
+            logging.debug(f&#34;Setting ringtone &#39;{chunk}&#39; part {i+1}&#34;)
+            # If sending to a remote node, wait for ACK/NAK
+            if self == self.iface.localNode:
+                onResponse = None
+            else:
+                onResponse = self.onAckNak
+            return self._sendAdmin(p, onResponse=onResponse)
+
+    def onResponseRequestCannedMessagePluginMessageMessages(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting canned message plugin message part 1&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestCannedMessagePluginMessageMessages() p:{p}&#34;)
+        errorFound = False
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                errorFound = True
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+        if errorFound is False:
+            if &#34;decoded&#34; in p:
+                if &#34;admin&#34; in p[&#34;decoded&#34;]:
+                    if &#34;raw&#34; in p[&#34;decoded&#34;][&#34;admin&#34;]:
+                        self.cannedPluginMessageMessages = p[&#34;decoded&#34;][&#34;admin&#34;][
+                            &#34;raw&#34;
+                        ].get_canned_message_module_messages_response
+                        logging.debug(
+                            f&#34;self.cannedPluginMessageMessages:{self.cannedPluginMessageMessages}&#34;
+                        )
+                        self.gotResponse = True
+
+    def get_canned_message(self):
+        &#34;&#34;&#34;Get the canned message string. Concatenate all pieces together and return a single string.&#34;&#34;&#34;
+        logging.debug(f&#34;in get_canned_message()&#34;)
+        if not self.cannedPluginMessage:
+            p1 = admin_pb2.AdminMessage()
+            p1.get_canned_message_module_messages_request = True
+            self.gotResponse = False
+            self._sendAdmin(
+                p1,
+                wantResponse=True,
+                onResponse=self.onResponseRequestCannedMessagePluginMessageMessages,
+            )
+            while self.gotResponse is False:
+                time.sleep(0.1)
+
+            logging.debug(
+                f&#34;self.cannedPluginMessageMessages:{self.cannedPluginMessageMessages}&#34;
+            )
+
+            self.cannedPluginMessage = &#34;&#34;
+            if self.cannedPluginMessageMessages:
+                self.cannedPluginMessage += self.cannedPluginMessageMessages
+
+        print(f&#34;canned_plugin_message:{self.cannedPluginMessage}&#34;)
+        logging.debug(f&#34;canned_plugin_message:{self.cannedPluginMessage}&#34;)
+        return self.cannedPluginMessage
+
+    def set_canned_message(self, message):
+        &#34;&#34;&#34;Set the canned message. The canned messages length must be less than 200 character.&#34;&#34;&#34;
+
+        if len(message) &gt; 200:
+            our_exit(&#34;Warning: The canned message must be less than 200 characters.&#34;)
+        self.ensureSessionKey()
+        # split into chunks
+        chunks = []
+        chunks_size = 200
+        for i in range(0, len(message), chunks_size):
+            chunks.append(message[i : i + chunks_size])
+
+        # for each chunk, send a message to set the values
+        # for i in range(0, len(chunks)):
+        for i, chunk in enumerate(chunks):
+            p = admin_pb2.AdminMessage()
+
+            # TODO: should be a way to improve this
+            if i == 0:
+                p.set_canned_message_module_messages = chunk
+
+            logging.debug(f&#34;Setting canned message &#39;{chunk}&#39; part {i+1}&#34;)
+            # If sending to a remote node, wait for ACK/NAK
+            if self == self.iface.localNode:
+                onResponse = None
+            else:
+                onResponse = self.onAckNak
+            return self._sendAdmin(p, onResponse=onResponse)
+
+    def exitSimulator(self):
+        &#34;&#34;&#34;Tell a simulator node to exit (this message
+        is ignored for other nodes)&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.exit_simulator = True
+        logging.debug(&#34;in exitSimulator()&#34;)
+
+        return self._sendAdmin(p)
+
+    def reboot(self, secs: int = 10):
+        &#34;&#34;&#34;Tell the node to reboot.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.reboot_seconds = secs
+        logging.info(f&#34;Telling node to reboot in {secs} seconds&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def beginSettingsTransaction(self):
+        &#34;&#34;&#34;Tell the node to open a transaction to edit settings.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.begin_edit_settings = True
+        logging.info(f&#34;Telling open a transaction to edit settings&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def commitSettingsTransaction(self):
+        &#34;&#34;&#34;Tell the node to commit the open transaction for editing settings.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.commit_edit_settings = True
+        logging.info(f&#34;Telling node to commit open transaction for editing settings&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def rebootOTA(self, secs: int = 10):
+        &#34;&#34;&#34;Tell the node to reboot into factory firmware.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.reboot_ota_seconds = secs
+        logging.info(f&#34;Telling node to reboot to OTA in {secs} seconds&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def enterDFUMode(self):
+        &#34;&#34;&#34;Tell the node to enter DFU mode (NRF52).&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.enter_dfu_mode_request = True
+        logging.info(f&#34;Telling node to enable DFU mode&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def shutdown(self, secs: int = 10):
+        &#34;&#34;&#34;Tell the node to shutdown.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.shutdown_seconds = secs
+        logging.info(f&#34;Telling node to shutdown in {secs} seconds&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def getMetadata(self):
+        &#34;&#34;&#34;Get the node&#39;s metadata.&#34;&#34;&#34;
+        p = admin_pb2.AdminMessage()
+        p.get_device_metadata_request = True
+        logging.info(f&#34;Requesting device metadata&#34;)
+
+        self._sendAdmin(
+            p, wantResponse=True, onResponse=self.onRequestGetMetadata
+        )
+        self.iface.waitForAckNak()
+
+    def factoryReset(self, full: bool = False):
+        &#34;&#34;&#34;Tell the node to factory reset.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        if full:
+            p.factory_reset_device = True
+            logging.info(f&#34;Telling node to factory reset (full device reset)&#34;)
+        else:
+            p.factory_reset_config = True
+            logging.info(f&#34;Telling node to factory reset (config reset)&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def removeNode(self, nodeId: Union[int, str]):
+        &#34;&#34;&#34;Tell the node to remove a specific node by ID&#34;&#34;&#34;
+        self.ensureSessionKey()
+        if isinstance(nodeId, str):
+            if nodeId.startswith(&#34;!&#34;):
+                nodeId = int(nodeId[1:], 16)
+            else:
+                nodeId = int(nodeId)
+
+        p = admin_pb2.AdminMessage()
+        p.remove_by_nodenum = nodeId
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def resetNodeDb(self):
+        &#34;&#34;&#34;Tell the node to reset its list of nodes.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.nodedb_reset = True
+        logging.info(f&#34;Telling node to reset the NodeDB&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def setFixedPosition(self, lat: Union[int, float], lon: Union[int, float], alt: int):
+        &#34;&#34;&#34;Tell the node to set fixed position to the provided value and enable the fixed position setting&#34;&#34;&#34;
+        self.ensureSessionKey()
+
+        p = mesh_pb2.Position()
+        if isinstance(lat, float) and lat != 0.0:
+            p.latitude_i = int(lat / 1e-7)
+        elif isinstance(lat, int) and lat != 0:
+            p.latitude_i = lat
+
+        if isinstance(lon, float) and lon != 0.0:
+            p.longitude_i = int(lon / 1e-7)
+        elif isinstance(lon, int) and lon != 0:
+            p.longitude_i = lon
+
+        if alt != 0:
+            p.altitude = alt
+
+        a = admin_pb2.AdminMessage()
+        a.set_fixed_position.CopyFrom(p)
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(a, onResponse=onResponse)
+
+    def removeFixedPosition(self):
+        &#34;&#34;&#34;Tell the node to remove the fixed position and set the fixed position setting to false&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.remove_fixed_position = True
+        logging.info(f&#34;Telling node to remove fixed position&#34;)
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def setTime(self, timeSec: int = 0):
+        &#34;&#34;&#34;Tell the node to set its time to the provided timestamp, or the system&#39;s current time if not provided or 0.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        if timeSec == 0:
+            timeSec = int(time.time())
+        p = admin_pb2.AdminMessage()
+        p.set_time_only = timeSec
+        logging.info(f&#34;Setting node time to {timeSec}&#34;)
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def _fixupChannels(self):
+        &#34;&#34;&#34;Fixup indexes and add disabled channels as needed&#34;&#34;&#34;
+
+        # Add extra disabled channels as needed
+        # This is needed because the protobufs will have index **missing** if the channel number is zero
+        for index, ch in enumerate(self.channels):
+            ch.index = index  # fixup indexes
+
+        self._fillChannels()
+
+    def _fillChannels(self):
+        &#34;&#34;&#34;Mark unused channels as disabled&#34;&#34;&#34;
+
+        # Add extra disabled channels as needed
+        index = len(self.channels)
+        while index &lt; 8:
+            ch = channel_pb2.Channel()
+            ch.role = channel_pb2.Channel.Role.DISABLED
+            ch.index = index
+            self.channels.append(ch)
+            index += 1
+
+    def onRequestGetMetadata(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting device metadata getMetadata()&#34;&#34;&#34;
+        logging.debug(f&#34;onRequestGetMetadata() p:{p}&#34;)
+
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+                self.iface._acknowledgment.receivedNak = True
+        else:
+            self.iface._acknowledgment.receivedAck = True
+            if p[&#34;decoded&#34;][&#34;portnum&#34;] == portnums_pb2.PortNum.Name(
+                portnums_pb2.PortNum.ROUTING_APP
+            ):
+                if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                    logging.warning(
+                        f&#39;Metadata request failed, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+                    )
+                    self._timeout.expireTime = time.time()  # Do not wait any longer
+                    return  # Don&#39;t try to parse this routing message
+                logging.debug(f&#34;Retrying metadata request.&#34;)
+                self.getMetadata()
+                return
+
+            c = p[&#34;decoded&#34;][&#34;admin&#34;][&#34;raw&#34;].get_device_metadata_response
+            self._timeout.reset()  # We made forward progress
+            logging.debug(f&#34;Received metadata {stripnl(c)}&#34;)
+            print(f&#34;\nfirmware_version: {c.firmware_version}&#34;)
+            print(f&#34;device_state_version: {c.device_state_version}&#34;)
+
+    def onResponseRequestChannel(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting a channel _requestChannel()&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestChannel() p:{p}&#34;)
+
+        if p[&#34;decoded&#34;][&#34;portnum&#34;] == portnums_pb2.PortNum.Name(
+            portnums_pb2.PortNum.ROUTING_APP
+        ):
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                logging.warning(
+                    f&#39;Channel request failed, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+                )
+                self._timeout.expireTime = time.time()  # Do not wait any longer
+                return  # Don&#39;t try to parse this routing message
+            lastTried = 0
+            if len(self.partialChannels) &gt; 0:
+                lastTried = self.partialChannels[-1].index
+            logging.debug(f&#34;Retrying previous channel request.&#34;)
+            self._requestChannel(lastTried)
+            return
+
+        c = p[&#34;decoded&#34;][&#34;admin&#34;][&#34;raw&#34;].get_channel_response
+        self.partialChannels.append(c)
+        self._timeout.reset()  # We made forward progress
+        logging.debug(f&#34;Received channel {stripnl(c)}&#34;)
+        index = c.index
+
+        if index &gt;= 8 - 1:
+            logging.debug(&#34;Finished downloading channels&#34;)
+
+            self.channels = self.partialChannels
+            self._fixupChannels()
+        else:
+            self._requestChannel(index + 1)
+
+    def onAckNak(self, p):
+        &#34;&#34;&#34;Informative handler for ACK/NAK responses&#34;&#34;&#34;
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            print(
+                f&#39;Received a NAK, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+            )
+            self.iface._acknowledgment.receivedNak = True
+        else:
+            if int(p[&#34;from&#34;]) == self.iface.localNode.nodeNum:
+                print(
+                    f&#34;Received an implicit ACK. Packet will likely arrive, but cannot be guaranteed.&#34;
+                )
+                self.iface._acknowledgment.receivedImplAck = True
+            else:
+                print(f&#34;Received an ACK.&#34;)
+                self.iface._acknowledgment.receivedAck = True
+
+    def _requestChannel(self, channelNum: int):
+        &#34;&#34;&#34;Done with initial config messages, now send regular
+        MeshPackets to ask for settings&#34;&#34;&#34;
+        p = admin_pb2.AdminMessage()
+        p.get_channel_request = channelNum + 1
+
+        # Show progress message for super slow operations
+        if self != self.iface.localNode:
+            print(
+                f&#34;Requesting channel {channelNum} info from remote node (this could take a while)&#34;
+            )
+            logging.debug(
+                f&#34;Requesting channel {channelNum} info from remote node (this could take a while)&#34;
+            )
+        else:
+            logging.debug(f&#34;Requesting channel {channelNum}&#34;)
+
+        return self._sendAdmin(
+            p, wantResponse=True, onResponse=self.onResponseRequestChannel
+        )
+
+    # pylint: disable=R1710
+    def _sendAdmin(
+        self,
+        p: admin_pb2.AdminMessage,
+        wantResponse: bool=True,
+        onResponse=None,
+        adminIndex: int=0,
+    ):
+        &#34;&#34;&#34;Send an admin message to the specified node (or the local node if destNodeNum is zero)&#34;&#34;&#34;
+
+        if self.noProto:
+            logging.warning(
+                f&#34;Not sending packet because protocol use is disabled by noProto&#34;
+            )
+        else:
+            if (
+                adminIndex == 0
+            ):  # unless a special channel index was used, we want to use the admin index
+                adminIndex = self.iface.localNode._getAdminChannelIndex()
+            logging.debug(f&#34;adminIndex:{adminIndex}&#34;)
+            if isinstance(self.nodeNum, int):
+                nodeid = self.nodeNum
+            else: # assume string starting with !
+                nodeid = int(self.nodeNum[1:],16)
+            if &#34;adminSessionPassKey&#34; in self.iface._getOrCreateByNum(nodeid):
+                p.session_passkey = self.iface._getOrCreateByNum(nodeid).get(&#34;adminSessionPassKey&#34;)
+            return self.iface.sendData(
+                p,
+                self.nodeNum,
+                portNum=portnums_pb2.PortNum.ADMIN_APP,
+                wantAck=False,
+                wantResponse=wantResponse,
+                onResponse=onResponse,
+                channelIndex=adminIndex,
+                pkiEncrypted=True,
+            )
+
+    def ensureSessionKey(self):
+        &#34;&#34;&#34;If our entry in iface.nodesByNum doesn&#39;t already have an adminSessionPassKey, make a request to get one&#34;&#34;&#34;
+        if self.noProto:
+            logging.warning(
+                f&#34;Not ensuring session key, because protocol use is disabled by noProto&#34;
+            )
+        else:
+            if isinstance(self.nodeNum, int):
+                nodeid = self.nodeNum
+            else: # assume string starting with !
+                nodeid = int(self.nodeNum[1:],16)
+            if self.iface._getOrCreateByNum(nodeid).get(&#34;adminSessionPassKey&#34;) is None:
+                self.requestConfig(admin_pb2.AdminMessage.SESSIONKEY_CONFIG)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="meshtastic.node.Node"><code class="flex name class">
+<span>class <span class="ident">Node</span></span>
+<span>(</span><span>iface, nodeNum, noProto=False, timeout: int = 300)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A model of a (local or remote) node in the mesh</p>
+<p>Includes methods for localConfig, moduleConfig and channels</p>
+<p>Constructor</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Node:
+    &#34;&#34;&#34;A model of a (local or remote) node in the mesh
+
+    Includes methods for localConfig, moduleConfig and channels
+    &#34;&#34;&#34;
+
+    def __init__(self, iface, nodeNum, noProto=False, timeout: int = 300):
+        &#34;&#34;&#34;Constructor&#34;&#34;&#34;
+        self.iface = iface
+        self.nodeNum = nodeNum
+        self.localConfig = localonly_pb2.LocalConfig()
+        self.moduleConfig = localonly_pb2.LocalModuleConfig()
+        self.channels = None
+        self._timeout = Timeout(maxSecs=timeout)
+        self.partialChannels: Optional[List] = None
+        self.noProto = noProto
+        self.cannedPluginMessage = None
+        self.cannedPluginMessageMessages = None
+        self.ringtone = None
+        self.ringtonePart = None
+
+        self.gotResponse = None
+
+    def showChannels(self):
+        &#34;&#34;&#34;Show human readable description of our channels.&#34;&#34;&#34;
+        print(&#34;Channels:&#34;)
+        if self.channels:
+            logging.debug(f&#34;self.channels:{self.channels}&#34;)
+            for c in self.channels:
+                cStr = message_to_json(c.settings)
+                # don&#39;t show disabled channels
+                if channel_pb2.Channel.Role.Name(c.role) != &#34;DISABLED&#34;:
+                    print(
+                        f&#34;  Index {c.index}: {channel_pb2.Channel.Role.Name(c.role)} psk={pskToString(c.settings.psk)} {cStr}&#34;
+                    )
+        publicURL = self.getURL(includeAll=False)
+        adminURL = self.getURL(includeAll=True)
+        print(f&#34;\nPrimary channel URL: {publicURL}&#34;)
+        if adminURL != publicURL:
+            print(f&#34;Complete URL (includes all channels): {adminURL}&#34;)
+
+    def showInfo(self):
+        &#34;&#34;&#34;Show human readable description of our node&#34;&#34;&#34;
+        prefs = &#34;&#34;
+        if self.localConfig:
+            prefs = message_to_json(self.localConfig, multiline=True)
+        print(f&#34;Preferences: {prefs}\n&#34;)
+        prefs = &#34;&#34;
+        if self.moduleConfig:
+            prefs = message_to_json(self.moduleConfig, multiline=True)
+        print(f&#34;Module preferences: {prefs}\n&#34;)
+        self.showChannels()
+
+    def setChannels(self, channels):
+        &#34;&#34;&#34;Set the channels for this node&#34;&#34;&#34;
+        self.channels = channels
+        self._fixupChannels()
+
+    def requestChannels(self, startingIndex: int = 0):
+        &#34;&#34;&#34;Send regular MeshPackets to ask channels.&#34;&#34;&#34;
+        logging.debug(f&#34;requestChannels for nodeNum:{self.nodeNum}&#34;)
+        # only initialize if we&#39;re starting out fresh
+        if startingIndex == 0:
+            self.channels = None
+            self.partialChannels = []  # We keep our channels in a temp array until finished
+        self._requestChannel(startingIndex)
+
+    def onResponseRequestSettings(self, p):
+        &#34;&#34;&#34;Handle the response packets for requesting settings _requestSettings()&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestSetting() p:{p}&#34;)
+        config_values = None
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+                self.iface._acknowledgment.receivedNak = True
+        else:
+            self.iface._acknowledgment.receivedAck = True
+            print(&#34;&#34;)
+            adminMessage = p[&#34;decoded&#34;][&#34;admin&#34;]
+            if &#34;getConfigResponse&#34; in adminMessage:
+                oneof = &#34;get_config_response&#34;
+                resp = adminMessage[&#34;getConfigResponse&#34;]
+                field = list(resp.keys())[0]
+                config_type = self.localConfig.DESCRIPTOR.fields_by_name.get(
+                    camel_to_snake(field)
+                )
+                if config_type is not None:
+                    config_values = getattr(self.localConfig, config_type.name)
+            elif &#34;getModuleConfigResponse&#34; in adminMessage:
+                oneof = &#34;get_module_config_response&#34;
+                resp = adminMessage[&#34;getModuleConfigResponse&#34;]
+                field = list(resp.keys())[0]
+                config_type = self.moduleConfig.DESCRIPTOR.fields_by_name.get(
+                    camel_to_snake(field)
+                )
+                config_values = getattr(self.moduleConfig, config_type.name)
+            else:
+                print(
+                    &#34;Did not receive a valid response. Make sure to have a shared channel named &#39;admin&#39;.&#34;
+                )
+                return
+            if config_values is not None:
+                raw_config = getattr(getattr(adminMessage[&#39;raw&#39;], oneof), field)
+                config_values.CopyFrom(raw_config)
+                print(f&#34;{str(camel_to_snake(field))}:\n{str(config_values)}&#34;)
+
+    def requestConfig(self, configType):
+        &#34;&#34;&#34;Request the config from the node via admin message&#34;&#34;&#34;
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onResponseRequestSettings
+            print(&#34;Requesting current config from remote node (this can take a while).&#34;)
+        p = admin_pb2.AdminMessage()
+        if isinstance(configType, int):
+            p.get_config_request = configType
+
+        else:
+            msgIndex = configType.index
+            if configType.containing_type.name == &#34;LocalConfig&#34;:
+                p.get_config_request = msgIndex
+            else:
+                p.get_module_config_request = msgIndex
+
+        self._sendAdmin(p, wantResponse=True, onResponse=onResponse)
+        if onResponse:
+            self.iface.waitForAckNak()
+
+    def turnOffEncryptionOnPrimaryChannel(self):
+        &#34;&#34;&#34;Turn off encryption on primary channel.&#34;&#34;&#34;
+        self.channels[0].settings.psk = fromPSK(&#34;none&#34;)
+        print(&#34;Writing modified channels to device&#34;)
+        self.writeChannel(0)
+
+    def waitForConfig(self, attribute=&#34;channels&#34;):
+        &#34;&#34;&#34;Block until radio config is received. Returns True if config has been received.&#34;&#34;&#34;
+        return self._timeout.waitForSet(self, attrs=(&#34;localConfig&#34;, attribute))
+
+    def writeConfig(self, config_name):
+        &#34;&#34;&#34;Write the current (edited) localConfig to the device&#34;&#34;&#34;
+        if self.localConfig is None:
+            our_exit(&#34;Error: No localConfig has been read&#34;)
+
+        p = admin_pb2.AdminMessage()
+
+        if config_name == &#34;device&#34;:
+            p.set_config.device.CopyFrom(self.localConfig.device)
+        elif config_name == &#34;position&#34;:
+            p.set_config.position.CopyFrom(self.localConfig.position)
+        elif config_name == &#34;power&#34;:
+            p.set_config.power.CopyFrom(self.localConfig.power)
+        elif config_name == &#34;network&#34;:
+            p.set_config.network.CopyFrom(self.localConfig.network)
+        elif config_name == &#34;display&#34;:
+            p.set_config.display.CopyFrom(self.localConfig.display)
+        elif config_name == &#34;lora&#34;:
+            p.set_config.lora.CopyFrom(self.localConfig.lora)
+        elif config_name == &#34;bluetooth&#34;:
+            p.set_config.bluetooth.CopyFrom(self.localConfig.bluetooth)
+        elif config_name == &#34;security&#34;:
+            p.set_config.security.CopyFrom(self.localConfig.security)
+        elif config_name == &#34;mqtt&#34;:
+            p.set_module_config.mqtt.CopyFrom(self.moduleConfig.mqtt)
+        elif config_name == &#34;serial&#34;:
+            p.set_module_config.serial.CopyFrom(self.moduleConfig.serial)
+        elif config_name == &#34;external_notification&#34;:
+            p.set_module_config.external_notification.CopyFrom(
+                self.moduleConfig.external_notification
+            )
+        elif config_name == &#34;store_forward&#34;:
+            p.set_module_config.store_forward.CopyFrom(self.moduleConfig.store_forward)
+        elif config_name == &#34;range_test&#34;:
+            p.set_module_config.range_test.CopyFrom(self.moduleConfig.range_test)
+        elif config_name == &#34;telemetry&#34;:
+            p.set_module_config.telemetry.CopyFrom(self.moduleConfig.telemetry)
+        elif config_name == &#34;canned_message&#34;:
+            p.set_module_config.canned_message.CopyFrom(
+                self.moduleConfig.canned_message
+            )
+        elif config_name == &#34;audio&#34;:
+            p.set_module_config.audio.CopyFrom(self.moduleConfig.audio)
+        elif config_name == &#34;remote_hardware&#34;:
+            p.set_module_config.remote_hardware.CopyFrom(
+                self.moduleConfig.remote_hardware
+            )
+        elif config_name == &#34;neighbor_info&#34;:
+            p.set_module_config.neighbor_info.CopyFrom(self.moduleConfig.neighbor_info)
+        elif config_name == &#34;detection_sensor&#34;:
+            p.set_module_config.detection_sensor.CopyFrom(self.moduleConfig.detection_sensor)
+        elif config_name == &#34;ambient_lighting&#34;:
+            p.set_module_config.ambient_lighting.CopyFrom(self.moduleConfig.ambient_lighting)
+        elif config_name == &#34;paxcounter&#34;:
+            p.set_module_config.paxcounter.CopyFrom(self.moduleConfig.paxcounter)
+        else:
+            our_exit(f&#34;Error: No valid config with name {config_name}&#34;)
+
+        logging.debug(f&#34;Wrote: {config_name}&#34;)
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        self._sendAdmin(p, onResponse=onResponse)
+
+    def writeChannel(self, channelIndex, adminIndex=0):
+        &#34;&#34;&#34;Write the current (edited) channel to the device&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.set_channel.CopyFrom(self.channels[channelIndex])
+        self._sendAdmin(p, adminIndex=adminIndex)
+        logging.debug(f&#34;Wrote channel {channelIndex}&#34;)
+
+    def getChannelByChannelIndex(self, channelIndex):
+        &#34;&#34;&#34;Get channel by channelIndex
+        channelIndex: number, typically 0-7; based on max number channels
+        returns: None if there is no channel found
+        &#34;&#34;&#34;
+        ch = None
+        if self.channels and 0 &lt;= channelIndex &lt; len(self.channels):
+            ch = self.channels[channelIndex]
+        return ch
+
+    def deleteChannel(self, channelIndex):
+        &#34;&#34;&#34;Delete the specified channelIndex and shift other channels up&#34;&#34;&#34;
+        ch = self.channels[channelIndex]
+        if ch.role not in (
+            channel_pb2.Channel.Role.SECONDARY,
+            channel_pb2.Channel.Role.DISABLED,
+        ):
+            our_exit(&#34;Warning: Only SECONDARY channels can be deleted&#34;)
+
+        # we are careful here because if we move the &#34;admin&#34; channel the channelIndex we need to use
+        # for sending admin channels will also change
+        adminIndex = self.iface.localNode._getAdminChannelIndex()
+
+        self.channels.pop(channelIndex)
+        self._fixupChannels()  # expand back to 8 channels
+
+        index = channelIndex
+        while index &lt; 8:
+            self.writeChannel(index, adminIndex=adminIndex)
+            index += 1
+
+            # if we are updating the local node, we might end up
+            # *moving* the admin channel index as we are writing
+            if (self.iface.localNode == self) and index &gt;= adminIndex:
+                # We&#39;ve now passed the old location for admin index
+                # (and written it), so we can start finding it by name again
+                adminIndex = 0
+
+    def getChannelByName(self, name):
+        &#34;&#34;&#34;Try to find the named channel or return None&#34;&#34;&#34;
+        for c in self.channels or []:
+            if c.settings and c.settings.name == name:
+                return c
+        return None
+
+    def getDisabledChannel(self):
+        &#34;&#34;&#34;Return the first channel that is disabled (i.e. available for some new use)&#34;&#34;&#34;
+        for c in self.channels:
+            if c.role == channel_pb2.Channel.Role.DISABLED:
+                return c
+        return None
+
+    def _getAdminChannelIndex(self):
+        &#34;&#34;&#34;Return the channel number of the admin channel, or 0 if no reserved channel&#34;&#34;&#34;
+        for c in self.channels or []:
+            if c.settings and c.settings.name.lower() == &#34;admin&#34;:
+                return c.index
+        return 0
+
+    def setOwner(self, long_name: Optional[str]=None, short_name: Optional[str]=None, is_licensed: bool=False):
+        &#34;&#34;&#34;Set device owner name&#34;&#34;&#34;
+        logging.debug(f&#34;in setOwner nodeNum:{self.nodeNum}&#34;)
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+
+        nChars = 4
+        if long_name is not None:
+            long_name = long_name.strip()
+            p.set_owner.long_name = long_name
+            p.set_owner.is_licensed = is_licensed
+        if short_name is not None:
+            short_name = short_name.strip()
+            if len(short_name) &gt; nChars:
+                short_name = short_name[:nChars]
+                print(f&#34;Maximum is 4 characters, truncated to {short_name}&#34;)
+            p.set_owner.short_name = short_name
+
+        # Note: These debug lines are used in unit tests
+        logging.debug(f&#34;p.set_owner.long_name:{p.set_owner.long_name}:&#34;)
+        logging.debug(f&#34;p.set_owner.short_name:{p.set_owner.short_name}:&#34;)
+        logging.debug(f&#34;p.set_owner.is_licensed:{p.set_owner.is_licensed}&#34;)
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def getURL(self, includeAll: bool = True):
+        &#34;&#34;&#34;The sharable URL that describes the current channel&#34;&#34;&#34;
+        # Only keep the primary/secondary channels, assume primary is first
+        channelSet = apponly_pb2.ChannelSet()
+        if self.channels:
+            for c in self.channels:
+                if c.role == channel_pb2.Channel.Role.PRIMARY or (
+                    includeAll and c.role == channel_pb2.Channel.Role.SECONDARY
+                ):
+                    channelSet.settings.append(c.settings)
+
+        if len(self.localConfig.ListFields()) == 0:
+            self.requestConfig(self.localConfig.DESCRIPTOR.fields_by_name.get(&#39;lora&#39;))
+        channelSet.lora_config.CopyFrom(self.localConfig.lora)
+        some_bytes = channelSet.SerializeToString()
+        s = base64.urlsafe_b64encode(some_bytes).decode(&#34;ascii&#34;)
+        s = s.replace(&#34;=&#34;, &#34;&#34;).replace(&#34;+&#34;, &#34;-&#34;).replace(&#34;/&#34;, &#34;_&#34;)
+        return f&#34;https://meshtastic.org/e/#{s}&#34;
+
+    def setURL(self, url):
+        &#34;&#34;&#34;Set mesh network URL&#34;&#34;&#34;
+        if self.localConfig is None:
+            our_exit(&#34;Warning: No Config has been read&#34;)
+
+        # URLs are of the form https://meshtastic.org/d/#{base64_channel_set}
+        # Split on &#39;/#&#39; to find the base64 encoded channel settings
+        splitURL = url.split(&#34;/#&#34;)
+        b64 = splitURL[-1]
+
+        # We normally strip padding to make for a shorter URL, but the python parser doesn&#39;t like
+        # that.  So add back any missing padding
+        # per https://stackoverflow.com/a/9807138
+        missing_padding = len(b64) % 4
+        if missing_padding:
+            b64 += &#34;=&#34; * (4 - missing_padding)
+
+        decodedURL = base64.urlsafe_b64decode(b64)
+        channelSet = apponly_pb2.ChannelSet()
+        channelSet.ParseFromString(decodedURL)
+
+        if len(channelSet.settings) == 0:
+            our_exit(&#34;Warning: There were no settings.&#34;)
+
+        i = 0
+        for chs in channelSet.settings:
+            ch = channel_pb2.Channel()
+            ch.role = (
+                channel_pb2.Channel.Role.PRIMARY
+                if i == 0
+                else channel_pb2.Channel.Role.SECONDARY
+            )
+            ch.index = i
+            ch.settings.CopyFrom(chs)
+            self.channels[ch.index] = ch
+            logging.debug(f&#34;Channel i:{i} ch:{ch}&#34;)
+            self.writeChannel(ch.index)
+            i = i + 1
+
+        p = admin_pb2.AdminMessage()
+        p.set_config.lora.CopyFrom(channelSet.lora_config)
+        self.ensureSessionKey()
+        self._sendAdmin(p)
+
+    def onResponseRequestRingtone(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting ringtone part 1&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestRingtone() p:{p}&#34;)
+        errorFound = False
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                errorFound = True
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+        if errorFound is False:
+            if &#34;decoded&#34; in p:
+                if &#34;admin&#34; in p[&#34;decoded&#34;]:
+                    if &#34;raw&#34; in p[&#34;decoded&#34;][&#34;admin&#34;]:
+                        self.ringtonePart = p[&#34;decoded&#34;][&#34;admin&#34;][
+                            &#34;raw&#34;
+                        ].get_ringtone_response
+                        logging.debug(f&#34;self.ringtonePart:{self.ringtonePart}&#34;)
+                        self.gotResponse = True
+
+    def get_ringtone(self):
+        &#34;&#34;&#34;Get the ringtone. Concatenate all pieces together and return a single string.&#34;&#34;&#34;
+        logging.debug(f&#34;in get_ringtone()&#34;)
+        if not self.ringtone:
+            p1 = admin_pb2.AdminMessage()
+            p1.get_ringtone_request = True
+            self.gotResponse = False
+            self._sendAdmin(
+                p1, wantResponse=True, onResponse=self.onResponseRequestRingtone
+            )
+            while self.gotResponse is False:
+                time.sleep(0.1)
+
+            logging.debug(f&#34;self.ringtone:{self.ringtone}&#34;)
+
+            self.ringtone = &#34;&#34;
+            if self.ringtonePart:
+                self.ringtone += self.ringtonePart
+
+        print(f&#34;ringtone:{self.ringtone}&#34;)
+        logging.debug(f&#34;ringtone:{self.ringtone}&#34;)
+        return self.ringtone
+
+    def set_ringtone(self, ringtone):
+        &#34;&#34;&#34;Set the ringtone. The ringtone length must be less than 230 character.&#34;&#34;&#34;
+
+        if len(ringtone) &gt; 230:
+            our_exit(&#34;Warning: The ringtone must be less than 230 characters.&#34;)
+        self.ensureSessionKey()
+        # split into chunks
+        chunks = []
+        chunks_size = 230
+        for i in range(0, len(ringtone), chunks_size):
+            chunks.append(ringtone[i : i + chunks_size])
+
+        # for each chunk, send a message to set the values
+        # for i in range(0, len(chunks)):
+        for i, chunk in enumerate(chunks):
+            p = admin_pb2.AdminMessage()
+
+            # TODO: should be a way to improve this
+            if i == 0:
+                p.set_ringtone_message = chunk
+
+            logging.debug(f&#34;Setting ringtone &#39;{chunk}&#39; part {i+1}&#34;)
+            # If sending to a remote node, wait for ACK/NAK
+            if self == self.iface.localNode:
+                onResponse = None
+            else:
+                onResponse = self.onAckNak
+            return self._sendAdmin(p, onResponse=onResponse)
+
+    def onResponseRequestCannedMessagePluginMessageMessages(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting canned message plugin message part 1&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestCannedMessagePluginMessageMessages() p:{p}&#34;)
+        errorFound = False
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                errorFound = True
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+        if errorFound is False:
+            if &#34;decoded&#34; in p:
+                if &#34;admin&#34; in p[&#34;decoded&#34;]:
+                    if &#34;raw&#34; in p[&#34;decoded&#34;][&#34;admin&#34;]:
+                        self.cannedPluginMessageMessages = p[&#34;decoded&#34;][&#34;admin&#34;][
+                            &#34;raw&#34;
+                        ].get_canned_message_module_messages_response
+                        logging.debug(
+                            f&#34;self.cannedPluginMessageMessages:{self.cannedPluginMessageMessages}&#34;
+                        )
+                        self.gotResponse = True
+
+    def get_canned_message(self):
+        &#34;&#34;&#34;Get the canned message string. Concatenate all pieces together and return a single string.&#34;&#34;&#34;
+        logging.debug(f&#34;in get_canned_message()&#34;)
+        if not self.cannedPluginMessage:
+            p1 = admin_pb2.AdminMessage()
+            p1.get_canned_message_module_messages_request = True
+            self.gotResponse = False
+            self._sendAdmin(
+                p1,
+                wantResponse=True,
+                onResponse=self.onResponseRequestCannedMessagePluginMessageMessages,
+            )
+            while self.gotResponse is False:
+                time.sleep(0.1)
+
+            logging.debug(
+                f&#34;self.cannedPluginMessageMessages:{self.cannedPluginMessageMessages}&#34;
+            )
+
+            self.cannedPluginMessage = &#34;&#34;
+            if self.cannedPluginMessageMessages:
+                self.cannedPluginMessage += self.cannedPluginMessageMessages
+
+        print(f&#34;canned_plugin_message:{self.cannedPluginMessage}&#34;)
+        logging.debug(f&#34;canned_plugin_message:{self.cannedPluginMessage}&#34;)
+        return self.cannedPluginMessage
+
+    def set_canned_message(self, message):
+        &#34;&#34;&#34;Set the canned message. The canned messages length must be less than 200 character.&#34;&#34;&#34;
+
+        if len(message) &gt; 200:
+            our_exit(&#34;Warning: The canned message must be less than 200 characters.&#34;)
+        self.ensureSessionKey()
+        # split into chunks
+        chunks = []
+        chunks_size = 200
+        for i in range(0, len(message), chunks_size):
+            chunks.append(message[i : i + chunks_size])
+
+        # for each chunk, send a message to set the values
+        # for i in range(0, len(chunks)):
+        for i, chunk in enumerate(chunks):
+            p = admin_pb2.AdminMessage()
+
+            # TODO: should be a way to improve this
+            if i == 0:
+                p.set_canned_message_module_messages = chunk
+
+            logging.debug(f&#34;Setting canned message &#39;{chunk}&#39; part {i+1}&#34;)
+            # If sending to a remote node, wait for ACK/NAK
+            if self == self.iface.localNode:
+                onResponse = None
+            else:
+                onResponse = self.onAckNak
+            return self._sendAdmin(p, onResponse=onResponse)
+
+    def exitSimulator(self):
+        &#34;&#34;&#34;Tell a simulator node to exit (this message
+        is ignored for other nodes)&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.exit_simulator = True
+        logging.debug(&#34;in exitSimulator()&#34;)
+
+        return self._sendAdmin(p)
+
+    def reboot(self, secs: int = 10):
+        &#34;&#34;&#34;Tell the node to reboot.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.reboot_seconds = secs
+        logging.info(f&#34;Telling node to reboot in {secs} seconds&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def beginSettingsTransaction(self):
+        &#34;&#34;&#34;Tell the node to open a transaction to edit settings.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.begin_edit_settings = True
+        logging.info(f&#34;Telling open a transaction to edit settings&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def commitSettingsTransaction(self):
+        &#34;&#34;&#34;Tell the node to commit the open transaction for editing settings.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.commit_edit_settings = True
+        logging.info(f&#34;Telling node to commit open transaction for editing settings&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def rebootOTA(self, secs: int = 10):
+        &#34;&#34;&#34;Tell the node to reboot into factory firmware.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.reboot_ota_seconds = secs
+        logging.info(f&#34;Telling node to reboot to OTA in {secs} seconds&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def enterDFUMode(self):
+        &#34;&#34;&#34;Tell the node to enter DFU mode (NRF52).&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.enter_dfu_mode_request = True
+        logging.info(f&#34;Telling node to enable DFU mode&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def shutdown(self, secs: int = 10):
+        &#34;&#34;&#34;Tell the node to shutdown.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.shutdown_seconds = secs
+        logging.info(f&#34;Telling node to shutdown in {secs} seconds&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def getMetadata(self):
+        &#34;&#34;&#34;Get the node&#39;s metadata.&#34;&#34;&#34;
+        p = admin_pb2.AdminMessage()
+        p.get_device_metadata_request = True
+        logging.info(f&#34;Requesting device metadata&#34;)
+
+        self._sendAdmin(
+            p, wantResponse=True, onResponse=self.onRequestGetMetadata
+        )
+        self.iface.waitForAckNak()
+
+    def factoryReset(self, full: bool = False):
+        &#34;&#34;&#34;Tell the node to factory reset.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        if full:
+            p.factory_reset_device = True
+            logging.info(f&#34;Telling node to factory reset (full device reset)&#34;)
+        else:
+            p.factory_reset_config = True
+            logging.info(f&#34;Telling node to factory reset (config reset)&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def removeNode(self, nodeId: Union[int, str]):
+        &#34;&#34;&#34;Tell the node to remove a specific node by ID&#34;&#34;&#34;
+        self.ensureSessionKey()
+        if isinstance(nodeId, str):
+            if nodeId.startswith(&#34;!&#34;):
+                nodeId = int(nodeId[1:], 16)
+            else:
+                nodeId = int(nodeId)
+
+        p = admin_pb2.AdminMessage()
+        p.remove_by_nodenum = nodeId
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def resetNodeDb(self):
+        &#34;&#34;&#34;Tell the node to reset its list of nodes.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.nodedb_reset = True
+        logging.info(f&#34;Telling node to reset the NodeDB&#34;)
+
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def setFixedPosition(self, lat: Union[int, float], lon: Union[int, float], alt: int):
+        &#34;&#34;&#34;Tell the node to set fixed position to the provided value and enable the fixed position setting&#34;&#34;&#34;
+        self.ensureSessionKey()
+
+        p = mesh_pb2.Position()
+        if isinstance(lat, float) and lat != 0.0:
+            p.latitude_i = int(lat / 1e-7)
+        elif isinstance(lat, int) and lat != 0:
+            p.latitude_i = lat
+
+        if isinstance(lon, float) and lon != 0.0:
+            p.longitude_i = int(lon / 1e-7)
+        elif isinstance(lon, int) and lon != 0:
+            p.longitude_i = lon
+
+        if alt != 0:
+            p.altitude = alt
+
+        a = admin_pb2.AdminMessage()
+        a.set_fixed_position.CopyFrom(p)
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(a, onResponse=onResponse)
+
+    def removeFixedPosition(self):
+        &#34;&#34;&#34;Tell the node to remove the fixed position and set the fixed position setting to false&#34;&#34;&#34;
+        self.ensureSessionKey()
+        p = admin_pb2.AdminMessage()
+        p.remove_fixed_position = True
+        logging.info(f&#34;Telling node to remove fixed position&#34;)
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def setTime(self, timeSec: int = 0):
+        &#34;&#34;&#34;Tell the node to set its time to the provided timestamp, or the system&#39;s current time if not provided or 0.&#34;&#34;&#34;
+        self.ensureSessionKey()
+        if timeSec == 0:
+            timeSec = int(time.time())
+        p = admin_pb2.AdminMessage()
+        p.set_time_only = timeSec
+        logging.info(f&#34;Setting node time to {timeSec}&#34;)
+
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)
+
+    def _fixupChannels(self):
+        &#34;&#34;&#34;Fixup indexes and add disabled channels as needed&#34;&#34;&#34;
+
+        # Add extra disabled channels as needed
+        # This is needed because the protobufs will have index **missing** if the channel number is zero
+        for index, ch in enumerate(self.channels):
+            ch.index = index  # fixup indexes
+
+        self._fillChannels()
+
+    def _fillChannels(self):
+        &#34;&#34;&#34;Mark unused channels as disabled&#34;&#34;&#34;
+
+        # Add extra disabled channels as needed
+        index = len(self.channels)
+        while index &lt; 8:
+            ch = channel_pb2.Channel()
+            ch.role = channel_pb2.Channel.Role.DISABLED
+            ch.index = index
+            self.channels.append(ch)
+            index += 1
+
+    def onRequestGetMetadata(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting device metadata getMetadata()&#34;&#34;&#34;
+        logging.debug(f&#34;onRequestGetMetadata() p:{p}&#34;)
+
+        if &#34;routing&#34; in p[&#34;decoded&#34;]:
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+                self.iface._acknowledgment.receivedNak = True
+        else:
+            self.iface._acknowledgment.receivedAck = True
+            if p[&#34;decoded&#34;][&#34;portnum&#34;] == portnums_pb2.PortNum.Name(
+                portnums_pb2.PortNum.ROUTING_APP
+            ):
+                if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                    logging.warning(
+                        f&#39;Metadata request failed, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+                    )
+                    self._timeout.expireTime = time.time()  # Do not wait any longer
+                    return  # Don&#39;t try to parse this routing message
+                logging.debug(f&#34;Retrying metadata request.&#34;)
+                self.getMetadata()
+                return
+
+            c = p[&#34;decoded&#34;][&#34;admin&#34;][&#34;raw&#34;].get_device_metadata_response
+            self._timeout.reset()  # We made forward progress
+            logging.debug(f&#34;Received metadata {stripnl(c)}&#34;)
+            print(f&#34;\nfirmware_version: {c.firmware_version}&#34;)
+            print(f&#34;device_state_version: {c.device_state_version}&#34;)
+
+    def onResponseRequestChannel(self, p):
+        &#34;&#34;&#34;Handle the response packet for requesting a channel _requestChannel()&#34;&#34;&#34;
+        logging.debug(f&#34;onResponseRequestChannel() p:{p}&#34;)
+
+        if p[&#34;decoded&#34;][&#34;portnum&#34;] == portnums_pb2.PortNum.Name(
+            portnums_pb2.PortNum.ROUTING_APP
+        ):
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                logging.warning(
+                    f&#39;Channel request failed, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+                )
+                self._timeout.expireTime = time.time()  # Do not wait any longer
+                return  # Don&#39;t try to parse this routing message
+            lastTried = 0
+            if len(self.partialChannels) &gt; 0:
+                lastTried = self.partialChannels[-1].index
+            logging.debug(f&#34;Retrying previous channel request.&#34;)
+            self._requestChannel(lastTried)
+            return
+
+        c = p[&#34;decoded&#34;][&#34;admin&#34;][&#34;raw&#34;].get_channel_response
+        self.partialChannels.append(c)
+        self._timeout.reset()  # We made forward progress
+        logging.debug(f&#34;Received channel {stripnl(c)}&#34;)
+        index = c.index
+
+        if index &gt;= 8 - 1:
+            logging.debug(&#34;Finished downloading channels&#34;)
+
+            self.channels = self.partialChannels
+            self._fixupChannels()
+        else:
+            self._requestChannel(index + 1)
+
+    def onAckNak(self, p):
+        &#34;&#34;&#34;Informative handler for ACK/NAK responses&#34;&#34;&#34;
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            print(
+                f&#39;Received a NAK, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+            )
+            self.iface._acknowledgment.receivedNak = True
+        else:
+            if int(p[&#34;from&#34;]) == self.iface.localNode.nodeNum:
+                print(
+                    f&#34;Received an implicit ACK. Packet will likely arrive, but cannot be guaranteed.&#34;
+                )
+                self.iface._acknowledgment.receivedImplAck = True
+            else:
+                print(f&#34;Received an ACK.&#34;)
+                self.iface._acknowledgment.receivedAck = True
+
+    def _requestChannel(self, channelNum: int):
+        &#34;&#34;&#34;Done with initial config messages, now send regular
+        MeshPackets to ask for settings&#34;&#34;&#34;
+        p = admin_pb2.AdminMessage()
+        p.get_channel_request = channelNum + 1
+
+        # Show progress message for super slow operations
+        if self != self.iface.localNode:
+            print(
+                f&#34;Requesting channel {channelNum} info from remote node (this could take a while)&#34;
+            )
+            logging.debug(
+                f&#34;Requesting channel {channelNum} info from remote node (this could take a while)&#34;
+            )
+        else:
+            logging.debug(f&#34;Requesting channel {channelNum}&#34;)
+
+        return self._sendAdmin(
+            p, wantResponse=True, onResponse=self.onResponseRequestChannel
+        )
+
+    # pylint: disable=R1710
+    def _sendAdmin(
+        self,
+        p: admin_pb2.AdminMessage,
+        wantResponse: bool=True,
+        onResponse=None,
+        adminIndex: int=0,
+    ):
+        &#34;&#34;&#34;Send an admin message to the specified node (or the local node if destNodeNum is zero)&#34;&#34;&#34;
+
+        if self.noProto:
+            logging.warning(
+                f&#34;Not sending packet because protocol use is disabled by noProto&#34;
+            )
+        else:
+            if (
+                adminIndex == 0
+            ):  # unless a special channel index was used, we want to use the admin index
+                adminIndex = self.iface.localNode._getAdminChannelIndex()
+            logging.debug(f&#34;adminIndex:{adminIndex}&#34;)
+            if isinstance(self.nodeNum, int):
+                nodeid = self.nodeNum
+            else: # assume string starting with !
+                nodeid = int(self.nodeNum[1:],16)
+            if &#34;adminSessionPassKey&#34; in self.iface._getOrCreateByNum(nodeid):
+                p.session_passkey = self.iface._getOrCreateByNum(nodeid).get(&#34;adminSessionPassKey&#34;)
+            return self.iface.sendData(
+                p,
+                self.nodeNum,
+                portNum=portnums_pb2.PortNum.ADMIN_APP,
+                wantAck=False,
+                wantResponse=wantResponse,
+                onResponse=onResponse,
+                channelIndex=adminIndex,
+                pkiEncrypted=True,
+            )
+
+    def ensureSessionKey(self):
+        &#34;&#34;&#34;If our entry in iface.nodesByNum doesn&#39;t already have an adminSessionPassKey, make a request to get one&#34;&#34;&#34;
+        if self.noProto:
+            logging.warning(
+                f&#34;Not ensuring session key, because protocol use is disabled by noProto&#34;
+            )
+        else:
+            if isinstance(self.nodeNum, int):
+                nodeid = self.nodeNum
+            else: # assume string starting with !
+                nodeid = int(self.nodeNum[1:],16)
+            if self.iface._getOrCreateByNum(nodeid).get(&#34;adminSessionPassKey&#34;) is None:
+                self.requestConfig(admin_pb2.AdminMessage.SESSIONKEY_CONFIG)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.node.Node.beginSettingsTransaction"><code class="name flex">
+<span>def <span class="ident">beginSettingsTransaction</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to open a transaction to edit settings.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def beginSettingsTransaction(self):
+    &#34;&#34;&#34;Tell the node to open a transaction to edit settings.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.begin_edit_settings = True
+    logging.info(f&#34;Telling open a transaction to edit settings&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.commitSettingsTransaction"><code class="name flex">
+<span>def <span class="ident">commitSettingsTransaction</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to commit the open transaction for editing settings.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def commitSettingsTransaction(self):
+    &#34;&#34;&#34;Tell the node to commit the open transaction for editing settings.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.commit_edit_settings = True
+    logging.info(f&#34;Telling node to commit open transaction for editing settings&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.deleteChannel"><code class="name flex">
+<span>def <span class="ident">deleteChannel</span></span>(<span>self, channelIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Delete the specified channelIndex and shift other channels up</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def deleteChannel(self, channelIndex):
+    &#34;&#34;&#34;Delete the specified channelIndex and shift other channels up&#34;&#34;&#34;
+    ch = self.channels[channelIndex]
+    if ch.role not in (
+        channel_pb2.Channel.Role.SECONDARY,
+        channel_pb2.Channel.Role.DISABLED,
+    ):
+        our_exit(&#34;Warning: Only SECONDARY channels can be deleted&#34;)
+
+    # we are careful here because if we move the &#34;admin&#34; channel the channelIndex we need to use
+    # for sending admin channels will also change
+    adminIndex = self.iface.localNode._getAdminChannelIndex()
+
+    self.channels.pop(channelIndex)
+    self._fixupChannels()  # expand back to 8 channels
+
+    index = channelIndex
+    while index &lt; 8:
+        self.writeChannel(index, adminIndex=adminIndex)
+        index += 1
+
+        # if we are updating the local node, we might end up
+        # *moving* the admin channel index as we are writing
+        if (self.iface.localNode == self) and index &gt;= adminIndex:
+            # We&#39;ve now passed the old location for admin index
+            # (and written it), so we can start finding it by name again
+            adminIndex = 0</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.ensureSessionKey"><code class="name flex">
+<span>def <span class="ident">ensureSessionKey</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>If our entry in iface.nodesByNum doesn't already have an adminSessionPassKey, make a request to get one</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ensureSessionKey(self):
+    &#34;&#34;&#34;If our entry in iface.nodesByNum doesn&#39;t already have an adminSessionPassKey, make a request to get one&#34;&#34;&#34;
+    if self.noProto:
+        logging.warning(
+            f&#34;Not ensuring session key, because protocol use is disabled by noProto&#34;
+        )
+    else:
+        if isinstance(self.nodeNum, int):
+            nodeid = self.nodeNum
+        else: # assume string starting with !
+            nodeid = int(self.nodeNum[1:],16)
+        if self.iface._getOrCreateByNum(nodeid).get(&#34;adminSessionPassKey&#34;) is None:
+            self.requestConfig(admin_pb2.AdminMessage.SESSIONKEY_CONFIG)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.enterDFUMode"><code class="name flex">
+<span>def <span class="ident">enterDFUMode</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to enter DFU mode (NRF52).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterDFUMode(self):
+    &#34;&#34;&#34;Tell the node to enter DFU mode (NRF52).&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.enter_dfu_mode_request = True
+    logging.info(f&#34;Telling node to enable DFU mode&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.exitSimulator"><code class="name flex">
+<span>def <span class="ident">exitSimulator</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell a simulator node to exit (this message
+is ignored for other nodes)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exitSimulator(self):
+    &#34;&#34;&#34;Tell a simulator node to exit (this message
+    is ignored for other nodes)&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.exit_simulator = True
+    logging.debug(&#34;in exitSimulator()&#34;)
+
+    return self._sendAdmin(p)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.factoryReset"><code class="name flex">
+<span>def <span class="ident">factoryReset</span></span>(<span>self, full: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to factory reset.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def factoryReset(self, full: bool = False):
+    &#34;&#34;&#34;Tell the node to factory reset.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    if full:
+        p.factory_reset_device = True
+        logging.info(f&#34;Telling node to factory reset (full device reset)&#34;)
+    else:
+        p.factory_reset_config = True
+        logging.info(f&#34;Telling node to factory reset (config reset)&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.getChannelByChannelIndex"><code class="name flex">
+<span>def <span class="ident">getChannelByChannelIndex</span></span>(<span>self, channelIndex)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get channel by channelIndex
+channelIndex: number, typically 0-7; based on max number channels
+returns: None if there is no channel found</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getChannelByChannelIndex(self, channelIndex):
+    &#34;&#34;&#34;Get channel by channelIndex
+    channelIndex: number, typically 0-7; based on max number channels
+    returns: None if there is no channel found
+    &#34;&#34;&#34;
+    ch = None
+    if self.channels and 0 &lt;= channelIndex &lt; len(self.channels):
+        ch = self.channels[channelIndex]
+    return ch</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.getChannelByName"><code class="name flex">
+<span>def <span class="ident">getChannelByName</span></span>(<span>self, name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to find the named channel or return None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getChannelByName(self, name):
+    &#34;&#34;&#34;Try to find the named channel or return None&#34;&#34;&#34;
+    for c in self.channels or []:
+        if c.settings and c.settings.name == name:
+            return c
+    return None</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.getDisabledChannel"><code class="name flex">
+<span>def <span class="ident">getDisabledChannel</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the first channel that is disabled (i.e. available for some new use)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDisabledChannel(self):
+    &#34;&#34;&#34;Return the first channel that is disabled (i.e. available for some new use)&#34;&#34;&#34;
+    for c in self.channels:
+        if c.role == channel_pb2.Channel.Role.DISABLED:
+            return c
+    return None</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.getMetadata"><code class="name flex">
+<span>def <span class="ident">getMetadata</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the node's metadata.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getMetadata(self):
+    &#34;&#34;&#34;Get the node&#39;s metadata.&#34;&#34;&#34;
+    p = admin_pb2.AdminMessage()
+    p.get_device_metadata_request = True
+    logging.info(f&#34;Requesting device metadata&#34;)
+
+    self._sendAdmin(
+        p, wantResponse=True, onResponse=self.onRequestGetMetadata
+    )
+    self.iface.waitForAckNak()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.getURL"><code class="name flex">
+<span>def <span class="ident">getURL</span></span>(<span>self, includeAll: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The sharable URL that describes the current channel</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getURL(self, includeAll: bool = True):
+    &#34;&#34;&#34;The sharable URL that describes the current channel&#34;&#34;&#34;
+    # Only keep the primary/secondary channels, assume primary is first
+    channelSet = apponly_pb2.ChannelSet()
+    if self.channels:
+        for c in self.channels:
+            if c.role == channel_pb2.Channel.Role.PRIMARY or (
+                includeAll and c.role == channel_pb2.Channel.Role.SECONDARY
+            ):
+                channelSet.settings.append(c.settings)
+
+    if len(self.localConfig.ListFields()) == 0:
+        self.requestConfig(self.localConfig.DESCRIPTOR.fields_by_name.get(&#39;lora&#39;))
+    channelSet.lora_config.CopyFrom(self.localConfig.lora)
+    some_bytes = channelSet.SerializeToString()
+    s = base64.urlsafe_b64encode(some_bytes).decode(&#34;ascii&#34;)
+    s = s.replace(&#34;=&#34;, &#34;&#34;).replace(&#34;+&#34;, &#34;-&#34;).replace(&#34;/&#34;, &#34;_&#34;)
+    return f&#34;https://meshtastic.org/e/#{s}&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.get_canned_message"><code class="name flex">
+<span>def <span class="ident">get_canned_message</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the canned message string. Concatenate all pieces together and return a single string.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_canned_message(self):
+    &#34;&#34;&#34;Get the canned message string. Concatenate all pieces together and return a single string.&#34;&#34;&#34;
+    logging.debug(f&#34;in get_canned_message()&#34;)
+    if not self.cannedPluginMessage:
+        p1 = admin_pb2.AdminMessage()
+        p1.get_canned_message_module_messages_request = True
+        self.gotResponse = False
+        self._sendAdmin(
+            p1,
+            wantResponse=True,
+            onResponse=self.onResponseRequestCannedMessagePluginMessageMessages,
+        )
+        while self.gotResponse is False:
+            time.sleep(0.1)
+
+        logging.debug(
+            f&#34;self.cannedPluginMessageMessages:{self.cannedPluginMessageMessages}&#34;
+        )
+
+        self.cannedPluginMessage = &#34;&#34;
+        if self.cannedPluginMessageMessages:
+            self.cannedPluginMessage += self.cannedPluginMessageMessages
+
+    print(f&#34;canned_plugin_message:{self.cannedPluginMessage}&#34;)
+    logging.debug(f&#34;canned_plugin_message:{self.cannedPluginMessage}&#34;)
+    return self.cannedPluginMessage</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.get_ringtone"><code class="name flex">
+<span>def <span class="ident">get_ringtone</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the ringtone. Concatenate all pieces together and return a single string.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_ringtone(self):
+    &#34;&#34;&#34;Get the ringtone. Concatenate all pieces together and return a single string.&#34;&#34;&#34;
+    logging.debug(f&#34;in get_ringtone()&#34;)
+    if not self.ringtone:
+        p1 = admin_pb2.AdminMessage()
+        p1.get_ringtone_request = True
+        self.gotResponse = False
+        self._sendAdmin(
+            p1, wantResponse=True, onResponse=self.onResponseRequestRingtone
+        )
+        while self.gotResponse is False:
+            time.sleep(0.1)
+
+        logging.debug(f&#34;self.ringtone:{self.ringtone}&#34;)
+
+        self.ringtone = &#34;&#34;
+        if self.ringtonePart:
+            self.ringtone += self.ringtonePart
+
+    print(f&#34;ringtone:{self.ringtone}&#34;)
+    logging.debug(f&#34;ringtone:{self.ringtone}&#34;)
+    return self.ringtone</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.onAckNak"><code class="name flex">
+<span>def <span class="ident">onAckNak</span></span>(<span>self, p)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Informative handler for ACK/NAK responses</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onAckNak(self, p):
+    &#34;&#34;&#34;Informative handler for ACK/NAK responses&#34;&#34;&#34;
+    if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+        print(
+            f&#39;Received a NAK, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+        )
+        self.iface._acknowledgment.receivedNak = True
+    else:
+        if int(p[&#34;from&#34;]) == self.iface.localNode.nodeNum:
+            print(
+                f&#34;Received an implicit ACK. Packet will likely arrive, but cannot be guaranteed.&#34;
+            )
+            self.iface._acknowledgment.receivedImplAck = True
+        else:
+            print(f&#34;Received an ACK.&#34;)
+            self.iface._acknowledgment.receivedAck = True</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.onRequestGetMetadata"><code class="name flex">
+<span>def <span class="ident">onRequestGetMetadata</span></span>(<span>self, p)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handle the response packet for requesting device metadata getMetadata()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onRequestGetMetadata(self, p):
+    &#34;&#34;&#34;Handle the response packet for requesting device metadata getMetadata()&#34;&#34;&#34;
+    logging.debug(f&#34;onRequestGetMetadata() p:{p}&#34;)
+
+    if &#34;routing&#34; in p[&#34;decoded&#34;]:
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+            self.iface._acknowledgment.receivedNak = True
+    else:
+        self.iface._acknowledgment.receivedAck = True
+        if p[&#34;decoded&#34;][&#34;portnum&#34;] == portnums_pb2.PortNum.Name(
+            portnums_pb2.PortNum.ROUTING_APP
+        ):
+            if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+                logging.warning(
+                    f&#39;Metadata request failed, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+                )
+                self._timeout.expireTime = time.time()  # Do not wait any longer
+                return  # Don&#39;t try to parse this routing message
+            logging.debug(f&#34;Retrying metadata request.&#34;)
+            self.getMetadata()
+            return
+
+        c = p[&#34;decoded&#34;][&#34;admin&#34;][&#34;raw&#34;].get_device_metadata_response
+        self._timeout.reset()  # We made forward progress
+        logging.debug(f&#34;Received metadata {stripnl(c)}&#34;)
+        print(f&#34;\nfirmware_version: {c.firmware_version}&#34;)
+        print(f&#34;device_state_version: {c.device_state_version}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.onResponseRequestCannedMessagePluginMessageMessages"><code class="name flex">
+<span>def <span class="ident">onResponseRequestCannedMessagePluginMessageMessages</span></span>(<span>self, p)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handle the response packet for requesting canned message plugin message part 1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onResponseRequestCannedMessagePluginMessageMessages(self, p):
+    &#34;&#34;&#34;Handle the response packet for requesting canned message plugin message part 1&#34;&#34;&#34;
+    logging.debug(f&#34;onResponseRequestCannedMessagePluginMessageMessages() p:{p}&#34;)
+    errorFound = False
+    if &#34;routing&#34; in p[&#34;decoded&#34;]:
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            errorFound = True
+            print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+    if errorFound is False:
+        if &#34;decoded&#34; in p:
+            if &#34;admin&#34; in p[&#34;decoded&#34;]:
+                if &#34;raw&#34; in p[&#34;decoded&#34;][&#34;admin&#34;]:
+                    self.cannedPluginMessageMessages = p[&#34;decoded&#34;][&#34;admin&#34;][
+                        &#34;raw&#34;
+                    ].get_canned_message_module_messages_response
+                    logging.debug(
+                        f&#34;self.cannedPluginMessageMessages:{self.cannedPluginMessageMessages}&#34;
+                    )
+                    self.gotResponse = True</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.onResponseRequestChannel"><code class="name flex">
+<span>def <span class="ident">onResponseRequestChannel</span></span>(<span>self, p)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handle the response packet for requesting a channel _requestChannel()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onResponseRequestChannel(self, p):
+    &#34;&#34;&#34;Handle the response packet for requesting a channel _requestChannel()&#34;&#34;&#34;
+    logging.debug(f&#34;onResponseRequestChannel() p:{p}&#34;)
+
+    if p[&#34;decoded&#34;][&#34;portnum&#34;] == portnums_pb2.PortNum.Name(
+        portnums_pb2.PortNum.ROUTING_APP
+    ):
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            logging.warning(
+                f&#39;Channel request failed, error reason: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;
+            )
+            self._timeout.expireTime = time.time()  # Do not wait any longer
+            return  # Don&#39;t try to parse this routing message
+        lastTried = 0
+        if len(self.partialChannels) &gt; 0:
+            lastTried = self.partialChannels[-1].index
+        logging.debug(f&#34;Retrying previous channel request.&#34;)
+        self._requestChannel(lastTried)
+        return
+
+    c = p[&#34;decoded&#34;][&#34;admin&#34;][&#34;raw&#34;].get_channel_response
+    self.partialChannels.append(c)
+    self._timeout.reset()  # We made forward progress
+    logging.debug(f&#34;Received channel {stripnl(c)}&#34;)
+    index = c.index
+
+    if index &gt;= 8 - 1:
+        logging.debug(&#34;Finished downloading channels&#34;)
+
+        self.channels = self.partialChannels
+        self._fixupChannels()
+    else:
+        self._requestChannel(index + 1)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.onResponseRequestRingtone"><code class="name flex">
+<span>def <span class="ident">onResponseRequestRingtone</span></span>(<span>self, p)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handle the response packet for requesting ringtone part 1</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onResponseRequestRingtone(self, p):
+    &#34;&#34;&#34;Handle the response packet for requesting ringtone part 1&#34;&#34;&#34;
+    logging.debug(f&#34;onResponseRequestRingtone() p:{p}&#34;)
+    errorFound = False
+    if &#34;routing&#34; in p[&#34;decoded&#34;]:
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            errorFound = True
+            print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+    if errorFound is False:
+        if &#34;decoded&#34; in p:
+            if &#34;admin&#34; in p[&#34;decoded&#34;]:
+                if &#34;raw&#34; in p[&#34;decoded&#34;][&#34;admin&#34;]:
+                    self.ringtonePart = p[&#34;decoded&#34;][&#34;admin&#34;][
+                        &#34;raw&#34;
+                    ].get_ringtone_response
+                    logging.debug(f&#34;self.ringtonePart:{self.ringtonePart}&#34;)
+                    self.gotResponse = True</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.onResponseRequestSettings"><code class="name flex">
+<span>def <span class="ident">onResponseRequestSettings</span></span>(<span>self, p)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Handle the response packets for requesting settings _requestSettings()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onResponseRequestSettings(self, p):
+    &#34;&#34;&#34;Handle the response packets for requesting settings _requestSettings()&#34;&#34;&#34;
+    logging.debug(f&#34;onResponseRequestSetting() p:{p}&#34;)
+    config_values = None
+    if &#34;routing&#34; in p[&#34;decoded&#34;]:
+        if p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;] != &#34;NONE&#34;:
+            print(f&#39;Error on response: {p[&#34;decoded&#34;][&#34;routing&#34;][&#34;errorReason&#34;]}&#39;)
+            self.iface._acknowledgment.receivedNak = True
+    else:
+        self.iface._acknowledgment.receivedAck = True
+        print(&#34;&#34;)
+        adminMessage = p[&#34;decoded&#34;][&#34;admin&#34;]
+        if &#34;getConfigResponse&#34; in adminMessage:
+            oneof = &#34;get_config_response&#34;
+            resp = adminMessage[&#34;getConfigResponse&#34;]
+            field = list(resp.keys())[0]
+            config_type = self.localConfig.DESCRIPTOR.fields_by_name.get(
+                camel_to_snake(field)
+            )
+            if config_type is not None:
+                config_values = getattr(self.localConfig, config_type.name)
+        elif &#34;getModuleConfigResponse&#34; in adminMessage:
+            oneof = &#34;get_module_config_response&#34;
+            resp = adminMessage[&#34;getModuleConfigResponse&#34;]
+            field = list(resp.keys())[0]
+            config_type = self.moduleConfig.DESCRIPTOR.fields_by_name.get(
+                camel_to_snake(field)
+            )
+            config_values = getattr(self.moduleConfig, config_type.name)
+        else:
+            print(
+                &#34;Did not receive a valid response. Make sure to have a shared channel named &#39;admin&#39;.&#34;
+            )
+            return
+        if config_values is not None:
+            raw_config = getattr(getattr(adminMessage[&#39;raw&#39;], oneof), field)
+            config_values.CopyFrom(raw_config)
+            print(f&#34;{str(camel_to_snake(field))}:\n{str(config_values)}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.reboot"><code class="name flex">
+<span>def <span class="ident">reboot</span></span>(<span>self, secs: int = 10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to reboot.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reboot(self, secs: int = 10):
+    &#34;&#34;&#34;Tell the node to reboot.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.reboot_seconds = secs
+    logging.info(f&#34;Telling node to reboot in {secs} seconds&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.rebootOTA"><code class="name flex">
+<span>def <span class="ident">rebootOTA</span></span>(<span>self, secs: int = 10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to reboot into factory firmware.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rebootOTA(self, secs: int = 10):
+    &#34;&#34;&#34;Tell the node to reboot into factory firmware.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.reboot_ota_seconds = secs
+    logging.info(f&#34;Telling node to reboot to OTA in {secs} seconds&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.removeFixedPosition"><code class="name flex">
+<span>def <span class="ident">removeFixedPosition</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to remove the fixed position and set the fixed position setting to false</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeFixedPosition(self):
+    &#34;&#34;&#34;Tell the node to remove the fixed position and set the fixed position setting to false&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.remove_fixed_position = True
+    logging.info(f&#34;Telling node to remove fixed position&#34;)
+
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.removeNode"><code class="name flex">
+<span>def <span class="ident">removeNode</span></span>(<span>self, nodeId: Union[int, str])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to remove a specific node by ID</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeNode(self, nodeId: Union[int, str]):
+    &#34;&#34;&#34;Tell the node to remove a specific node by ID&#34;&#34;&#34;
+    self.ensureSessionKey()
+    if isinstance(nodeId, str):
+        if nodeId.startswith(&#34;!&#34;):
+            nodeId = int(nodeId[1:], 16)
+        else:
+            nodeId = int(nodeId)
+
+    p = admin_pb2.AdminMessage()
+    p.remove_by_nodenum = nodeId
+
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.requestChannels"><code class="name flex">
+<span>def <span class="ident">requestChannels</span></span>(<span>self, startingIndex: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Send regular MeshPackets to ask channels.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def requestChannels(self, startingIndex: int = 0):
+    &#34;&#34;&#34;Send regular MeshPackets to ask channels.&#34;&#34;&#34;
+    logging.debug(f&#34;requestChannels for nodeNum:{self.nodeNum}&#34;)
+    # only initialize if we&#39;re starting out fresh
+    if startingIndex == 0:
+        self.channels = None
+        self.partialChannels = []  # We keep our channels in a temp array until finished
+    self._requestChannel(startingIndex)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.requestConfig"><code class="name flex">
+<span>def <span class="ident">requestConfig</span></span>(<span>self, configType)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Request the config from the node via admin message</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def requestConfig(self, configType):
+    &#34;&#34;&#34;Request the config from the node via admin message&#34;&#34;&#34;
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onResponseRequestSettings
+        print(&#34;Requesting current config from remote node (this can take a while).&#34;)
+    p = admin_pb2.AdminMessage()
+    if isinstance(configType, int):
+        p.get_config_request = configType
+
+    else:
+        msgIndex = configType.index
+        if configType.containing_type.name == &#34;LocalConfig&#34;:
+            p.get_config_request = msgIndex
+        else:
+            p.get_module_config_request = msgIndex
+
+    self._sendAdmin(p, wantResponse=True, onResponse=onResponse)
+    if onResponse:
+        self.iface.waitForAckNak()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.resetNodeDb"><code class="name flex">
+<span>def <span class="ident">resetNodeDb</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to reset its list of nodes.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resetNodeDb(self):
+    &#34;&#34;&#34;Tell the node to reset its list of nodes.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.nodedb_reset = True
+    logging.info(f&#34;Telling node to reset the NodeDB&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.setChannels"><code class="name flex">
+<span>def <span class="ident">setChannels</span></span>(<span>self, channels)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the channels for this node</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setChannels(self, channels):
+    &#34;&#34;&#34;Set the channels for this node&#34;&#34;&#34;
+    self.channels = channels
+    self._fixupChannels()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.setFixedPosition"><code class="name flex">
+<span>def <span class="ident">setFixedPosition</span></span>(<span>self, lat: Union[int, float], lon: Union[int, float], alt: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to set fixed position to the provided value and enable the fixed position setting</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setFixedPosition(self, lat: Union[int, float], lon: Union[int, float], alt: int):
+    &#34;&#34;&#34;Tell the node to set fixed position to the provided value and enable the fixed position setting&#34;&#34;&#34;
+    self.ensureSessionKey()
+
+    p = mesh_pb2.Position()
+    if isinstance(lat, float) and lat != 0.0:
+        p.latitude_i = int(lat / 1e-7)
+    elif isinstance(lat, int) and lat != 0:
+        p.latitude_i = lat
+
+    if isinstance(lon, float) and lon != 0.0:
+        p.longitude_i = int(lon / 1e-7)
+    elif isinstance(lon, int) and lon != 0:
+        p.longitude_i = lon
+
+    if alt != 0:
+        p.altitude = alt
+
+    a = admin_pb2.AdminMessage()
+    a.set_fixed_position.CopyFrom(p)
+
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(a, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.setOwner"><code class="name flex">
+<span>def <span class="ident">setOwner</span></span>(<span>self, long_name: Optional[str] = None, short_name: Optional[str] = None, is_licensed: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set device owner name</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setOwner(self, long_name: Optional[str]=None, short_name: Optional[str]=None, is_licensed: bool=False):
+    &#34;&#34;&#34;Set device owner name&#34;&#34;&#34;
+    logging.debug(f&#34;in setOwner nodeNum:{self.nodeNum}&#34;)
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+
+    nChars = 4
+    if long_name is not None:
+        long_name = long_name.strip()
+        p.set_owner.long_name = long_name
+        p.set_owner.is_licensed = is_licensed
+    if short_name is not None:
+        short_name = short_name.strip()
+        if len(short_name) &gt; nChars:
+            short_name = short_name[:nChars]
+            print(f&#34;Maximum is 4 characters, truncated to {short_name}&#34;)
+        p.set_owner.short_name = short_name
+
+    # Note: These debug lines are used in unit tests
+    logging.debug(f&#34;p.set_owner.long_name:{p.set_owner.long_name}:&#34;)
+    logging.debug(f&#34;p.set_owner.short_name:{p.set_owner.short_name}:&#34;)
+    logging.debug(f&#34;p.set_owner.is_licensed:{p.set_owner.is_licensed}&#34;)
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.setTime"><code class="name flex">
+<span>def <span class="ident">setTime</span></span>(<span>self, timeSec: int = 0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to set its time to the provided timestamp, or the system's current time if not provided or 0.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setTime(self, timeSec: int = 0):
+    &#34;&#34;&#34;Tell the node to set its time to the provided timestamp, or the system&#39;s current time if not provided or 0.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    if timeSec == 0:
+        timeSec = int(time.time())
+    p = admin_pb2.AdminMessage()
+    p.set_time_only = timeSec
+    logging.info(f&#34;Setting node time to {timeSec}&#34;)
+
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.setURL"><code class="name flex">
+<span>def <span class="ident">setURL</span></span>(<span>self, url)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set mesh network URL</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setURL(self, url):
+    &#34;&#34;&#34;Set mesh network URL&#34;&#34;&#34;
+    if self.localConfig is None:
+        our_exit(&#34;Warning: No Config has been read&#34;)
+
+    # URLs are of the form https://meshtastic.org/d/#{base64_channel_set}
+    # Split on &#39;/#&#39; to find the base64 encoded channel settings
+    splitURL = url.split(&#34;/#&#34;)
+    b64 = splitURL[-1]
+
+    # We normally strip padding to make for a shorter URL, but the python parser doesn&#39;t like
+    # that.  So add back any missing padding
+    # per https://stackoverflow.com/a/9807138
+    missing_padding = len(b64) % 4
+    if missing_padding:
+        b64 += &#34;=&#34; * (4 - missing_padding)
+
+    decodedURL = base64.urlsafe_b64decode(b64)
+    channelSet = apponly_pb2.ChannelSet()
+    channelSet.ParseFromString(decodedURL)
+
+    if len(channelSet.settings) == 0:
+        our_exit(&#34;Warning: There were no settings.&#34;)
+
+    i = 0
+    for chs in channelSet.settings:
+        ch = channel_pb2.Channel()
+        ch.role = (
+            channel_pb2.Channel.Role.PRIMARY
+            if i == 0
+            else channel_pb2.Channel.Role.SECONDARY
+        )
+        ch.index = i
+        ch.settings.CopyFrom(chs)
+        self.channels[ch.index] = ch
+        logging.debug(f&#34;Channel i:{i} ch:{ch}&#34;)
+        self.writeChannel(ch.index)
+        i = i + 1
+
+    p = admin_pb2.AdminMessage()
+    p.set_config.lora.CopyFrom(channelSet.lora_config)
+    self.ensureSessionKey()
+    self._sendAdmin(p)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.set_canned_message"><code class="name flex">
+<span>def <span class="ident">set_canned_message</span></span>(<span>self, message)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the canned message. The canned messages length must be less than 200 character.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_canned_message(self, message):
+    &#34;&#34;&#34;Set the canned message. The canned messages length must be less than 200 character.&#34;&#34;&#34;
+
+    if len(message) &gt; 200:
+        our_exit(&#34;Warning: The canned message must be less than 200 characters.&#34;)
+    self.ensureSessionKey()
+    # split into chunks
+    chunks = []
+    chunks_size = 200
+    for i in range(0, len(message), chunks_size):
+        chunks.append(message[i : i + chunks_size])
+
+    # for each chunk, send a message to set the values
+    # for i in range(0, len(chunks)):
+    for i, chunk in enumerate(chunks):
+        p = admin_pb2.AdminMessage()
+
+        # TODO: should be a way to improve this
+        if i == 0:
+            p.set_canned_message_module_messages = chunk
+
+        logging.debug(f&#34;Setting canned message &#39;{chunk}&#39; part {i+1}&#34;)
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.set_ringtone"><code class="name flex">
+<span>def <span class="ident">set_ringtone</span></span>(<span>self, ringtone)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set the ringtone. The ringtone length must be less than 230 character.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_ringtone(self, ringtone):
+    &#34;&#34;&#34;Set the ringtone. The ringtone length must be less than 230 character.&#34;&#34;&#34;
+
+    if len(ringtone) &gt; 230:
+        our_exit(&#34;Warning: The ringtone must be less than 230 characters.&#34;)
+    self.ensureSessionKey()
+    # split into chunks
+    chunks = []
+    chunks_size = 230
+    for i in range(0, len(ringtone), chunks_size):
+        chunks.append(ringtone[i : i + chunks_size])
+
+    # for each chunk, send a message to set the values
+    # for i in range(0, len(chunks)):
+    for i, chunk in enumerate(chunks):
+        p = admin_pb2.AdminMessage()
+
+        # TODO: should be a way to improve this
+        if i == 0:
+            p.set_ringtone_message = chunk
+
+        logging.debug(f&#34;Setting ringtone &#39;{chunk}&#39; part {i+1}&#34;)
+        # If sending to a remote node, wait for ACK/NAK
+        if self == self.iface.localNode:
+            onResponse = None
+        else:
+            onResponse = self.onAckNak
+        return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.showChannels"><code class="name flex">
+<span>def <span class="ident">showChannels</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Show human readable description of our channels.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def showChannels(self):
+    &#34;&#34;&#34;Show human readable description of our channels.&#34;&#34;&#34;
+    print(&#34;Channels:&#34;)
+    if self.channels:
+        logging.debug(f&#34;self.channels:{self.channels}&#34;)
+        for c in self.channels:
+            cStr = message_to_json(c.settings)
+            # don&#39;t show disabled channels
+            if channel_pb2.Channel.Role.Name(c.role) != &#34;DISABLED&#34;:
+                print(
+                    f&#34;  Index {c.index}: {channel_pb2.Channel.Role.Name(c.role)} psk={pskToString(c.settings.psk)} {cStr}&#34;
+                )
+    publicURL = self.getURL(includeAll=False)
+    adminURL = self.getURL(includeAll=True)
+    print(f&#34;\nPrimary channel URL: {publicURL}&#34;)
+    if adminURL != publicURL:
+        print(f&#34;Complete URL (includes all channels): {adminURL}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.showInfo"><code class="name flex">
+<span>def <span class="ident">showInfo</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Show human readable description of our node</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def showInfo(self):
+    &#34;&#34;&#34;Show human readable description of our node&#34;&#34;&#34;
+    prefs = &#34;&#34;
+    if self.localConfig:
+        prefs = message_to_json(self.localConfig, multiline=True)
+    print(f&#34;Preferences: {prefs}\n&#34;)
+    prefs = &#34;&#34;
+    if self.moduleConfig:
+        prefs = message_to_json(self.moduleConfig, multiline=True)
+    print(f&#34;Module preferences: {prefs}\n&#34;)
+    self.showChannels()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.shutdown"><code class="name flex">
+<span>def <span class="ident">shutdown</span></span>(<span>self, secs: int = 10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tell the node to shutdown.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def shutdown(self, secs: int = 10):
+    &#34;&#34;&#34;Tell the node to shutdown.&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.shutdown_seconds = secs
+    logging.info(f&#34;Telling node to shutdown in {secs} seconds&#34;)
+
+    # If sending to a remote node, wait for ACK/NAK
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    return self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.turnOffEncryptionOnPrimaryChannel"><code class="name flex">
+<span>def <span class="ident">turnOffEncryptionOnPrimaryChannel</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Turn off encryption on primary channel.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def turnOffEncryptionOnPrimaryChannel(self):
+    &#34;&#34;&#34;Turn off encryption on primary channel.&#34;&#34;&#34;
+    self.channels[0].settings.psk = fromPSK(&#34;none&#34;)
+    print(&#34;Writing modified channels to device&#34;)
+    self.writeChannel(0)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.waitForConfig"><code class="name flex">
+<span>def <span class="ident">waitForConfig</span></span>(<span>self, attribute='channels')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block until radio config is received. Returns True if config has been received.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def waitForConfig(self, attribute=&#34;channels&#34;):
+    &#34;&#34;&#34;Block until radio config is received. Returns True if config has been received.&#34;&#34;&#34;
+    return self._timeout.waitForSet(self, attrs=(&#34;localConfig&#34;, attribute))</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.writeChannel"><code class="name flex">
+<span>def <span class="ident">writeChannel</span></span>(<span>self, channelIndex, adminIndex=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write the current (edited) channel to the device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writeChannel(self, channelIndex, adminIndex=0):
+    &#34;&#34;&#34;Write the current (edited) channel to the device&#34;&#34;&#34;
+    self.ensureSessionKey()
+    p = admin_pb2.AdminMessage()
+    p.set_channel.CopyFrom(self.channels[channelIndex])
+    self._sendAdmin(p, adminIndex=adminIndex)
+    logging.debug(f&#34;Wrote channel {channelIndex}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.node.Node.writeConfig"><code class="name flex">
+<span>def <span class="ident">writeConfig</span></span>(<span>self, config_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Write the current (edited) localConfig to the device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writeConfig(self, config_name):
+    &#34;&#34;&#34;Write the current (edited) localConfig to the device&#34;&#34;&#34;
+    if self.localConfig is None:
+        our_exit(&#34;Error: No localConfig has been read&#34;)
+
+    p = admin_pb2.AdminMessage()
+
+    if config_name == &#34;device&#34;:
+        p.set_config.device.CopyFrom(self.localConfig.device)
+    elif config_name == &#34;position&#34;:
+        p.set_config.position.CopyFrom(self.localConfig.position)
+    elif config_name == &#34;power&#34;:
+        p.set_config.power.CopyFrom(self.localConfig.power)
+    elif config_name == &#34;network&#34;:
+        p.set_config.network.CopyFrom(self.localConfig.network)
+    elif config_name == &#34;display&#34;:
+        p.set_config.display.CopyFrom(self.localConfig.display)
+    elif config_name == &#34;lora&#34;:
+        p.set_config.lora.CopyFrom(self.localConfig.lora)
+    elif config_name == &#34;bluetooth&#34;:
+        p.set_config.bluetooth.CopyFrom(self.localConfig.bluetooth)
+    elif config_name == &#34;security&#34;:
+        p.set_config.security.CopyFrom(self.localConfig.security)
+    elif config_name == &#34;mqtt&#34;:
+        p.set_module_config.mqtt.CopyFrom(self.moduleConfig.mqtt)
+    elif config_name == &#34;serial&#34;:
+        p.set_module_config.serial.CopyFrom(self.moduleConfig.serial)
+    elif config_name == &#34;external_notification&#34;:
+        p.set_module_config.external_notification.CopyFrom(
+            self.moduleConfig.external_notification
+        )
+    elif config_name == &#34;store_forward&#34;:
+        p.set_module_config.store_forward.CopyFrom(self.moduleConfig.store_forward)
+    elif config_name == &#34;range_test&#34;:
+        p.set_module_config.range_test.CopyFrom(self.moduleConfig.range_test)
+    elif config_name == &#34;telemetry&#34;:
+        p.set_module_config.telemetry.CopyFrom(self.moduleConfig.telemetry)
+    elif config_name == &#34;canned_message&#34;:
+        p.set_module_config.canned_message.CopyFrom(
+            self.moduleConfig.canned_message
+        )
+    elif config_name == &#34;audio&#34;:
+        p.set_module_config.audio.CopyFrom(self.moduleConfig.audio)
+    elif config_name == &#34;remote_hardware&#34;:
+        p.set_module_config.remote_hardware.CopyFrom(
+            self.moduleConfig.remote_hardware
+        )
+    elif config_name == &#34;neighbor_info&#34;:
+        p.set_module_config.neighbor_info.CopyFrom(self.moduleConfig.neighbor_info)
+    elif config_name == &#34;detection_sensor&#34;:
+        p.set_module_config.detection_sensor.CopyFrom(self.moduleConfig.detection_sensor)
+    elif config_name == &#34;ambient_lighting&#34;:
+        p.set_module_config.ambient_lighting.CopyFrom(self.moduleConfig.ambient_lighting)
+    elif config_name == &#34;paxcounter&#34;:
+        p.set_module_config.paxcounter.CopyFrom(self.moduleConfig.paxcounter)
+    else:
+        our_exit(f&#34;Error: No valid config with name {config_name}&#34;)
+
+    logging.debug(f&#34;Wrote: {config_name}&#34;)
+    if self == self.iface.localNode:
+        onResponse = None
+    else:
+        onResponse = self.onAckNak
+    self._sendAdmin(p, onResponse=onResponse)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic" href="index.html">meshtastic</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="meshtastic.node.Node" href="#meshtastic.node.Node">Node</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.node.Node.beginSettingsTransaction" href="#meshtastic.node.Node.beginSettingsTransaction">beginSettingsTransaction</a></code></li>
+<li><code><a title="meshtastic.node.Node.commitSettingsTransaction" href="#meshtastic.node.Node.commitSettingsTransaction">commitSettingsTransaction</a></code></li>
+<li><code><a title="meshtastic.node.Node.deleteChannel" href="#meshtastic.node.Node.deleteChannel">deleteChannel</a></code></li>
+<li><code><a title="meshtastic.node.Node.ensureSessionKey" href="#meshtastic.node.Node.ensureSessionKey">ensureSessionKey</a></code></li>
+<li><code><a title="meshtastic.node.Node.enterDFUMode" href="#meshtastic.node.Node.enterDFUMode">enterDFUMode</a></code></li>
+<li><code><a title="meshtastic.node.Node.exitSimulator" href="#meshtastic.node.Node.exitSimulator">exitSimulator</a></code></li>
+<li><code><a title="meshtastic.node.Node.factoryReset" href="#meshtastic.node.Node.factoryReset">factoryReset</a></code></li>
+<li><code><a title="meshtastic.node.Node.getChannelByChannelIndex" href="#meshtastic.node.Node.getChannelByChannelIndex">getChannelByChannelIndex</a></code></li>
+<li><code><a title="meshtastic.node.Node.getChannelByName" href="#meshtastic.node.Node.getChannelByName">getChannelByName</a></code></li>
+<li><code><a title="meshtastic.node.Node.getDisabledChannel" href="#meshtastic.node.Node.getDisabledChannel">getDisabledChannel</a></code></li>
+<li><code><a title="meshtastic.node.Node.getMetadata" href="#meshtastic.node.Node.getMetadata">getMetadata</a></code></li>
+<li><code><a title="meshtastic.node.Node.getURL" href="#meshtastic.node.Node.getURL">getURL</a></code></li>
+<li><code><a title="meshtastic.node.Node.get_canned_message" href="#meshtastic.node.Node.get_canned_message">get_canned_message</a></code></li>
+<li><code><a title="meshtastic.node.Node.get_ringtone" href="#meshtastic.node.Node.get_ringtone">get_ringtone</a></code></li>
+<li><code><a title="meshtastic.node.Node.onAckNak" href="#meshtastic.node.Node.onAckNak">onAckNak</a></code></li>
+<li><code><a title="meshtastic.node.Node.onRequestGetMetadata" href="#meshtastic.node.Node.onRequestGetMetadata">onRequestGetMetadata</a></code></li>
+<li><code><a title="meshtastic.node.Node.onResponseRequestCannedMessagePluginMessageMessages" href="#meshtastic.node.Node.onResponseRequestCannedMessagePluginMessageMessages">onResponseRequestCannedMessagePluginMessageMessages</a></code></li>
+<li><code><a title="meshtastic.node.Node.onResponseRequestChannel" href="#meshtastic.node.Node.onResponseRequestChannel">onResponseRequestChannel</a></code></li>
+<li><code><a title="meshtastic.node.Node.onResponseRequestRingtone" href="#meshtastic.node.Node.onResponseRequestRingtone">onResponseRequestRingtone</a></code></li>
+<li><code><a title="meshtastic.node.Node.onResponseRequestSettings" href="#meshtastic.node.Node.onResponseRequestSettings">onResponseRequestSettings</a></code></li>
+<li><code><a title="meshtastic.node.Node.reboot" href="#meshtastic.node.Node.reboot">reboot</a></code></li>
+<li><code><a title="meshtastic.node.Node.rebootOTA" href="#meshtastic.node.Node.rebootOTA">rebootOTA</a></code></li>
+<li><code><a title="meshtastic.node.Node.removeFixedPosition" href="#meshtastic.node.Node.removeFixedPosition">removeFixedPosition</a></code></li>
+<li><code><a title="meshtastic.node.Node.removeNode" href="#meshtastic.node.Node.removeNode">removeNode</a></code></li>
+<li><code><a title="meshtastic.node.Node.requestChannels" href="#meshtastic.node.Node.requestChannels">requestChannels</a></code></li>
+<li><code><a title="meshtastic.node.Node.requestConfig" href="#meshtastic.node.Node.requestConfig">requestConfig</a></code></li>
+<li><code><a title="meshtastic.node.Node.resetNodeDb" href="#meshtastic.node.Node.resetNodeDb">resetNodeDb</a></code></li>
+<li><code><a title="meshtastic.node.Node.setChannels" href="#meshtastic.node.Node.setChannels">setChannels</a></code></li>
+<li><code><a title="meshtastic.node.Node.setFixedPosition" href="#meshtastic.node.Node.setFixedPosition">setFixedPosition</a></code></li>
+<li><code><a title="meshtastic.node.Node.setOwner" href="#meshtastic.node.Node.setOwner">setOwner</a></code></li>
+<li><code><a title="meshtastic.node.Node.setTime" href="#meshtastic.node.Node.setTime">setTime</a></code></li>
+<li><code><a title="meshtastic.node.Node.setURL" href="#meshtastic.node.Node.setURL">setURL</a></code></li>
+<li><code><a title="meshtastic.node.Node.set_canned_message" href="#meshtastic.node.Node.set_canned_message">set_canned_message</a></code></li>
+<li><code><a title="meshtastic.node.Node.set_ringtone" href="#meshtastic.node.Node.set_ringtone">set_ringtone</a></code></li>
+<li><code><a title="meshtastic.node.Node.showChannels" href="#meshtastic.node.Node.showChannels">showChannels</a></code></li>
+<li><code><a title="meshtastic.node.Node.showInfo" href="#meshtastic.node.Node.showInfo">showInfo</a></code></li>
+<li><code><a title="meshtastic.node.Node.shutdown" href="#meshtastic.node.Node.shutdown">shutdown</a></code></li>
+<li><code><a title="meshtastic.node.Node.turnOffEncryptionOnPrimaryChannel" href="#meshtastic.node.Node.turnOffEncryptionOnPrimaryChannel">turnOffEncryptionOnPrimaryChannel</a></code></li>
+<li><code><a title="meshtastic.node.Node.waitForConfig" href="#meshtastic.node.Node.waitForConfig">waitForConfig</a></code></li>
+<li><code><a title="meshtastic.node.Node.writeChannel" href="#meshtastic.node.Node.writeChannel">writeChannel</a></code></li>
+<li><code><a title="meshtastic.node.Node.writeConfig" href="#meshtastic.node.Node.writeConfig">writeConfig</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.powermon.ppk2 API documentation</title>
+<meta name="description" content="Classes for logging power consumption of meshtastic devices." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.powermon.ppk2</code></h1>
+</header>
+<section id="section-intro">
+<p>Classes for logging power consumption of meshtastic devices.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Classes for logging power consumption of meshtastic devices.&#34;&#34;&#34;
+
+import logging
+import threading
+import time
+from typing import Optional
+
+from ppk2_api import ppk2_api  # type: ignore[import-untyped]
+
+from .power_supply import PowerError, PowerSupply
+
+
+class PPK2PowerSupply(PowerSupply):
+    &#34;&#34;&#34;Interface for talking with the NRF PPK2 high-resolution micro-power supply.
+    Power Profiler Kit II is what you should google to find it for purchase.
+    &#34;&#34;&#34;
+
+    def __init__(self, portName: Optional[str] = None):
+        &#34;&#34;&#34;Initialize the PowerSupply object.
+
+        portName (str, optional): The port name of the power supply. Defaults to &#34;/dev/ttyACM0&#34;.
+        &#34;&#34;&#34;
+        if not portName:
+            devs = ppk2_api.PPK2_API.list_devices()
+            if not devs or len(devs) == 0:
+                raise PowerError(&#34;No PPK2 devices found&#34;)
+            elif len(devs) &gt; 1:
+                raise PowerError(
+                    &#34;Multiple PPK2 devices found, please specify the portName&#34;
+                )
+            else:
+                portName = devs[0]
+
+        self.measuring = False
+        self.current_max = 0
+        self.current_min = 0
+        self.current_sum = 0
+        self.current_num_samples = 0
+        self.current_average = 0
+
+        # for tracking avera data read length (to determine if we are sleeping efficiently in measurement_loop)
+        self.total_data_len = 0
+        self.num_data_reads = 0
+        self.max_data_len = 0
+
+        # Normally we just sleep with a timeout on this condition (polling the power measurement data repeatedly)
+        # but any time our measurements have been fully consumed (via reset_measurements) we notify() this condition
+        # to trigger a new reading ASAP.
+        self._want_measurement = threading.Condition()
+
+        # To guard against a brief window while updating measured values
+        self._result_lock = threading.Condition()
+
+        self.r = r = ppk2_api.PPK2_API(
+            portName
+        )  # serial port will be different for you
+        r.get_modifiers()
+
+        self.measurement_thread = threading.Thread(
+            target=self.measurement_loop, daemon=True, name=&#34;ppk2 measurement&#34;
+        )
+        logging.info(&#34;Connected to Power Profiler Kit II (PPK2)&#34;)
+        super().__init__()  # we call this late so that the port is already open and _getRawWattHour callback works
+
+    def measurement_loop(self):
+        &#34;&#34;&#34;Endless measurement loop will run in a thread.&#34;&#34;&#34;
+        while self.measuring:
+            with self._want_measurement:
+                self._want_measurement.wait(
+                    0.0001 if self.num_data_reads == 0 else 0.001
+                )
+                # normally we poll using this timeout, but sometimes
+                # reset_measurement() will notify us to read immediately
+
+                # always reads 4096 bytes, even if there is no new samples - or possibly the python single thread (because of global interpreter lock)
+                # is always behind and thefore we are inherently dropping samples semi randomly!!!
+                read_data = self.r.get_data()
+                if read_data != b&#34;&#34;:
+                    samples, _ = self.r.get_samples(read_data)
+
+                    # update invariants
+                    if len(samples) &gt; 0:
+                        if self.current_num_samples == 0:
+                            # First set of new reads, reset min/max
+                            self.current_max = 0
+                            self.current_min = samples[0]
+                            # we need at least one sample to get an initial min
+
+                        # The following operations could be expensive, so do outside of the lock
+                        # FIXME - change all these lists into numpy arrays to use lots less CPU
+                        self.current_max = max(self.current_max, max(samples))
+                        self.current_min = min(self.current_min, min(samples))
+                        latest_sum = sum(samples)
+                        with self._result_lock:
+                            self.current_sum += latest_sum
+                            self.current_num_samples += len(samples)
+                        # logging.debug(f&#34;PPK2 data_len={len(read_data)}, sample_len={len(samples)}&#34;)
+
+                self.num_data_reads += 1
+                self.total_data_len += len(read_data)
+                self.max_data_len = max(self.max_data_len, len(read_data))
+
+    def get_min_current_mA(self):
+        &#34;&#34;&#34;Return the min current in mA.&#34;&#34;&#34;
+        return self.current_min / 1000
+
+    def get_max_current_mA(self):
+        &#34;&#34;&#34;Return the max current in mA.&#34;&#34;&#34;
+        return self.current_max / 1000
+
+    def get_average_current_mA(self):
+        &#34;&#34;&#34;Return the average current in mA.&#34;&#34;&#34;
+        with self._result_lock:
+            if self.current_num_samples != 0:
+                # If we have new samples, calculate a new average
+                self.current_average = self.current_sum / self.current_num_samples
+
+            # Even if we don&#39;t have new samples, return the last calculated average
+            # measurements are in microamperes, divide by 1000
+            return self.current_average / 1000
+
+    def reset_measurements(self):
+        &#34;&#34;&#34;Reset current measurements.&#34;&#34;&#34;
+        # Use the last reading as the new only reading (to ensure we always have a valid current reading)
+        self.current_sum = 0
+        self.current_num_samples = 0
+
+        # if self.num_data_reads:
+        #    logging.debug(f&#34;max data len = {self.max_data_len},avg {self.total_data_len/self.num_data_reads}, num reads={self.num_data_reads}&#34;)
+        # Summary stats for performance monitoring
+        self.num_data_reads = 0
+        self.total_data_len = 0
+        self.max_data_len = 0
+
+        with self._want_measurement:
+            self._want_measurement.notify()  # notify the measurement loop to read immediately
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Close the power meter.&#34;&#34;&#34;
+        self.measuring = False
+        self.r.stop_measuring()  # send command to ppk2
+        self.measurement_thread.join()  # wait for our thread to finish
+        super().close()
+
+    def setIsSupply(self, is_supply: bool):
+        &#34;&#34;&#34;If in supply mode we will provide power ourself, otherwise we are just an amp meter.&#34;&#34;&#34;
+
+        assert self.v &gt; 0.8  # We must set a valid voltage before calling this method
+
+        self.r.set_source_voltage(
+            int(self.v * 1000)
+        )  # set source voltage in mV BEFORE setting source mode
+        # Note: source voltage must be set even if we are using the amp meter mode
+
+        # must be after setting source voltage and before setting mode
+        self.r.start_measuring()  # send command to ppk2
+
+        if (
+            not is_supply
+        ):  # min power outpuf of PPK2.  If less than this assume we want just meter mode.
+            self.r.use_ampere_meter()
+        else:
+            self.r.use_source_meter()  # set source meter mode
+
+        if not self.measurement_thread.is_alive():
+            self.measuring = True
+            self.reset_measurements()
+
+            # We can&#39;t start reading from the thread until vdd is set, so start running the thread now
+            self.measurement_thread.start()
+            time.sleep(
+                0.2
+            )  # FIXME - crufty way to ensure we do one set of reads to discard bogus fake power readings in the FIFO
+            self.reset_measurements()
+
+    def powerOn(self):
+        &#34;&#34;&#34;Power on the supply.&#34;&#34;&#34;
+        self.r.toggle_DUT_power(&#34;ON&#34;)
+
+    def powerOff(self):
+        &#34;&#34;&#34;Power off the supply.&#34;&#34;&#34;
+        self.r.toggle_DUT_power(&#34;OFF&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply"><code class="flex name class">
+<span>class <span class="ident">PPK2PowerSupply</span></span>
+<span>(</span><span>portName: Optional[str] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Interface for talking with the NRF PPK2 high-resolution micro-power supply.
+Power Profiler Kit II is what you should google to find it for purchase.</p>
+<p>Initialize the PowerSupply object.</p>
+<p>portName (str, optional): The port name of the power supply. Defaults to "/dev/ttyACM0".</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PPK2PowerSupply(PowerSupply):
+    &#34;&#34;&#34;Interface for talking with the NRF PPK2 high-resolution micro-power supply.
+    Power Profiler Kit II is what you should google to find it for purchase.
+    &#34;&#34;&#34;
+
+    def __init__(self, portName: Optional[str] = None):
+        &#34;&#34;&#34;Initialize the PowerSupply object.
+
+        portName (str, optional): The port name of the power supply. Defaults to &#34;/dev/ttyACM0&#34;.
+        &#34;&#34;&#34;
+        if not portName:
+            devs = ppk2_api.PPK2_API.list_devices()
+            if not devs or len(devs) == 0:
+                raise PowerError(&#34;No PPK2 devices found&#34;)
+            elif len(devs) &gt; 1:
+                raise PowerError(
+                    &#34;Multiple PPK2 devices found, please specify the portName&#34;
+                )
+            else:
+                portName = devs[0]
+
+        self.measuring = False
+        self.current_max = 0
+        self.current_min = 0
+        self.current_sum = 0
+        self.current_num_samples = 0
+        self.current_average = 0
+
+        # for tracking avera data read length (to determine if we are sleeping efficiently in measurement_loop)
+        self.total_data_len = 0
+        self.num_data_reads = 0
+        self.max_data_len = 0
+
+        # Normally we just sleep with a timeout on this condition (polling the power measurement data repeatedly)
+        # but any time our measurements have been fully consumed (via reset_measurements) we notify() this condition
+        # to trigger a new reading ASAP.
+        self._want_measurement = threading.Condition()
+
+        # To guard against a brief window while updating measured values
+        self._result_lock = threading.Condition()
+
+        self.r = r = ppk2_api.PPK2_API(
+            portName
+        )  # serial port will be different for you
+        r.get_modifiers()
+
+        self.measurement_thread = threading.Thread(
+            target=self.measurement_loop, daemon=True, name=&#34;ppk2 measurement&#34;
+        )
+        logging.info(&#34;Connected to Power Profiler Kit II (PPK2)&#34;)
+        super().__init__()  # we call this late so that the port is already open and _getRawWattHour callback works
+
+    def measurement_loop(self):
+        &#34;&#34;&#34;Endless measurement loop will run in a thread.&#34;&#34;&#34;
+        while self.measuring:
+            with self._want_measurement:
+                self._want_measurement.wait(
+                    0.0001 if self.num_data_reads == 0 else 0.001
+                )
+                # normally we poll using this timeout, but sometimes
+                # reset_measurement() will notify us to read immediately
+
+                # always reads 4096 bytes, even if there is no new samples - or possibly the python single thread (because of global interpreter lock)
+                # is always behind and thefore we are inherently dropping samples semi randomly!!!
+                read_data = self.r.get_data()
+                if read_data != b&#34;&#34;:
+                    samples, _ = self.r.get_samples(read_data)
+
+                    # update invariants
+                    if len(samples) &gt; 0:
+                        if self.current_num_samples == 0:
+                            # First set of new reads, reset min/max
+                            self.current_max = 0
+                            self.current_min = samples[0]
+                            # we need at least one sample to get an initial min
+
+                        # The following operations could be expensive, so do outside of the lock
+                        # FIXME - change all these lists into numpy arrays to use lots less CPU
+                        self.current_max = max(self.current_max, max(samples))
+                        self.current_min = min(self.current_min, min(samples))
+                        latest_sum = sum(samples)
+                        with self._result_lock:
+                            self.current_sum += latest_sum
+                            self.current_num_samples += len(samples)
+                        # logging.debug(f&#34;PPK2 data_len={len(read_data)}, sample_len={len(samples)}&#34;)
+
+                self.num_data_reads += 1
+                self.total_data_len += len(read_data)
+                self.max_data_len = max(self.max_data_len, len(read_data))
+
+    def get_min_current_mA(self):
+        &#34;&#34;&#34;Return the min current in mA.&#34;&#34;&#34;
+        return self.current_min / 1000
+
+    def get_max_current_mA(self):
+        &#34;&#34;&#34;Return the max current in mA.&#34;&#34;&#34;
+        return self.current_max / 1000
+
+    def get_average_current_mA(self):
+        &#34;&#34;&#34;Return the average current in mA.&#34;&#34;&#34;
+        with self._result_lock:
+            if self.current_num_samples != 0:
+                # If we have new samples, calculate a new average
+                self.current_average = self.current_sum / self.current_num_samples
+
+            # Even if we don&#39;t have new samples, return the last calculated average
+            # measurements are in microamperes, divide by 1000
+            return self.current_average / 1000
+
+    def reset_measurements(self):
+        &#34;&#34;&#34;Reset current measurements.&#34;&#34;&#34;
+        # Use the last reading as the new only reading (to ensure we always have a valid current reading)
+        self.current_sum = 0
+        self.current_num_samples = 0
+
+        # if self.num_data_reads:
+        #    logging.debug(f&#34;max data len = {self.max_data_len},avg {self.total_data_len/self.num_data_reads}, num reads={self.num_data_reads}&#34;)
+        # Summary stats for performance monitoring
+        self.num_data_reads = 0
+        self.total_data_len = 0
+        self.max_data_len = 0
+
+        with self._want_measurement:
+            self._want_measurement.notify()  # notify the measurement loop to read immediately
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Close the power meter.&#34;&#34;&#34;
+        self.measuring = False
+        self.r.stop_measuring()  # send command to ppk2
+        self.measurement_thread.join()  # wait for our thread to finish
+        super().close()
+
+    def setIsSupply(self, is_supply: bool):
+        &#34;&#34;&#34;If in supply mode we will provide power ourself, otherwise we are just an amp meter.&#34;&#34;&#34;
+
+        assert self.v &gt; 0.8  # We must set a valid voltage before calling this method
+
+        self.r.set_source_voltage(
+            int(self.v * 1000)
+        )  # set source voltage in mV BEFORE setting source mode
+        # Note: source voltage must be set even if we are using the amp meter mode
+
+        # must be after setting source voltage and before setting mode
+        self.r.start_measuring()  # send command to ppk2
+
+        if (
+            not is_supply
+        ):  # min power outpuf of PPK2.  If less than this assume we want just meter mode.
+            self.r.use_ampere_meter()
+        else:
+            self.r.use_source_meter()  # set source meter mode
+
+        if not self.measurement_thread.is_alive():
+            self.measuring = True
+            self.reset_measurements()
+
+            # We can&#39;t start reading from the thread until vdd is set, so start running the thread now
+            self.measurement_thread.start()
+            time.sleep(
+                0.2
+            )  # FIXME - crufty way to ensure we do one set of reads to discard bogus fake power readings in the FIFO
+            self.reset_measurements()
+
+    def powerOn(self):
+        &#34;&#34;&#34;Power on the supply.&#34;&#34;&#34;
+        self.r.toggle_DUT_power(&#34;ON&#34;)
+
+    def powerOff(self):
+        &#34;&#34;&#34;Power off the supply.&#34;&#34;&#34;
+        self.r.toggle_DUT_power(&#34;OFF&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="meshtastic.powermon.power_supply.PowerSupply" href="power_supply.html#meshtastic.powermon.power_supply.PowerSupply">PowerSupply</a></li>
+<li><a title="meshtastic.powermon.power_supply.PowerMeter" href="power_supply.html#meshtastic.powermon.power_supply.PowerMeter">PowerMeter</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.get_average_current_mA"><code class="name flex">
+<span>def <span class="ident">get_average_current_mA</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the average current in mA.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_average_current_mA(self):
+    &#34;&#34;&#34;Return the average current in mA.&#34;&#34;&#34;
+    with self._result_lock:
+        if self.current_num_samples != 0:
+            # If we have new samples, calculate a new average
+            self.current_average = self.current_sum / self.current_num_samples
+
+        # Even if we don&#39;t have new samples, return the last calculated average
+        # measurements are in microamperes, divide by 1000
+        return self.current_average / 1000</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.get_max_current_mA"><code class="name flex">
+<span>def <span class="ident">get_max_current_mA</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the max current in mA.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_max_current_mA(self):
+    &#34;&#34;&#34;Return the max current in mA.&#34;&#34;&#34;
+    return self.current_max / 1000</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.get_min_current_mA"><code class="name flex">
+<span>def <span class="ident">get_min_current_mA</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the min current in mA.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_min_current_mA(self):
+    &#34;&#34;&#34;Return the min current in mA.&#34;&#34;&#34;
+    return self.current_min / 1000</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.measurement_loop"><code class="name flex">
+<span>def <span class="ident">measurement_loop</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Endless measurement loop will run in a thread.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def measurement_loop(self):
+    &#34;&#34;&#34;Endless measurement loop will run in a thread.&#34;&#34;&#34;
+    while self.measuring:
+        with self._want_measurement:
+            self._want_measurement.wait(
+                0.0001 if self.num_data_reads == 0 else 0.001
+            )
+            # normally we poll using this timeout, but sometimes
+            # reset_measurement() will notify us to read immediately
+
+            # always reads 4096 bytes, even if there is no new samples - or possibly the python single thread (because of global interpreter lock)
+            # is always behind and thefore we are inherently dropping samples semi randomly!!!
+            read_data = self.r.get_data()
+            if read_data != b&#34;&#34;:
+                samples, _ = self.r.get_samples(read_data)
+
+                # update invariants
+                if len(samples) &gt; 0:
+                    if self.current_num_samples == 0:
+                        # First set of new reads, reset min/max
+                        self.current_max = 0
+                        self.current_min = samples[0]
+                        # we need at least one sample to get an initial min
+
+                    # The following operations could be expensive, so do outside of the lock
+                    # FIXME - change all these lists into numpy arrays to use lots less CPU
+                    self.current_max = max(self.current_max, max(samples))
+                    self.current_min = min(self.current_min, min(samples))
+                    latest_sum = sum(samples)
+                    with self._result_lock:
+                        self.current_sum += latest_sum
+                        self.current_num_samples += len(samples)
+                    # logging.debug(f&#34;PPK2 data_len={len(read_data)}, sample_len={len(samples)}&#34;)
+
+            self.num_data_reads += 1
+            self.total_data_len += len(read_data)
+            self.max_data_len = max(self.max_data_len, len(read_data))</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.powerOff"><code class="name flex">
+<span>def <span class="ident">powerOff</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Power off the supply.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def powerOff(self):
+    &#34;&#34;&#34;Power off the supply.&#34;&#34;&#34;
+    self.r.toggle_DUT_power(&#34;OFF&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.powerOn"><code class="name flex">
+<span>def <span class="ident">powerOn</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Power on the supply.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def powerOn(self):
+    &#34;&#34;&#34;Power on the supply.&#34;&#34;&#34;
+    self.r.toggle_DUT_power(&#34;ON&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.powermon.ppk2.PPK2PowerSupply.setIsSupply"><code class="name flex">
+<span>def <span class="ident">setIsSupply</span></span>(<span>self, is_supply: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>If in supply mode we will provide power ourself, otherwise we are just an amp meter.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setIsSupply(self, is_supply: bool):
+    &#34;&#34;&#34;If in supply mode we will provide power ourself, otherwise we are just an amp meter.&#34;&#34;&#34;
+
+    assert self.v &gt; 0.8  # We must set a valid voltage before calling this method
+
+    self.r.set_source_voltage(
+        int(self.v * 1000)
+    )  # set source voltage in mV BEFORE setting source mode
+    # Note: source voltage must be set even if we are using the amp meter mode
+
+    # must be after setting source voltage and before setting mode
+    self.r.start_measuring()  # send command to ppk2
+
+    if (
+        not is_supply
+    ):  # min power outpuf of PPK2.  If less than this assume we want just meter mode.
+        self.r.use_ampere_meter()
+    else:
+        self.r.use_source_meter()  # set source meter mode
+
+    if not self.measurement_thread.is_alive():
+        self.measuring = True
+        self.reset_measurements()
+
+        # We can&#39;t start reading from the thread until vdd is set, so start running the thread now
+        self.measurement_thread.start()
+        time.sleep(
+            0.2
+        )  # FIXME - crufty way to ensure we do one set of reads to discard bogus fake power readings in the FIFO
+        self.reset_measurements()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="meshtastic.powermon.power_supply.PowerSupply" href="power_supply.html#meshtastic.powermon.power_supply.PowerSupply">PowerSupply</a></b></code>:
+<ul class="hlist">
+<li><code><a title="meshtastic.powermon.power_supply.PowerSupply.close" href="power_supply.html#meshtastic.powermon.power_supply.PowerMeter.close">close</a></code></li>
+<li><code><a title="meshtastic.powermon.power_supply.PowerSupply.reset_measurements" href="power_supply.html#meshtastic.powermon.power_supply.PowerMeter.reset_measurements">reset_measurements</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic.powermon" href="index.html">meshtastic.powermon</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply" href="#meshtastic.powermon.ppk2.PPK2PowerSupply">PPK2PowerSupply</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.get_average_current_mA" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.get_average_current_mA">get_average_current_mA</a></code></li>
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.get_max_current_mA" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.get_max_current_mA">get_max_current_mA</a></code></li>
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.get_min_current_mA" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.get_min_current_mA">get_min_current_mA</a></code></li>
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.measurement_loop" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.measurement_loop">measurement_loop</a></code></li>
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.powerOff" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.powerOff">powerOff</a></code></li>
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.powerOn" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.powerOn">powerOn</a></code></li>
+<li><code><a title="meshtastic.powermon.ppk2.PPK2PowerSupply.setIsSupply" href="#meshtastic.powermon.ppk2.PPK2PowerSupply.setIsSupply">setIsSupply</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

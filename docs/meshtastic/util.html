@@ -1,0 +1,1906 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.util API documentation</title>
+<meta name="description" content="Utility functions." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.util</code></h1>
+</header>
+<section id="section-intro">
+<p>Utility functions.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Utility functions.
+&#34;&#34;&#34;
+import base64
+import logging
+import os
+import platform
+import re
+import subprocess
+import sys
+import threading
+import time
+import traceback
+from queue import Queue
+from typing import List, NoReturn, Union
+
+from google.protobuf.json_format import MessageToJson
+from google.protobuf.message import Message
+
+import packaging.version as pkg_version
+import requests
+import serial # type: ignore[import-untyped]
+import serial.tools.list_ports # type: ignore[import-untyped]
+
+from meshtastic.supported_device import supported_devices
+from meshtastic.version import get_active_version
+
+&#34;&#34;&#34;Some devices such as a seger jlink or st-link we never want to accidentally open
+     0483 STMicroelectronics ST-LINK/V2
+     0136 SEGGER J-Link
+     1915 NordicSemi (PPK2)
+     0925 Lakeview Research Saleae Logic (logic analyzer)
+04b4:602a Cypress Semiconductor Corp. Hantek DSO-6022BL (oscilloscope)
+&#34;&#34;&#34;
+blacklistVids = dict.fromkeys([0x1366, 0x0483, 0x1915, 0x0925, 0x04b4])
+
+&#34;&#34;&#34;Some devices are highly likely to be meshtastic.
+0x239a RAK4631
+0x303a Heltec tracker&#34;&#34;&#34;
+whitelistVids = dict.fromkeys([0x239a, 0x303a])
+
+
+def quoteBooleans(a_string):
+    &#34;&#34;&#34;Quote booleans
+    given a string that contains &#34;: true&#34;, replace with &#34;: &#39;true&#39;&#34; (or false)
+    &#34;&#34;&#34;
+    tmp = a_string.replace(&#34;: true&#34;, &#34;: &#39;true&#39;&#34;)
+    tmp = tmp.replace(&#34;: false&#34;, &#34;: &#39;false&#39;&#34;)
+    return tmp
+
+
+def genPSK256():
+    &#34;&#34;&#34;Generate a random preshared key&#34;&#34;&#34;
+    return os.urandom(32)
+
+
+def fromPSK(valstr):
+    &#34;&#34;&#34;A special version of fromStr that assumes the user is trying to set a PSK.
+    In that case we also allow &#34;none&#34;, &#34;default&#34; or &#34;random&#34; (to have python generate one), or simpleN
+    &#34;&#34;&#34;
+    if valstr == &#34;random&#34;:
+        return genPSK256()
+    elif valstr == &#34;none&#34;:
+        return bytes([0])  # Use the &#39;no encryption&#39; PSK
+    elif valstr == &#34;default&#34;:
+        return bytes([1])  # Use default channel psk
+    elif valstr.startswith(&#34;simple&#34;):
+        # Use one of the single byte encodings
+        return bytes([int(valstr[6:]) + 1])
+    else:
+        return fromStr(valstr)
+
+
+def fromStr(valstr):
+    &#34;&#34;&#34;Try to parse as int, float or bool (and fallback to a string as last resort)
+
+    Returns: an int, bool, float, str or byte array (for strings of hex digits)
+
+    Args:
+        valstr (string): A user provided string
+    &#34;&#34;&#34;
+    if len(valstr) == 0:  # Treat an emptystring as an empty bytes
+        val = bytes()
+    elif valstr.startswith(&#34;0x&#34;):
+        # if needed convert to string with asBytes.decode(&#39;utf-8&#39;)
+        val = bytes.fromhex(valstr[2:].zfill(2))
+    elif valstr.startswith(&#34;base64:&#34;):
+        val = base64.b64decode(valstr[7:])
+    elif valstr.lower() in {&#34;t&#34;, &#34;true&#34;, &#34;yes&#34;}:
+        val = True
+    elif valstr.lower() in {&#34;f&#34;, &#34;false&#34;, &#34;no&#34;}:
+        val = False
+    else:
+        try:
+            val = int(valstr)
+        except ValueError:
+            try:
+                val = float(valstr)
+            except ValueError:
+                val = valstr  # Not a float or an int, assume string
+    return val
+
+
+def pskToString(psk: bytes):
+    &#34;&#34;&#34;Given an array of PSK bytes, decode them into a human readable (but privacy protecting) string&#34;&#34;&#34;
+    if len(psk) == 0:
+        return &#34;unencrypted&#34;
+    elif len(psk) == 1:
+        b = psk[0]
+        if b == 0:
+            return &#34;unencrypted&#34;
+        elif b == 1:
+            return &#34;default&#34;
+        else:
+            return f&#34;simple{b - 1}&#34;
+    else:
+        return &#34;secret&#34;
+
+
+def stripnl(s) -&gt; str:
+    &#34;&#34;&#34;Remove newlines from a string (and remove extra whitespace)&#34;&#34;&#34;
+    s = str(s).replace(&#34;\n&#34;, &#34; &#34;)
+    return &#34; &#34;.join(s.split())
+
+
+def fixme(message):
+    &#34;&#34;&#34;Raise an exception for things that needs to be fixed&#34;&#34;&#34;
+    raise Exception(f&#34;FIXME: {message}&#34;) # pylint: disable=W0719
+
+
+def catchAndIgnore(reason, closure):
+    &#34;&#34;&#34;Call a closure but if it throws an exception print it and continue&#34;&#34;&#34;
+    try:
+        closure()
+    except BaseException as ex:
+        logging.error(f&#34;Exception thrown in {reason}: {ex}&#34;)
+
+
+def findPorts(eliminate_duplicates: bool=False) -&gt; List[str]:
+    &#34;&#34;&#34;Find all ports that might have meshtastic devices
+       eliminate_duplicates will run the eliminate_duplicate_port() on the collection
+
+    Returns:
+        list -- a list of device paths
+    &#34;&#34;&#34;
+    all_ports = serial.tools.list_ports.comports()
+
+    # look for &#39;likely&#39; meshtastic devices
+    ports = list(
+        map(
+            lambda port: port.device,
+            filter(
+                lambda port: port.vid is not None and port.vid in whitelistVids,
+                all_ports,
+            ),
+        )
+    )
+
+    # if no likely devices, just list everything not blacklisted
+    if len(ports) == 0:
+        ports = list(
+            map(
+                lambda port: port.device,
+                filter(
+                    lambda port: port.vid is not None and port.vid not in blacklistVids,
+                    all_ports,
+                ),
+            )
+        )
+
+    ports.sort()
+    if eliminate_duplicates:
+        ports = eliminate_duplicate_port(ports)
+    return ports
+
+
+class dotdict(dict):
+    &#34;&#34;&#34;dot.notation access to dictionary attributes&#34;&#34;&#34;
+
+    __getattr__ = dict.get
+    __setattr__ = dict.__setitem__ # type: ignore[assignment]
+    __delattr__ = dict.__delitem__ # type: ignore[assignment]
+
+
+class Timeout:
+    &#34;&#34;&#34;Timeout class&#34;&#34;&#34;
+
+    def __init__(self, maxSecs: int=20):
+        self.expireTime: Union[int, float] = 0
+        self.sleepInterval: float = 0.1
+        self.expireTimeout: int = maxSecs
+
+    def reset(self):
+        &#34;&#34;&#34;Restart the waitForSet timer&#34;&#34;&#34;
+        self.expireTime = time.time() + self.expireTimeout
+
+    def waitForSet(self, target, attrs=()) -&gt; bool:
+        &#34;&#34;&#34;Block until the specified attributes are set. Returns True if config has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if all(map(lambda a: getattr(target, a, None), attrs)):
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForAckNak(
+        self, acknowledgment, attrs=(&#34;receivedAck&#34;, &#34;receivedNak&#34;, &#34;receivedImplAck&#34;)
+    ) -&gt; bool:
+        &#34;&#34;&#34;Block until an ACK or NAK has been received. Returns True if ACK or NAK has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if any(map(lambda a: getattr(acknowledgment, a, None), attrs)):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForTraceRoute(self, waitFactor, acknowledgment, attr=&#34;receivedTraceRoute&#34;) -&gt; bool:
+        &#34;&#34;&#34;Block until traceroute response is received. Returns True if traceroute response has been received.&#34;&#34;&#34;
+        self.expireTimeout *= waitFactor
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if getattr(acknowledgment, attr, None):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForTelemetry(self, acknowledgment) -&gt; bool:
+        &#34;&#34;&#34;Block until telemetry response is received. Returns True if telemetry response has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if getattr(acknowledgment, &#34;receivedTelemetry&#34;, None):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForPosition(self, acknowledgment) -&gt; bool:
+        &#34;&#34;&#34;Block until position response is received. Returns True if position response has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if getattr(acknowledgment, &#34;receivedPosition&#34;, None):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+class Acknowledgment:
+    &#34;A class that records which type of acknowledgment was just received, if any.&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;initialize&#34;&#34;&#34;
+        self.receivedAck = False
+        self.receivedNak = False
+        self.receivedImplAck = False
+        self.receivedTraceRoute = False
+        self.receivedTelemetry = False
+        self.receivedPosition = False
+
+    def reset(self):
+        &#34;&#34;&#34;reset&#34;&#34;&#34;
+        self.receivedAck = False
+        self.receivedNak = False
+        self.receivedImplAck = False
+        self.receivedTraceRoute = False
+        self.receivedTelemetry = False
+        self.receivedPosition = False
+
+
+class DeferredExecution:
+    &#34;&#34;&#34;A thread that accepts closures to run, and runs them as they are received&#34;&#34;&#34;
+
+    def __init__(self, name):
+        self.queue = Queue()
+        # this thread must be marked as daemon, otherwise it will prevent clients from exiting
+        self.thread = threading.Thread(target=self._run, args=(), name=name, daemon=True)
+        self.thread.daemon = True
+        self.thread.start()
+
+    def queueWork(self, runnable):
+        &#34;&#34;&#34;Queue up the work&#34;&#34;&#34;
+        self.queue.put(runnable)
+
+    def _run(self):
+        while True:
+            try:
+                o = self.queue.get()
+                o()
+            except:
+                logging.error(
+                    f&#34;Unexpected error in deferred execution {sys.exc_info()[0]}&#34;
+                )
+                print(traceback.format_exc())
+
+
+def our_exit(message, return_value=1) -&gt; NoReturn:
+    &#34;&#34;&#34;Print the message and return a value.
+    return_value defaults to 1 (non-successful)
+    &#34;&#34;&#34;
+    print(message)
+    sys.exit(return_value)
+
+
+def support_info():
+    &#34;&#34;&#34;Print out info that helps troubleshooting of the cli.&#34;&#34;&#34;
+    print(&#34;&#34;)
+    print(&#34;If having issues with meshtastic cli or python library&#34;)
+    print(&#34;or wish to make feature requests, visit:&#34;)
+    print(&#34;https://github.com/meshtastic/python/issues&#34;)
+    print(&#34;When adding an issue, be sure to include the following info:&#34;)
+    print(f&#34; System: {platform.system()}&#34;)
+    print(f&#34;   Platform: {platform.platform()}&#34;)
+    print(f&#34;   Release: {platform.uname().release}&#34;)
+    print(f&#34;   Machine: {platform.uname().machine}&#34;)
+    print(f&#34;   Encoding (stdin): {sys.stdin.encoding}&#34;)
+    print(f&#34;   Encoding (stdout): {sys.stdout.encoding}&#34;)
+    the_version = get_active_version()
+    pypi_version = check_if_newer_version()
+    if pypi_version:
+        print(
+            f&#34; meshtastic: v{the_version} (*** newer version v{pypi_version} available ***)&#34;
+        )
+    else:
+        print(f&#34; meshtastic: v{the_version}&#34;)
+    print(f&#34; Executable: {sys.argv[0]}&#34;)
+    print(
+        f&#34; Python: {platform.python_version()} {platform.python_implementation()} {platform.python_compiler()}&#34;
+    )
+    print(&#34;&#34;)
+    print(&#34;Please add the output from the command: meshtastic --info&#34;)
+
+
+def remove_keys_from_dict(keys, adict):
+    &#34;&#34;&#34;Return a dictionary without some keys in it.
+    Will removed nested keys.
+    &#34;&#34;&#34;
+    for key in keys:
+        try:
+            del adict[key]
+        except:
+            pass
+    for val in adict.values():
+        if isinstance(val, dict):
+            remove_keys_from_dict(keys, val)
+    return adict
+
+
+def hexstr(barray):
+    &#34;&#34;&#34;Print a string of hex digits&#34;&#34;&#34;
+    return &#34;:&#34;.join(f&#34;{x:02x}&#34; for x in barray)
+
+
+def ipstr(barray):
+    &#34;&#34;&#34;Print a string of ip digits&#34;&#34;&#34;
+    return &#34;.&#34;.join(f&#34;{x}&#34; for x in barray)
+
+
+def readnet_u16(p, offset):
+    &#34;&#34;&#34;Read big endian u16 (network byte order)&#34;&#34;&#34;
+    return p[offset] * 256 + p[offset + 1]
+
+
+def convert_mac_addr(val):
+    &#34;&#34;&#34;Convert the base 64 encoded value to a mac address
+    val - base64 encoded value (ex: &#39;/c0gFyhb&#39;))
+    returns: a string formatted like a mac address (ex: &#39;fd:cd:20:17:28:5b&#39;)
+    &#34;&#34;&#34;
+    if not re.match(&#34;[0-9a-f]{2}([-:]?)[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$&#34;, val):
+        val_as_bytes = base64.b64decode(val)
+        return hexstr(val_as_bytes)
+    return val
+
+
+def snake_to_camel(a_string):
+    &#34;&#34;&#34;convert snake_case to camelCase&#34;&#34;&#34;
+    # split underscore using split
+    temp = a_string.split(&#34;_&#34;)
+    # joining result
+    result = temp[0] + &#34;&#34;.join(ele.title() for ele in temp[1:])
+    return result
+
+
+def camel_to_snake(a_string):
+    &#34;&#34;&#34;convert camelCase to snake_case&#34;&#34;&#34;
+    return &#34;&#34;.join([&#34;_&#34; + i.lower() if i.isupper() else i for i in a_string]).lstrip(
+        &#34;_&#34;
+    )
+
+
+def detect_supported_devices():
+    &#34;&#34;&#34;detect supported devices based on vendor id&#34;&#34;&#34;
+    system = platform.system()
+    # print(f&#39;system:{system}&#39;)
+
+    possible_devices = set()
+    if system == &#34;Linux&#34;:
+        # if linux, run lsusb and list ports
+
+        # linux: use lsusb
+        # Bus 001 Device 091: ID 10c4:ea60 Silicon Labs CP210x UART Bridge
+        _, lsusb_output = subprocess.getstatusoutput(&#34;lsusb&#34;)
+        vids = get_unique_vendor_ids()
+        for vid in vids:
+            # print(f&#39;looking for {vid}...&#39;)
+            search = f&#34; {vid}:&#34;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, lsusb_output, re.MULTILINE):
+                # print(f&#39;Found vendor id that matches&#39;)
+                devices = get_devices_with_vendor_id(vid)
+                for device in devices:
+                    possible_devices.add(device)
+
+    elif system == &#34;Windows&#34;:
+        # if windows, run Get-PnpDevice
+        _, sp_output = subprocess.getstatusoutput(
+            &#39;powershell.exe &#34;[Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8;&#39;
+            &#39;Get-PnpDevice -PresentOnly | Format-List&#34;&#39;
+        )
+        # print(f&#39;sp_output:{sp_output}&#39;)
+        vids = get_unique_vendor_ids()
+        for vid in vids:
+            # print(f&#39;looking for {vid.upper()}...&#39;)
+            search = f&#34;DeviceID.*{vid.upper()}&amp;&#34;
+            # search = f&#39;{vid.upper()}&#39;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, sp_output, re.MULTILINE):
+                # print(f&#39;Found vendor id that matches&#39;)
+                devices = get_devices_with_vendor_id(vid)
+                for device in devices:
+                    possible_devices.add(device)
+
+    elif system == &#34;Darwin&#34;:
+        # run: system_profiler SPUSBDataType
+        # Note: If in boot mode, the 19003 reports same product ID as 5005.
+
+        _, sp_output = subprocess.getstatusoutput(&#34;system_profiler SPUSBDataType&#34;)
+        vids = get_unique_vendor_ids()
+        for vid in vids:
+            # print(f&#39;looking for {vid}...&#39;)
+            search = f&#34;Vendor ID: 0x{vid}&#34;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, sp_output, re.MULTILINE):
+                # print(f&#39;Found vendor id that matches&#39;)
+                devices = get_devices_with_vendor_id(vid)
+                for device in devices:
+                    possible_devices.add(device)
+    return possible_devices
+
+
+def detect_windows_needs_driver(sd, print_reason=False):
+    &#34;&#34;&#34;detect if Windows user needs to install driver for a supported device&#34;&#34;&#34;
+    need_to_install_driver = False
+
+    if sd:
+        system = platform.system()
+        # print(f&#39;in detect_windows_needs_driver system:{system}&#39;)
+
+        if system == &#34;Windows&#34;:
+            # if windows, see if we can find a DeviceId with the vendor id
+            # Get-PnpDevice  | Where-Object{ ($_.DeviceId -like &#39;*10C4*&#39;)} | Format-List
+            command = &#39;powershell.exe &#34;[Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8; Get-PnpDevice | Where-Object{ ($_.DeviceId -like &#39;
+            command += f&#34;&#39;*{sd.usb_vendor_id_in_hex.upper()}*&#39;&#34;
+            command += &#39;)} | Format-List&#34;&#39;
+
+            # print(f&#39;command:{command}&#39;)
+            _, sp_output = subprocess.getstatusoutput(command)
+            # print(f&#39;sp_output:{sp_output}&#39;)
+            search = f&#34;CM_PROB_FAILED_INSTALL&#34;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, sp_output, re.MULTILINE):
+                need_to_install_driver = True
+                # if the want to see the reason
+                if print_reason:
+                    print(sp_output)
+    return need_to_install_driver
+
+
+def eliminate_duplicate_port(ports):
+    &#34;&#34;&#34;Sometimes we detect 2 serial ports, but we really only need to use one of the ports.
+
+    ports is a list of ports
+    return a list with a single port to use, if it meets the duplicate port conditions
+
+     examples:
+         Ports: [&#39;/dev/cu.usbserial-1430&#39;, &#39;/dev/cu.wchusbserial1430&#39;] =&gt; [&#39;/dev/cu.wchusbserial1430&#39;]
+         Ports: [&#39;/dev/cu.usbmodem11301&#39;, &#39;/dev/cu.wchusbserial11301&#39;] =&gt; [&#39;/dev/cu.wchusbserial11301&#39;]
+         Ports: [&#39;/dev/cu.SLAB_USBtoUART&#39;, &#39;/dev/cu.usbserial-0001&#39;] =&gt; [&#39;/dev/cu.usbserial-0001&#39;]
+    &#34;&#34;&#34;
+    new_ports = []
+    if len(ports) != 2:
+        new_ports = ports
+    else:
+        ports.sort()
+        if &#34;usbserial&#34; in ports[0] and &#34;wchusbserial&#34; in ports[1]:
+            first = ports[0].replace(&#34;usbserial-&#34;, &#34;&#34;)
+            second = ports[1].replace(&#34;wchusbserial&#34;, &#34;&#34;)
+            if first == second:
+                new_ports.append(ports[1])
+        elif &#34;usbmodem&#34; in ports[0] and &#34;wchusbserial&#34; in ports[1]:
+            first = ports[0].replace(&#34;usbmodem&#34;, &#34;&#34;)
+            second = ports[1].replace(&#34;wchusbserial&#34;, &#34;&#34;)
+            if first == second:
+                new_ports.append(ports[1])
+        elif &#34;SLAB_USBtoUART&#34; in ports[0] and &#34;usbserial&#34; in ports[1]:
+            new_ports.append(ports[1])
+        else:
+            new_ports = ports
+    return new_ports
+
+
+def is_windows11():
+    &#34;&#34;&#34;Detect if Windows 11&#34;&#34;&#34;
+    is_win11 = False
+    if platform.system() == &#34;Windows&#34;:
+        if float(platform.release()) &gt;= 10.0:
+            patch = platform.version().split(&#34;.&#34;)[2]
+            # in case they add some number suffix later, just get first 5 chars of patch
+            patch = patch[:5]
+            try:
+                if int(patch) &gt;= 22000:
+                    is_win11 = True
+            except Exception as e:
+                print(f&#34;problem detecting win11 e:{e}&#34;)
+    return is_win11
+
+
+def get_unique_vendor_ids():
+    &#34;&#34;&#34;Return a set of unique vendor ids&#34;&#34;&#34;
+    vids = set()
+    for d in supported_devices:
+        if d.usb_vendor_id_in_hex:
+            vids.add(d.usb_vendor_id_in_hex)
+    return vids
+
+
+def get_devices_with_vendor_id(vid):
+    &#34;&#34;&#34;Return a set of unique devices with the vendor id&#34;&#34;&#34;
+    sd = set()
+    for d in supported_devices:
+        if d.usb_vendor_id_in_hex == vid:
+            sd.add(d)
+    return sd
+
+
+def active_ports_on_supported_devices(sds, eliminate_duplicates=False):
+    &#34;&#34;&#34;Return a set of active ports based on the supplied supported devices&#34;&#34;&#34;
+    ports = set()
+    baseports = set()
+    system = platform.system()
+
+    # figure out what possible base ports there are
+    for d in sds:
+        if system == &#34;Linux&#34;:
+            baseports.add(d.baseport_on_linux)
+        elif system == &#34;Darwin&#34;:
+            baseports.add(d.baseport_on_mac)
+        elif system == &#34;Windows&#34;:
+            baseports.add(d.baseport_on_windows)
+
+    for bp in baseports:
+        if system == &#34;Linux&#34;:
+            # see if we have any devices (ignoring any stderr output)
+            command = f&#34;ls -al /dev/{bp}* 2&gt; /dev/null&#34;
+            # print(f&#39;command:{command}&#39;)
+            _, ls_output = subprocess.getstatusoutput(command)
+            # print(f&#39;ls_output:{ls_output}&#39;)
+            # if we got output, there are ports
+            if len(ls_output) &gt; 0:
+                # print(&#39;got output&#39;)
+                # for each line of output
+                lines = ls_output.split(&#34;\n&#34;)
+                # print(f&#39;lines:{lines}&#39;)
+                for line in lines:
+                    parts = line.split(&#34; &#34;)
+                    # print(f&#39;parts:{parts}&#39;)
+                    port = parts[-1]
+                    # print(f&#39;port:{port}&#39;)
+                    ports.add(port)
+        elif system == &#34;Darwin&#34;:
+            # see if we have any devices (ignoring any stderr output)
+            command = f&#34;ls -al /dev/{bp}* 2&gt; /dev/null&#34;
+            # print(f&#39;command:{command}&#39;)
+            _, ls_output = subprocess.getstatusoutput(command)
+            # print(f&#39;ls_output:{ls_output}&#39;)
+            # if we got output, there are ports
+            if len(ls_output) &gt; 0:
+                # print(&#39;got output&#39;)
+                # for each line of output
+                lines = ls_output.split(&#34;\n&#34;)
+                # print(f&#39;lines:{lines}&#39;)
+                for line in lines:
+                    parts = line.split(&#34; &#34;)
+                    # print(f&#39;parts:{parts}&#39;)
+                    port = parts[-1]
+                    # print(f&#39;port:{port}&#39;)
+                    ports.add(port)
+        elif system == &#34;Windows&#34;:
+            # for each device in supported devices found
+            for d in sds:
+                # find the port(s)
+                com_ports = detect_windows_port(d)
+                # print(f&#39;com_ports:{com_ports}&#39;)
+                # add all ports
+                for com_port in com_ports:
+                    ports.add(com_port)
+    if eliminate_duplicates:
+        ports = eliminate_duplicate_port(list(ports))
+        ports.sort()
+        ports = set(ports)
+    return ports
+
+
+def detect_windows_port(sd):
+    &#34;&#34;&#34;detect if Windows port&#34;&#34;&#34;
+    ports = set()
+
+    if sd:
+        system = platform.system()
+
+        if system == &#34;Windows&#34;:
+            command = (
+                &#39;powershell.exe &#34;[Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8;&#39;
+                &#34;Get-PnpDevice -PresentOnly | Where-Object{ ($_.DeviceId -like &#34;
+            )
+            command += f&#34;&#39;*{sd.usb_vendor_id_in_hex.upper()}*&#39;&#34;
+            command += &#39;)} | Format-List&#34;&#39;
+
+            # print(f&#39;command:{command}&#39;)
+            _, sp_output = subprocess.getstatusoutput(command)
+            # print(f&#39;sp_output:{sp_output}&#39;)
+            p = re.compile(r&#34;\(COM(.*)\)&#34;)
+            for x in p.findall(sp_output):
+                # print(f&#39;x:{x}&#39;)
+                ports.add(f&#34;COM{x}&#34;)
+    return ports
+
+
+def check_if_newer_version():
+    &#34;&#34;&#34;Check pip to see if we are running the latest version.&#34;&#34;&#34;
+    pypi_version = None
+    try:
+        url = &#34;https://pypi.org/pypi/meshtastic/json&#34;
+        data = requests.get(url, timeout=5).json()
+        pypi_version = data[&#34;info&#34;][&#34;version&#34;]
+    except Exception:
+        pass
+    act_version = get_active_version()
+
+    try:
+        parsed_act_version = pkg_version.parse(act_version)
+        parsed_pypi_version = pkg_version.parse(pypi_version)
+    except pkg_version.InvalidVersion:
+        return pypi_version
+
+    if parsed_pypi_version &lt;= parsed_act_version:
+        return None
+
+    return pypi_version
+
+
+def message_to_json(message: Message, multiline: bool=False) -&gt; str:
+    &#34;&#34;&#34;Return protobuf message as JSON. Always print all fields, even when not present in data.&#34;&#34;&#34;
+    json = MessageToJson(message, always_print_fields_with_no_presence=True)
+    return stripnl(json) if not multiline else json</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="meshtastic.util.blacklistVids"><code class="name">var <span class="ident">blacklistVids</span></code></dt>
+<dd>
+<div class="desc"><p>Some devices are highly likely to be meshtastic.
+0x239a RAK4631
+0x303a Heltec tracker</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="meshtastic.util.active_ports_on_supported_devices"><code class="name flex">
+<span>def <span class="ident">active_ports_on_supported_devices</span></span>(<span>sds, eliminate_duplicates=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a set of active ports based on the supplied supported devices</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def active_ports_on_supported_devices(sds, eliminate_duplicates=False):
+    &#34;&#34;&#34;Return a set of active ports based on the supplied supported devices&#34;&#34;&#34;
+    ports = set()
+    baseports = set()
+    system = platform.system()
+
+    # figure out what possible base ports there are
+    for d in sds:
+        if system == &#34;Linux&#34;:
+            baseports.add(d.baseport_on_linux)
+        elif system == &#34;Darwin&#34;:
+            baseports.add(d.baseport_on_mac)
+        elif system == &#34;Windows&#34;:
+            baseports.add(d.baseport_on_windows)
+
+    for bp in baseports:
+        if system == &#34;Linux&#34;:
+            # see if we have any devices (ignoring any stderr output)
+            command = f&#34;ls -al /dev/{bp}* 2&gt; /dev/null&#34;
+            # print(f&#39;command:{command}&#39;)
+            _, ls_output = subprocess.getstatusoutput(command)
+            # print(f&#39;ls_output:{ls_output}&#39;)
+            # if we got output, there are ports
+            if len(ls_output) &gt; 0:
+                # print(&#39;got output&#39;)
+                # for each line of output
+                lines = ls_output.split(&#34;\n&#34;)
+                # print(f&#39;lines:{lines}&#39;)
+                for line in lines:
+                    parts = line.split(&#34; &#34;)
+                    # print(f&#39;parts:{parts}&#39;)
+                    port = parts[-1]
+                    # print(f&#39;port:{port}&#39;)
+                    ports.add(port)
+        elif system == &#34;Darwin&#34;:
+            # see if we have any devices (ignoring any stderr output)
+            command = f&#34;ls -al /dev/{bp}* 2&gt; /dev/null&#34;
+            # print(f&#39;command:{command}&#39;)
+            _, ls_output = subprocess.getstatusoutput(command)
+            # print(f&#39;ls_output:{ls_output}&#39;)
+            # if we got output, there are ports
+            if len(ls_output) &gt; 0:
+                # print(&#39;got output&#39;)
+                # for each line of output
+                lines = ls_output.split(&#34;\n&#34;)
+                # print(f&#39;lines:{lines}&#39;)
+                for line in lines:
+                    parts = line.split(&#34; &#34;)
+                    # print(f&#39;parts:{parts}&#39;)
+                    port = parts[-1]
+                    # print(f&#39;port:{port}&#39;)
+                    ports.add(port)
+        elif system == &#34;Windows&#34;:
+            # for each device in supported devices found
+            for d in sds:
+                # find the port(s)
+                com_ports = detect_windows_port(d)
+                # print(f&#39;com_ports:{com_ports}&#39;)
+                # add all ports
+                for com_port in com_ports:
+                    ports.add(com_port)
+    if eliminate_duplicates:
+        ports = eliminate_duplicate_port(list(ports))
+        ports.sort()
+        ports = set(ports)
+    return ports</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.camel_to_snake"><code class="name flex">
+<span>def <span class="ident">camel_to_snake</span></span>(<span>a_string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>convert camelCase to snake_case</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def camel_to_snake(a_string):
+    &#34;&#34;&#34;convert camelCase to snake_case&#34;&#34;&#34;
+    return &#34;&#34;.join([&#34;_&#34; + i.lower() if i.isupper() else i for i in a_string]).lstrip(
+        &#34;_&#34;
+    )</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.catchAndIgnore"><code class="name flex">
+<span>def <span class="ident">catchAndIgnore</span></span>(<span>reason, closure)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Call a closure but if it throws an exception print it and continue</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def catchAndIgnore(reason, closure):
+    &#34;&#34;&#34;Call a closure but if it throws an exception print it and continue&#34;&#34;&#34;
+    try:
+        closure()
+    except BaseException as ex:
+        logging.error(f&#34;Exception thrown in {reason}: {ex}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.check_if_newer_version"><code class="name flex">
+<span>def <span class="ident">check_if_newer_version</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check pip to see if we are running the latest version.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_if_newer_version():
+    &#34;&#34;&#34;Check pip to see if we are running the latest version.&#34;&#34;&#34;
+    pypi_version = None
+    try:
+        url = &#34;https://pypi.org/pypi/meshtastic/json&#34;
+        data = requests.get(url, timeout=5).json()
+        pypi_version = data[&#34;info&#34;][&#34;version&#34;]
+    except Exception:
+        pass
+    act_version = get_active_version()
+
+    try:
+        parsed_act_version = pkg_version.parse(act_version)
+        parsed_pypi_version = pkg_version.parse(pypi_version)
+    except pkg_version.InvalidVersion:
+        return pypi_version
+
+    if parsed_pypi_version &lt;= parsed_act_version:
+        return None
+
+    return pypi_version</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.convert_mac_addr"><code class="name flex">
+<span>def <span class="ident">convert_mac_addr</span></span>(<span>val)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Convert the base 64 encoded value to a mac address
+val - base64 encoded value (ex: '/c0gFyhb'))
+returns: a string formatted like a mac address (ex: 'fd:cd:20:17:28:5b')</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_mac_addr(val):
+    &#34;&#34;&#34;Convert the base 64 encoded value to a mac address
+    val - base64 encoded value (ex: &#39;/c0gFyhb&#39;))
+    returns: a string formatted like a mac address (ex: &#39;fd:cd:20:17:28:5b&#39;)
+    &#34;&#34;&#34;
+    if not re.match(&#34;[0-9a-f]{2}([-:]?)[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$&#34;, val):
+        val_as_bytes = base64.b64decode(val)
+        return hexstr(val_as_bytes)
+    return val</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.detect_supported_devices"><code class="name flex">
+<span>def <span class="ident">detect_supported_devices</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>detect supported devices based on vendor id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_supported_devices():
+    &#34;&#34;&#34;detect supported devices based on vendor id&#34;&#34;&#34;
+    system = platform.system()
+    # print(f&#39;system:{system}&#39;)
+
+    possible_devices = set()
+    if system == &#34;Linux&#34;:
+        # if linux, run lsusb and list ports
+
+        # linux: use lsusb
+        # Bus 001 Device 091: ID 10c4:ea60 Silicon Labs CP210x UART Bridge
+        _, lsusb_output = subprocess.getstatusoutput(&#34;lsusb&#34;)
+        vids = get_unique_vendor_ids()
+        for vid in vids:
+            # print(f&#39;looking for {vid}...&#39;)
+            search = f&#34; {vid}:&#34;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, lsusb_output, re.MULTILINE):
+                # print(f&#39;Found vendor id that matches&#39;)
+                devices = get_devices_with_vendor_id(vid)
+                for device in devices:
+                    possible_devices.add(device)
+
+    elif system == &#34;Windows&#34;:
+        # if windows, run Get-PnpDevice
+        _, sp_output = subprocess.getstatusoutput(
+            &#39;powershell.exe &#34;[Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8;&#39;
+            &#39;Get-PnpDevice -PresentOnly | Format-List&#34;&#39;
+        )
+        # print(f&#39;sp_output:{sp_output}&#39;)
+        vids = get_unique_vendor_ids()
+        for vid in vids:
+            # print(f&#39;looking for {vid.upper()}...&#39;)
+            search = f&#34;DeviceID.*{vid.upper()}&amp;&#34;
+            # search = f&#39;{vid.upper()}&#39;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, sp_output, re.MULTILINE):
+                # print(f&#39;Found vendor id that matches&#39;)
+                devices = get_devices_with_vendor_id(vid)
+                for device in devices:
+                    possible_devices.add(device)
+
+    elif system == &#34;Darwin&#34;:
+        # run: system_profiler SPUSBDataType
+        # Note: If in boot mode, the 19003 reports same product ID as 5005.
+
+        _, sp_output = subprocess.getstatusoutput(&#34;system_profiler SPUSBDataType&#34;)
+        vids = get_unique_vendor_ids()
+        for vid in vids:
+            # print(f&#39;looking for {vid}...&#39;)
+            search = f&#34;Vendor ID: 0x{vid}&#34;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, sp_output, re.MULTILINE):
+                # print(f&#39;Found vendor id that matches&#39;)
+                devices = get_devices_with_vendor_id(vid)
+                for device in devices:
+                    possible_devices.add(device)
+    return possible_devices</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.detect_windows_needs_driver"><code class="name flex">
+<span>def <span class="ident">detect_windows_needs_driver</span></span>(<span>sd, print_reason=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>detect if Windows user needs to install driver for a supported device</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_windows_needs_driver(sd, print_reason=False):
+    &#34;&#34;&#34;detect if Windows user needs to install driver for a supported device&#34;&#34;&#34;
+    need_to_install_driver = False
+
+    if sd:
+        system = platform.system()
+        # print(f&#39;in detect_windows_needs_driver system:{system}&#39;)
+
+        if system == &#34;Windows&#34;:
+            # if windows, see if we can find a DeviceId with the vendor id
+            # Get-PnpDevice  | Where-Object{ ($_.DeviceId -like &#39;*10C4*&#39;)} | Format-List
+            command = &#39;powershell.exe &#34;[Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8; Get-PnpDevice | Where-Object{ ($_.DeviceId -like &#39;
+            command += f&#34;&#39;*{sd.usb_vendor_id_in_hex.upper()}*&#39;&#34;
+            command += &#39;)} | Format-List&#34;&#39;
+
+            # print(f&#39;command:{command}&#39;)
+            _, sp_output = subprocess.getstatusoutput(command)
+            # print(f&#39;sp_output:{sp_output}&#39;)
+            search = f&#34;CM_PROB_FAILED_INSTALL&#34;
+            # print(f&#39;search:&#34;{search}&#34;&#39;)
+            if re.search(search, sp_output, re.MULTILINE):
+                need_to_install_driver = True
+                # if the want to see the reason
+                if print_reason:
+                    print(sp_output)
+    return need_to_install_driver</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.detect_windows_port"><code class="name flex">
+<span>def <span class="ident">detect_windows_port</span></span>(<span>sd)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>detect if Windows port</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_windows_port(sd):
+    &#34;&#34;&#34;detect if Windows port&#34;&#34;&#34;
+    ports = set()
+
+    if sd:
+        system = platform.system()
+
+        if system == &#34;Windows&#34;:
+            command = (
+                &#39;powershell.exe &#34;[Console]::OutputEncoding = [Text.UTF8Encoding]::UTF8;&#39;
+                &#34;Get-PnpDevice -PresentOnly | Where-Object{ ($_.DeviceId -like &#34;
+            )
+            command += f&#34;&#39;*{sd.usb_vendor_id_in_hex.upper()}*&#39;&#34;
+            command += &#39;)} | Format-List&#34;&#39;
+
+            # print(f&#39;command:{command}&#39;)
+            _, sp_output = subprocess.getstatusoutput(command)
+            # print(f&#39;sp_output:{sp_output}&#39;)
+            p = re.compile(r&#34;\(COM(.*)\)&#34;)
+            for x in p.findall(sp_output):
+                # print(f&#39;x:{x}&#39;)
+                ports.add(f&#34;COM{x}&#34;)
+    return ports</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.eliminate_duplicate_port"><code class="name flex">
+<span>def <span class="ident">eliminate_duplicate_port</span></span>(<span>ports)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sometimes we detect 2 serial ports, but we really only need to use one of the ports.</p>
+<p>ports is a list of ports
+return a list with a single port to use, if it meets the duplicate port conditions</p>
+<p>examples:
+Ports: ['/dev/cu.usbserial-1430', '/dev/cu.wchusbserial1430'] =&gt; ['/dev/cu.wchusbserial1430']
+Ports: ['/dev/cu.usbmodem11301', '/dev/cu.wchusbserial11301'] =&gt; ['/dev/cu.wchusbserial11301']
+Ports: ['/dev/cu.SLAB_USBtoUART', '/dev/cu.usbserial-0001'] =&gt; ['/dev/cu.usbserial-0001']</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def eliminate_duplicate_port(ports):
+    &#34;&#34;&#34;Sometimes we detect 2 serial ports, but we really only need to use one of the ports.
+
+    ports is a list of ports
+    return a list with a single port to use, if it meets the duplicate port conditions
+
+     examples:
+         Ports: [&#39;/dev/cu.usbserial-1430&#39;, &#39;/dev/cu.wchusbserial1430&#39;] =&gt; [&#39;/dev/cu.wchusbserial1430&#39;]
+         Ports: [&#39;/dev/cu.usbmodem11301&#39;, &#39;/dev/cu.wchusbserial11301&#39;] =&gt; [&#39;/dev/cu.wchusbserial11301&#39;]
+         Ports: [&#39;/dev/cu.SLAB_USBtoUART&#39;, &#39;/dev/cu.usbserial-0001&#39;] =&gt; [&#39;/dev/cu.usbserial-0001&#39;]
+    &#34;&#34;&#34;
+    new_ports = []
+    if len(ports) != 2:
+        new_ports = ports
+    else:
+        ports.sort()
+        if &#34;usbserial&#34; in ports[0] and &#34;wchusbserial&#34; in ports[1]:
+            first = ports[0].replace(&#34;usbserial-&#34;, &#34;&#34;)
+            second = ports[1].replace(&#34;wchusbserial&#34;, &#34;&#34;)
+            if first == second:
+                new_ports.append(ports[1])
+        elif &#34;usbmodem&#34; in ports[0] and &#34;wchusbserial&#34; in ports[1]:
+            first = ports[0].replace(&#34;usbmodem&#34;, &#34;&#34;)
+            second = ports[1].replace(&#34;wchusbserial&#34;, &#34;&#34;)
+            if first == second:
+                new_ports.append(ports[1])
+        elif &#34;SLAB_USBtoUART&#34; in ports[0] and &#34;usbserial&#34; in ports[1]:
+            new_ports.append(ports[1])
+        else:
+            new_ports = ports
+    return new_ports</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.findPorts"><code class="name flex">
+<span>def <span class="ident">findPorts</span></span>(<span>eliminate_duplicates: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find all ports that might have meshtastic devices
+eliminate_duplicates will run the eliminate_duplicate_port() on the collection</p>
+<h2 id="returns">Returns</h2>
+<p>list &ndash; a list of device paths</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def findPorts(eliminate_duplicates: bool=False) -&gt; List[str]:
+    &#34;&#34;&#34;Find all ports that might have meshtastic devices
+       eliminate_duplicates will run the eliminate_duplicate_port() on the collection
+
+    Returns:
+        list -- a list of device paths
+    &#34;&#34;&#34;
+    all_ports = serial.tools.list_ports.comports()
+
+    # look for &#39;likely&#39; meshtastic devices
+    ports = list(
+        map(
+            lambda port: port.device,
+            filter(
+                lambda port: port.vid is not None and port.vid in whitelistVids,
+                all_ports,
+            ),
+        )
+    )
+
+    # if no likely devices, just list everything not blacklisted
+    if len(ports) == 0:
+        ports = list(
+            map(
+                lambda port: port.device,
+                filter(
+                    lambda port: port.vid is not None and port.vid not in blacklistVids,
+                    all_ports,
+                ),
+            )
+        )
+
+    ports.sort()
+    if eliminate_duplicates:
+        ports = eliminate_duplicate_port(ports)
+    return ports</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.fixme"><code class="name flex">
+<span>def <span class="ident">fixme</span></span>(<span>message)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Raise an exception for things that needs to be fixed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fixme(message):
+    &#34;&#34;&#34;Raise an exception for things that needs to be fixed&#34;&#34;&#34;
+    raise Exception(f&#34;FIXME: {message}&#34;) # pylint: disable=W0719</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.fromPSK"><code class="name flex">
+<span>def <span class="ident">fromPSK</span></span>(<span>valstr)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A special version of fromStr that assumes the user is trying to set a PSK.
+In that case we also allow "none", "default" or "random" (to have python generate one), or simpleN</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fromPSK(valstr):
+    &#34;&#34;&#34;A special version of fromStr that assumes the user is trying to set a PSK.
+    In that case we also allow &#34;none&#34;, &#34;default&#34; or &#34;random&#34; (to have python generate one), or simpleN
+    &#34;&#34;&#34;
+    if valstr == &#34;random&#34;:
+        return genPSK256()
+    elif valstr == &#34;none&#34;:
+        return bytes([0])  # Use the &#39;no encryption&#39; PSK
+    elif valstr == &#34;default&#34;:
+        return bytes([1])  # Use default channel psk
+    elif valstr.startswith(&#34;simple&#34;):
+        # Use one of the single byte encodings
+        return bytes([int(valstr[6:]) + 1])
+    else:
+        return fromStr(valstr)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.fromStr"><code class="name flex">
+<span>def <span class="ident">fromStr</span></span>(<span>valstr)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Try to parse as int, float or bool (and fallback to a string as last resort)</p>
+<p>Returns: an int, bool, float, str or byte array (for strings of hex digits)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>valstr</code></strong> :&ensp;<code>string</code></dt>
+<dd>A user provided string</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fromStr(valstr):
+    &#34;&#34;&#34;Try to parse as int, float or bool (and fallback to a string as last resort)
+
+    Returns: an int, bool, float, str or byte array (for strings of hex digits)
+
+    Args:
+        valstr (string): A user provided string
+    &#34;&#34;&#34;
+    if len(valstr) == 0:  # Treat an emptystring as an empty bytes
+        val = bytes()
+    elif valstr.startswith(&#34;0x&#34;):
+        # if needed convert to string with asBytes.decode(&#39;utf-8&#39;)
+        val = bytes.fromhex(valstr[2:].zfill(2))
+    elif valstr.startswith(&#34;base64:&#34;):
+        val = base64.b64decode(valstr[7:])
+    elif valstr.lower() in {&#34;t&#34;, &#34;true&#34;, &#34;yes&#34;}:
+        val = True
+    elif valstr.lower() in {&#34;f&#34;, &#34;false&#34;, &#34;no&#34;}:
+        val = False
+    else:
+        try:
+            val = int(valstr)
+        except ValueError:
+            try:
+                val = float(valstr)
+            except ValueError:
+                val = valstr  # Not a float or an int, assume string
+    return val</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.genPSK256"><code class="name flex">
+<span>def <span class="ident">genPSK256</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generate a random preshared key</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def genPSK256():
+    &#34;&#34;&#34;Generate a random preshared key&#34;&#34;&#34;
+    return os.urandom(32)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.get_devices_with_vendor_id"><code class="name flex">
+<span>def <span class="ident">get_devices_with_vendor_id</span></span>(<span>vid)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a set of unique devices with the vendor id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_devices_with_vendor_id(vid):
+    &#34;&#34;&#34;Return a set of unique devices with the vendor id&#34;&#34;&#34;
+    sd = set()
+    for d in supported_devices:
+        if d.usb_vendor_id_in_hex == vid:
+            sd.add(d)
+    return sd</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.get_unique_vendor_ids"><code class="name flex">
+<span>def <span class="ident">get_unique_vendor_ids</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a set of unique vendor ids</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_unique_vendor_ids():
+    &#34;&#34;&#34;Return a set of unique vendor ids&#34;&#34;&#34;
+    vids = set()
+    for d in supported_devices:
+        if d.usb_vendor_id_in_hex:
+            vids.add(d.usb_vendor_id_in_hex)
+    return vids</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.hexstr"><code class="name flex">
+<span>def <span class="ident">hexstr</span></span>(<span>barray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print a string of hex digits</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hexstr(barray):
+    &#34;&#34;&#34;Print a string of hex digits&#34;&#34;&#34;
+    return &#34;:&#34;.join(f&#34;{x:02x}&#34; for x in barray)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.ipstr"><code class="name flex">
+<span>def <span class="ident">ipstr</span></span>(<span>barray)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print a string of ip digits</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ipstr(barray):
+    &#34;&#34;&#34;Print a string of ip digits&#34;&#34;&#34;
+    return &#34;.&#34;.join(f&#34;{x}&#34; for x in barray)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.is_windows11"><code class="name flex">
+<span>def <span class="ident">is_windows11</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Detect if Windows 11</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_windows11():
+    &#34;&#34;&#34;Detect if Windows 11&#34;&#34;&#34;
+    is_win11 = False
+    if platform.system() == &#34;Windows&#34;:
+        if float(platform.release()) &gt;= 10.0:
+            patch = platform.version().split(&#34;.&#34;)[2]
+            # in case they add some number suffix later, just get first 5 chars of patch
+            patch = patch[:5]
+            try:
+                if int(patch) &gt;= 22000:
+                    is_win11 = True
+            except Exception as e:
+                print(f&#34;problem detecting win11 e:{e}&#34;)
+    return is_win11</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.message_to_json"><code class="name flex">
+<span>def <span class="ident">message_to_json</span></span>(<span>message: google.protobuf.message.Message, multiline: bool = False) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return protobuf message as JSON. Always print all fields, even when not present in data.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def message_to_json(message: Message, multiline: bool=False) -&gt; str:
+    &#34;&#34;&#34;Return protobuf message as JSON. Always print all fields, even when not present in data.&#34;&#34;&#34;
+    json = MessageToJson(message, always_print_fields_with_no_presence=True)
+    return stripnl(json) if not multiline else json</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.our_exit"><code class="name flex">
+<span>def <span class="ident">our_exit</span></span>(<span>message, return_value=1) ‑> NoReturn</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print the message and return a value.
+return_value defaults to 1 (non-successful)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def our_exit(message, return_value=1) -&gt; NoReturn:
+    &#34;&#34;&#34;Print the message and return a value.
+    return_value defaults to 1 (non-successful)
+    &#34;&#34;&#34;
+    print(message)
+    sys.exit(return_value)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.pskToString"><code class="name flex">
+<span>def <span class="ident">pskToString</span></span>(<span>psk: bytes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Given an array of PSK bytes, decode them into a human readable (but privacy protecting) string</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pskToString(psk: bytes):
+    &#34;&#34;&#34;Given an array of PSK bytes, decode them into a human readable (but privacy protecting) string&#34;&#34;&#34;
+    if len(psk) == 0:
+        return &#34;unencrypted&#34;
+    elif len(psk) == 1:
+        b = psk[0]
+        if b == 0:
+            return &#34;unencrypted&#34;
+        elif b == 1:
+            return &#34;default&#34;
+        else:
+            return f&#34;simple{b - 1}&#34;
+    else:
+        return &#34;secret&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.quoteBooleans"><code class="name flex">
+<span>def <span class="ident">quoteBooleans</span></span>(<span>a_string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Quote booleans
+given a string that contains ": true", replace with ": 'true'" (or false)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def quoteBooleans(a_string):
+    &#34;&#34;&#34;Quote booleans
+    given a string that contains &#34;: true&#34;, replace with &#34;: &#39;true&#39;&#34; (or false)
+    &#34;&#34;&#34;
+    tmp = a_string.replace(&#34;: true&#34;, &#34;: &#39;true&#39;&#34;)
+    tmp = tmp.replace(&#34;: false&#34;, &#34;: &#39;false&#39;&#34;)
+    return tmp</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.readnet_u16"><code class="name flex">
+<span>def <span class="ident">readnet_u16</span></span>(<span>p, offset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Read big endian u16 (network byte order)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def readnet_u16(p, offset):
+    &#34;&#34;&#34;Read big endian u16 (network byte order)&#34;&#34;&#34;
+    return p[offset] * 256 + p[offset + 1]</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.remove_keys_from_dict"><code class="name flex">
+<span>def <span class="ident">remove_keys_from_dict</span></span>(<span>keys, adict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return a dictionary without some keys in it.
+Will removed nested keys.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_keys_from_dict(keys, adict):
+    &#34;&#34;&#34;Return a dictionary without some keys in it.
+    Will removed nested keys.
+    &#34;&#34;&#34;
+    for key in keys:
+        try:
+            del adict[key]
+        except:
+            pass
+    for val in adict.values():
+        if isinstance(val, dict):
+            remove_keys_from_dict(keys, val)
+    return adict</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.snake_to_camel"><code class="name flex">
+<span>def <span class="ident">snake_to_camel</span></span>(<span>a_string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>convert snake_case to camelCase</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def snake_to_camel(a_string):
+    &#34;&#34;&#34;convert snake_case to camelCase&#34;&#34;&#34;
+    # split underscore using split
+    temp = a_string.split(&#34;_&#34;)
+    # joining result
+    result = temp[0] + &#34;&#34;.join(ele.title() for ele in temp[1:])
+    return result</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.stripnl"><code class="name flex">
+<span>def <span class="ident">stripnl</span></span>(<span>s) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove newlines from a string (and remove extra whitespace)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stripnl(s) -&gt; str:
+    &#34;&#34;&#34;Remove newlines from a string (and remove extra whitespace)&#34;&#34;&#34;
+    s = str(s).replace(&#34;\n&#34;, &#34; &#34;)
+    return &#34; &#34;.join(s.split())</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.support_info"><code class="name flex">
+<span>def <span class="ident">support_info</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print out info that helps troubleshooting of the cli.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def support_info():
+    &#34;&#34;&#34;Print out info that helps troubleshooting of the cli.&#34;&#34;&#34;
+    print(&#34;&#34;)
+    print(&#34;If having issues with meshtastic cli or python library&#34;)
+    print(&#34;or wish to make feature requests, visit:&#34;)
+    print(&#34;https://github.com/meshtastic/python/issues&#34;)
+    print(&#34;When adding an issue, be sure to include the following info:&#34;)
+    print(f&#34; System: {platform.system()}&#34;)
+    print(f&#34;   Platform: {platform.platform()}&#34;)
+    print(f&#34;   Release: {platform.uname().release}&#34;)
+    print(f&#34;   Machine: {platform.uname().machine}&#34;)
+    print(f&#34;   Encoding (stdin): {sys.stdin.encoding}&#34;)
+    print(f&#34;   Encoding (stdout): {sys.stdout.encoding}&#34;)
+    the_version = get_active_version()
+    pypi_version = check_if_newer_version()
+    if pypi_version:
+        print(
+            f&#34; meshtastic: v{the_version} (*** newer version v{pypi_version} available ***)&#34;
+        )
+    else:
+        print(f&#34; meshtastic: v{the_version}&#34;)
+    print(f&#34; Executable: {sys.argv[0]}&#34;)
+    print(
+        f&#34; Python: {platform.python_version()} {platform.python_implementation()} {platform.python_compiler()}&#34;
+    )
+    print(&#34;&#34;)
+    print(&#34;Please add the output from the command: meshtastic --info&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="meshtastic.util.Acknowledgment"><code class="flex name class">
+<span>class <span class="ident">Acknowledgment</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class that records which type of acknowledgment was just received, if any.</p>
+<p>initialize</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Acknowledgment:
+    &#34;A class that records which type of acknowledgment was just received, if any.&#34;
+
+    def __init__(self):
+        &#34;&#34;&#34;initialize&#34;&#34;&#34;
+        self.receivedAck = False
+        self.receivedNak = False
+        self.receivedImplAck = False
+        self.receivedTraceRoute = False
+        self.receivedTelemetry = False
+        self.receivedPosition = False
+
+    def reset(self):
+        &#34;&#34;&#34;reset&#34;&#34;&#34;
+        self.receivedAck = False
+        self.receivedNak = False
+        self.receivedImplAck = False
+        self.receivedTraceRoute = False
+        self.receivedTelemetry = False
+        self.receivedPosition = False</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.util.Acknowledgment.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>reset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;reset&#34;&#34;&#34;
+    self.receivedAck = False
+    self.receivedNak = False
+    self.receivedImplAck = False
+    self.receivedTraceRoute = False
+    self.receivedTelemetry = False
+    self.receivedPosition = False</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="meshtastic.util.DeferredExecution"><code class="flex name class">
+<span>class <span class="ident">DeferredExecution</span></span>
+<span>(</span><span>name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A thread that accepts closures to run, and runs them as they are received</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DeferredExecution:
+    &#34;&#34;&#34;A thread that accepts closures to run, and runs them as they are received&#34;&#34;&#34;
+
+    def __init__(self, name):
+        self.queue = Queue()
+        # this thread must be marked as daemon, otherwise it will prevent clients from exiting
+        self.thread = threading.Thread(target=self._run, args=(), name=name, daemon=True)
+        self.thread.daemon = True
+        self.thread.start()
+
+    def queueWork(self, runnable):
+        &#34;&#34;&#34;Queue up the work&#34;&#34;&#34;
+        self.queue.put(runnable)
+
+    def _run(self):
+        while True:
+            try:
+                o = self.queue.get()
+                o()
+            except:
+                logging.error(
+                    f&#34;Unexpected error in deferred execution {sys.exc_info()[0]}&#34;
+                )
+                print(traceback.format_exc())</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.util.DeferredExecution.queueWork"><code class="name flex">
+<span>def <span class="ident">queueWork</span></span>(<span>self, runnable)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Queue up the work</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def queueWork(self, runnable):
+    &#34;&#34;&#34;Queue up the work&#34;&#34;&#34;
+    self.queue.put(runnable)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="meshtastic.util.Timeout"><code class="flex name class">
+<span>class <span class="ident">Timeout</span></span>
+<span>(</span><span>maxSecs: int = 20)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Timeout class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Timeout:
+    &#34;&#34;&#34;Timeout class&#34;&#34;&#34;
+
+    def __init__(self, maxSecs: int=20):
+        self.expireTime: Union[int, float] = 0
+        self.sleepInterval: float = 0.1
+        self.expireTimeout: int = maxSecs
+
+    def reset(self):
+        &#34;&#34;&#34;Restart the waitForSet timer&#34;&#34;&#34;
+        self.expireTime = time.time() + self.expireTimeout
+
+    def waitForSet(self, target, attrs=()) -&gt; bool:
+        &#34;&#34;&#34;Block until the specified attributes are set. Returns True if config has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if all(map(lambda a: getattr(target, a, None), attrs)):
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForAckNak(
+        self, acknowledgment, attrs=(&#34;receivedAck&#34;, &#34;receivedNak&#34;, &#34;receivedImplAck&#34;)
+    ) -&gt; bool:
+        &#34;&#34;&#34;Block until an ACK or NAK has been received. Returns True if ACK or NAK has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if any(map(lambda a: getattr(acknowledgment, a, None), attrs)):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForTraceRoute(self, waitFactor, acknowledgment, attr=&#34;receivedTraceRoute&#34;) -&gt; bool:
+        &#34;&#34;&#34;Block until traceroute response is received. Returns True if traceroute response has been received.&#34;&#34;&#34;
+        self.expireTimeout *= waitFactor
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if getattr(acknowledgment, attr, None):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForTelemetry(self, acknowledgment) -&gt; bool:
+        &#34;&#34;&#34;Block until telemetry response is received. Returns True if telemetry response has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if getattr(acknowledgment, &#34;receivedTelemetry&#34;, None):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False
+
+    def waitForPosition(self, acknowledgment) -&gt; bool:
+        &#34;&#34;&#34;Block until position response is received. Returns True if position response has been received.&#34;&#34;&#34;
+        self.reset()
+        while time.time() &lt; self.expireTime:
+            if getattr(acknowledgment, &#34;receivedPosition&#34;, None):
+                acknowledgment.reset()
+                return True
+            time.sleep(self.sleepInterval)
+        return False</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.util.Timeout.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Restart the waitForSet timer</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Restart the waitForSet timer&#34;&#34;&#34;
+    self.expireTime = time.time() + self.expireTimeout</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.Timeout.waitForAckNak"><code class="name flex">
+<span>def <span class="ident">waitForAckNak</span></span>(<span>self, acknowledgment, attrs=('receivedAck', 'receivedNak', 'receivedImplAck')) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block until an ACK or NAK has been received. Returns True if ACK or NAK has been received.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def waitForAckNak(
+    self, acknowledgment, attrs=(&#34;receivedAck&#34;, &#34;receivedNak&#34;, &#34;receivedImplAck&#34;)
+) -&gt; bool:
+    &#34;&#34;&#34;Block until an ACK or NAK has been received. Returns True if ACK or NAK has been received.&#34;&#34;&#34;
+    self.reset()
+    while time.time() &lt; self.expireTime:
+        if any(map(lambda a: getattr(acknowledgment, a, None), attrs)):
+            acknowledgment.reset()
+            return True
+        time.sleep(self.sleepInterval)
+    return False</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.Timeout.waitForPosition"><code class="name flex">
+<span>def <span class="ident">waitForPosition</span></span>(<span>self, acknowledgment) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block until position response is received. Returns True if position response has been received.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def waitForPosition(self, acknowledgment) -&gt; bool:
+    &#34;&#34;&#34;Block until position response is received. Returns True if position response has been received.&#34;&#34;&#34;
+    self.reset()
+    while time.time() &lt; self.expireTime:
+        if getattr(acknowledgment, &#34;receivedPosition&#34;, None):
+            acknowledgment.reset()
+            return True
+        time.sleep(self.sleepInterval)
+    return False</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.Timeout.waitForSet"><code class="name flex">
+<span>def <span class="ident">waitForSet</span></span>(<span>self, target, attrs=()) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block until the specified attributes are set. Returns True if config has been received.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def waitForSet(self, target, attrs=()) -&gt; bool:
+    &#34;&#34;&#34;Block until the specified attributes are set. Returns True if config has been received.&#34;&#34;&#34;
+    self.reset()
+    while time.time() &lt; self.expireTime:
+        if all(map(lambda a: getattr(target, a, None), attrs)):
+            return True
+        time.sleep(self.sleepInterval)
+    return False</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.Timeout.waitForTelemetry"><code class="name flex">
+<span>def <span class="ident">waitForTelemetry</span></span>(<span>self, acknowledgment) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block until telemetry response is received. Returns True if telemetry response has been received.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def waitForTelemetry(self, acknowledgment) -&gt; bool:
+    &#34;&#34;&#34;Block until telemetry response is received. Returns True if telemetry response has been received.&#34;&#34;&#34;
+    self.reset()
+    while time.time() &lt; self.expireTime:
+        if getattr(acknowledgment, &#34;receivedTelemetry&#34;, None):
+            acknowledgment.reset()
+            return True
+        time.sleep(self.sleepInterval)
+    return False</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.util.Timeout.waitForTraceRoute"><code class="name flex">
+<span>def <span class="ident">waitForTraceRoute</span></span>(<span>self, waitFactor, acknowledgment, attr='receivedTraceRoute') ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Block until traceroute response is received. Returns True if traceroute response has been received.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def waitForTraceRoute(self, waitFactor, acknowledgment, attr=&#34;receivedTraceRoute&#34;) -&gt; bool:
+    &#34;&#34;&#34;Block until traceroute response is received. Returns True if traceroute response has been received.&#34;&#34;&#34;
+    self.expireTimeout *= waitFactor
+    self.reset()
+    while time.time() &lt; self.expireTime:
+        if getattr(acknowledgment, attr, None):
+            acknowledgment.reset()
+            return True
+        time.sleep(self.sleepInterval)
+    return False</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="meshtastic.util.dotdict"><code class="flex name class">
+<span>class <span class="ident">dotdict</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>dot.notation access to dictionary attributes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class dotdict(dict):
+    &#34;&#34;&#34;dot.notation access to dictionary attributes&#34;&#34;&#34;
+
+    __getattr__ = dict.get
+    __setattr__ = dict.__setitem__ # type: ignore[assignment]
+    __delattr__ = dict.__delitem__ # type: ignore[assignment]</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic" href="index.html">meshtastic</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="meshtastic.util.blacklistVids" href="#meshtastic.util.blacklistVids">blacklistVids</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="meshtastic.util.active_ports_on_supported_devices" href="#meshtastic.util.active_ports_on_supported_devices">active_ports_on_supported_devices</a></code></li>
+<li><code><a title="meshtastic.util.camel_to_snake" href="#meshtastic.util.camel_to_snake">camel_to_snake</a></code></li>
+<li><code><a title="meshtastic.util.catchAndIgnore" href="#meshtastic.util.catchAndIgnore">catchAndIgnore</a></code></li>
+<li><code><a title="meshtastic.util.check_if_newer_version" href="#meshtastic.util.check_if_newer_version">check_if_newer_version</a></code></li>
+<li><code><a title="meshtastic.util.convert_mac_addr" href="#meshtastic.util.convert_mac_addr">convert_mac_addr</a></code></li>
+<li><code><a title="meshtastic.util.detect_supported_devices" href="#meshtastic.util.detect_supported_devices">detect_supported_devices</a></code></li>
+<li><code><a title="meshtastic.util.detect_windows_needs_driver" href="#meshtastic.util.detect_windows_needs_driver">detect_windows_needs_driver</a></code></li>
+<li><code><a title="meshtastic.util.detect_windows_port" href="#meshtastic.util.detect_windows_port">detect_windows_port</a></code></li>
+<li><code><a title="meshtastic.util.eliminate_duplicate_port" href="#meshtastic.util.eliminate_duplicate_port">eliminate_duplicate_port</a></code></li>
+<li><code><a title="meshtastic.util.findPorts" href="#meshtastic.util.findPorts">findPorts</a></code></li>
+<li><code><a title="meshtastic.util.fixme" href="#meshtastic.util.fixme">fixme</a></code></li>
+<li><code><a title="meshtastic.util.fromPSK" href="#meshtastic.util.fromPSK">fromPSK</a></code></li>
+<li><code><a title="meshtastic.util.fromStr" href="#meshtastic.util.fromStr">fromStr</a></code></li>
+<li><code><a title="meshtastic.util.genPSK256" href="#meshtastic.util.genPSK256">genPSK256</a></code></li>
+<li><code><a title="meshtastic.util.get_devices_with_vendor_id" href="#meshtastic.util.get_devices_with_vendor_id">get_devices_with_vendor_id</a></code></li>
+<li><code><a title="meshtastic.util.get_unique_vendor_ids" href="#meshtastic.util.get_unique_vendor_ids">get_unique_vendor_ids</a></code></li>
+<li><code><a title="meshtastic.util.hexstr" href="#meshtastic.util.hexstr">hexstr</a></code></li>
+<li><code><a title="meshtastic.util.ipstr" href="#meshtastic.util.ipstr">ipstr</a></code></li>
+<li><code><a title="meshtastic.util.is_windows11" href="#meshtastic.util.is_windows11">is_windows11</a></code></li>
+<li><code><a title="meshtastic.util.message_to_json" href="#meshtastic.util.message_to_json">message_to_json</a></code></li>
+<li><code><a title="meshtastic.util.our_exit" href="#meshtastic.util.our_exit">our_exit</a></code></li>
+<li><code><a title="meshtastic.util.pskToString" href="#meshtastic.util.pskToString">pskToString</a></code></li>
+<li><code><a title="meshtastic.util.quoteBooleans" href="#meshtastic.util.quoteBooleans">quoteBooleans</a></code></li>
+<li><code><a title="meshtastic.util.readnet_u16" href="#meshtastic.util.readnet_u16">readnet_u16</a></code></li>
+<li><code><a title="meshtastic.util.remove_keys_from_dict" href="#meshtastic.util.remove_keys_from_dict">remove_keys_from_dict</a></code></li>
+<li><code><a title="meshtastic.util.snake_to_camel" href="#meshtastic.util.snake_to_camel">snake_to_camel</a></code></li>
+<li><code><a title="meshtastic.util.stripnl" href="#meshtastic.util.stripnl">stripnl</a></code></li>
+<li><code><a title="meshtastic.util.support_info" href="#meshtastic.util.support_info">support_info</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="meshtastic.util.Acknowledgment" href="#meshtastic.util.Acknowledgment">Acknowledgment</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.util.Acknowledgment.reset" href="#meshtastic.util.Acknowledgment.reset">reset</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="meshtastic.util.DeferredExecution" href="#meshtastic.util.DeferredExecution">DeferredExecution</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.util.DeferredExecution.queueWork" href="#meshtastic.util.DeferredExecution.queueWork">queueWork</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="meshtastic.util.Timeout" href="#meshtastic.util.Timeout">Timeout</a></code></h4>
+<ul class="two-column">
+<li><code><a title="meshtastic.util.Timeout.reset" href="#meshtastic.util.Timeout.reset">reset</a></code></li>
+<li><code><a title="meshtastic.util.Timeout.waitForAckNak" href="#meshtastic.util.Timeout.waitForAckNak">waitForAckNak</a></code></li>
+<li><code><a title="meshtastic.util.Timeout.waitForPosition" href="#meshtastic.util.Timeout.waitForPosition">waitForPosition</a></code></li>
+<li><code><a title="meshtastic.util.Timeout.waitForSet" href="#meshtastic.util.Timeout.waitForSet">waitForSet</a></code></li>
+<li><code><a title="meshtastic.util.Timeout.waitForTelemetry" href="#meshtastic.util.Timeout.waitForTelemetry">waitForTelemetry</a></code></li>
+<li><code><a title="meshtastic.util.Timeout.waitForTraceRoute" href="#meshtastic.util.Timeout.waitForTraceRoute">waitForTraceRoute</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="meshtastic.util.dotdict" href="#meshtastic.util.dotdict">dotdict</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

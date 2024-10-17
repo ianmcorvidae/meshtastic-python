@@ -1,0 +1,1939 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.tests.test_mesh_interface API documentation</title>
+<meta name="description" content="Meshtastic unit tests for mesh_interface.py" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.tests.test_mesh_interface</code></h1>
+</header>
+<section id="section-intro">
+<p>Meshtastic unit tests for mesh_interface.py</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Meshtastic unit tests for mesh_interface.py&#34;&#34;&#34;
+
+import logging
+import re
+from unittest.mock import MagicMock, patch
+
+import pytest
+from hypothesis import given, strategies as st
+
+from ..protobuf import mesh_pb2, config_pb2
+from .. import BROADCAST_ADDR, LOCAL_ADDR
+from ..mesh_interface import MeshInterface, _timeago
+from ..node import Node
+from ..slog import LogSet
+from ..powermon import SimPowerSupply
+
+# TODO
+# from ..config import Config
+from ..util import Timeout
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_MeshInterface(capsys):
+    &#34;&#34;&#34;Test that we can instantiate a MeshInterface&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+
+    NODE_ID = &#34;!9388f81c&#34;
+    NODE_NUM = 2475227164
+    node = {
+            &#34;num&#34;: NODE_NUM,
+            &#34;user&#34;: {
+                &#34;id&#34;: NODE_ID,
+                &#34;longName&#34;: &#34;Unknown f81c&#34;,
+                &#34;shortName&#34;: &#34;?1C&#34;,
+                &#34;macaddr&#34;: &#34;RBeTiPgc&#34;,
+                &#34;hwModel&#34;: &#34;TBEAM&#34;,
+            },
+            &#34;position&#34;: {},
+            &#34;lastHeard&#34;: 1640204888,
+        }
+
+
+    iface.nodes = {NODE_ID: node}
+    iface.nodesByNum = {NODE_NUM: node}
+
+    myInfo = MagicMock()
+    iface.myInfo = myInfo
+
+    iface.localNode.localConfig.lora.CopyFrom(config_pb2.Config.LoRaConfig())
+
+    # Also get some coverage of the structured logging/power meter stuff by turning it on as well
+    log_set = LogSet(iface, None, SimPowerSupply())
+
+    iface.showInfo()
+    iface.localNode.showInfo()
+    iface.showNodes()
+    iface.sendText(&#34;hello&#34;)
+    iface.close()
+    log_set.close()
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Owner: None \(None\)&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Nodes&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Preferences&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Channels&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Primary channel URL&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getMyUser(iface_with_nodes):
+    &#34;&#34;&#34;Test getMyUser()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    myuser = iface.getMyUser()
+    assert myuser is not None
+    assert myuser[&#34;id&#34;] == &#34;!9388f81c&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getLongName(iface_with_nodes):
+    &#34;&#34;&#34;Test getLongName()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    mylongname = iface.getLongName()
+    assert mylongname == &#34;Unknown f81c&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getShortName(iface_with_nodes):
+    &#34;&#34;&#34;Test getShortName().&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    myshortname = iface.getShortName()
+    assert myshortname == &#34;?1C&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handlePacketFromRadio_no_from(capsys):
+    &#34;&#34;&#34;Test _handlePacketFromRadio with no &#39;from&#39; in the mesh packet.&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    meshPacket = mesh_pb2.MeshPacket()
+    iface._handlePacketFromRadio(meshPacket)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Device returned a packet we sent, ignoring&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handlePacketFromRadio_with_a_portnum(caplog):
+    &#34;&#34;&#34;Test _handlePacketFromRadio with a portnum
+    Since we have an attribute called &#39;from&#39;, we cannot simply &#39;set&#39; it.
+    Had to implement a hack just to be able to test some code.
+    &#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    meshPacket = mesh_pb2.MeshPacket()
+    meshPacket.decoded.payload = b&#34;&#34;
+    meshPacket.decoded.portnum = 1
+    with caplog.at_level(logging.WARNING):
+        iface._handlePacketFromRadio(meshPacket, hack=True)
+    assert re.search(r&#34;Not populating fromId&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handlePacketFromRadio_no_portnum(caplog):
+    &#34;&#34;&#34;Test _handlePacketFromRadio without a portnum&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    meshPacket = mesh_pb2.MeshPacket()
+    meshPacket.decoded.payload = b&#34;&#34;
+    with caplog.at_level(logging.WARNING):
+        iface._handlePacketFromRadio(meshPacket, hack=True)
+    assert re.search(r&#34;Not populating fromId&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_with_local():
+    &#34;&#34;&#34;Test getNode&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = iface.getNode(LOCAL_ADDR)
+    assert anode == iface.localNode
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_not_local(caplog):
+    &#34;&#34;&#34;Test getNode not local&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = MagicMock(autospec=Node)
+    with caplog.at_level(logging.DEBUG):
+        with patch(&#34;meshtastic.node.Node&#34;, return_value=anode):
+            another_node = iface.getNode(&#34;bar2&#34;)
+            assert another_node != iface.localNode
+    assert re.search(r&#34;About to requestChannels&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_not_local_timeout(capsys):
+    &#34;&#34;&#34;Test getNode not local, simulate timeout&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = MagicMock(autospec=Node)
+    anode.waitForConfig.return_value = False
+    with patch(&#34;meshtastic.node.Node&#34;, return_value=anode):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            iface.getNode(&#34;bar2&#34;)
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 1
+        out, err = capsys.readouterr()
+        assert re.match(r&#34;Timed out trying to retrieve channel info, retrying&#34;, out)
+        assert err == &#34;&#34;
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_not_local_timeout_attempts(capsys):
+    &#34;&#34;&#34;Test getNode not local, simulate timeout&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = MagicMock(autospec=Node)
+    anode.waitForConfig.return_value = False
+    with patch(&#34;meshtastic.node.Node&#34;, return_value=anode):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            iface.getNode(&#34;bar2&#34;, requestChannelAttempts=2)
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 1
+        out, err = capsys.readouterr()
+        assert out == &#39;Timed out trying to retrieve channel info, retrying\nError: Timed out waiting for channels, giving up\n&#39;
+        assert err == &#34;&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPosition(caplog):
+    &#34;&#34;&#34;Test sendPosition&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface.sendPosition()
+    iface.close()
+    # assert re.search(r&#34;p.time:&#34;, caplog.text, re.MULTILINE)
+
+
+# TODO
+# @pytest.mark.unit
+# @pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+# def test_close_with_heartbeatTimer(caplog):
+#    &#34;&#34;&#34;Test close() with heartbeatTimer&#34;&#34;&#34;
+#    iface = MeshInterface(noProto=True)
+#    anode = Node(&#39;foo&#39;, &#39;bar&#39;)
+#    aconfig = Config()
+#    aonfig.preferences.phone_timeout_secs = 10
+#    anode.config = aconfig
+#    iface.localNode = anode
+#    assert iface.heartbeatTimer is None
+#    with caplog.at_level(logging.DEBUG):
+#        iface._startHeartbeat()
+#        assert iface.heartbeatTimer is not None
+#        iface.close()
+
+
+# TODO
+# @pytest.mark.unit
+# @pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+# def test_handleFromRadio_empty_payload(caplog):
+#    &#34;&#34;&#34;Test _handleFromRadio&#34;&#34;&#34;
+#    iface = MeshInterface(noProto=True)
+#    with caplog.at_level(logging.DEBUG):
+#        iface._handleFromRadio(b&#39;&#39;)
+#    iface.close()
+#    assert re.search(r&#39;Unexpected FromRadio payload&#39;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_my_info(caplog):
+    &#34;&#34;&#34;Test _handleFromRadio with my_info&#34;&#34;&#34;
+    # Note: I captured the &#39;--debug --info&#39; for the bytes below.
+    # It &#34;translates&#34; to this:
+    # my_info {
+    #  my_node_num: 682584012
+    #  firmware_version: &#34;1.2.49.5354c49&#34;
+    #  reboot_count: 13
+    #  bitrate: 17.088470458984375
+    #  message_timeout_msec: 300000
+    #  min_app_version: 20200
+    #  max_channels: 8
+    #  has_wifi: true
+    # }
+    from_radio_bytes = b&#34;\x1a,\x08\xcc\xcf\xbd\xc5\x02\x18\r2\x0e1.2.49.5354c49P\r]0\xb5\x88Ah\xe0\xa7\x12p\xe8\x9d\x01x\x08\x90\x01\x01&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._handleFromRadio(from_radio_bytes)
+    iface.close()
+    assert re.search(r&#34;Received from radio: my_info {&#34;, caplog.text, re.MULTILINE)
+    assert re.search(r&#34;my_node_num: 682584012&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_node_info(caplog, capsys):
+    &#34;&#34;&#34;Test _handleFromRadio with node_info&#34;&#34;&#34;
+    # Note: I captured the &#39;--debug --info&#39; for the bytes below.
+    # It &#34;translates&#34; to this:
+    # node_info {
+    #  num: 682584012
+    #  user {
+    #    id: &#34;!28af67cc&#34;
+    #    long_name: &#34;Unknown 67cc&#34;
+    #    short_name: &#34;?CC&#34;
+    #    macaddr: &#34;$o(\257g\314&#34;
+    #    hw_model: HELTEC_V2_1
+    #  }
+    #  position {
+    #    }
+    #  }
+
+    from_radio_bytes = b&#39;&#34;2\x08\xcc\xcf\xbd\xc5\x02\x12(\n\t!28af67cc\x12\x0cUnknown 67cc\x1a\x03?CC&#34;\x06$o(\xafg\xcc0\n\x1a\x00&#39;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._startConfig()
+        iface._handleFromRadio(from_radio_bytes)
+        assert re.search(r&#34;Received from radio: node_info {&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;682584012&#34;, caplog.text, re.MULTILINE)
+        # validate some of showNodes() output
+        iface.showNodes()
+        out, err = capsys.readouterr()
+        assert re.search(r&#34; 1 &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│ Unknown 67cc │ &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│\s+!28af67cc\s+│\s+67cc\s+|&#34;, out, re.MULTILINE)
+        assert err == &#34;&#34;
+        iface.close()
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_node_info_tbeam1(caplog, capsys):
+    &#34;&#34;&#34;Test _handleFromRadio with node_info&#34;&#34;&#34;
+    # Note: Captured the &#39;--debug --info&#39; for the bytes below.
+    # pylint: disable=C0301
+    from_radio_bytes = b&#39;&#34;=\x08\x80\xf8\xc8\xf6\x07\x12&#34;\n\t!7ed23c00\x12\x07TBeam 1\x1a\x02T1&#34;\x06\x94\xb9~\xd2&lt;\x000\x04\x1a\x07 ]MN\x01\xbea%\xad\x01\xbea=\x00\x00,A&#39;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._startConfig()
+        iface._handleFromRadio(from_radio_bytes)
+        assert re.search(r&#34;Received nodeinfo&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;TBeam 1&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;2127707136&#34;, caplog.text, re.MULTILINE)
+        # validate some of showNodes() output
+        iface.showNodes()
+        out, err = capsys.readouterr()
+        assert re.search(r&#34; 1 &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│ TBeam 1 │ &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│ !7ed23c00 │&#34;, out, re.MULTILINE)
+        assert err == &#34;&#34;
+        iface.close()
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_node_info_tbeam_with_bad_data(caplog):
+    &#34;&#34;&#34;Test _handleFromRadio with node_info with some bad data (issue#172) - ensure we do not throw exception&#34;&#34;&#34;
+    # Note: Captured the &#39;--debug --info&#39; for the bytes below.
+    from_radio_bytes = b&#39;&#34;\x17\x08\xdc\x8a\x8a\xae\x02\x12\x08&#34;\x06\x00\x00\x00\x00\x00\x00\x1a\x00=\x00\x00\xb8@&#39;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._startConfig()
+        iface._handleFromRadio(from_radio_bytes)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_MeshInterface_sendToRadioImpl(caplog):
+    &#34;&#34;&#34;Test _sendToRadioImp()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._sendToRadioImpl(&#34;foo&#34;)
+    assert re.search(r&#34;Subclass must provide toradio&#34;, caplog.text, re.MULTILINE)
+    iface.close()
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_MeshInterface_sendToRadio_no_proto(caplog):
+    &#34;&#34;&#34;Test sendToRadio()&#34;&#34;&#34;
+    iface = MeshInterface()
+    with caplog.at_level(logging.DEBUG):
+        iface._sendToRadioImpl(&#34;foo&#34;)
+    assert re.search(r&#34;Subclass must provide toradio&#34;, caplog.text, re.MULTILINE)
+    iface.close()
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendData_too_long(caplog):
+    &#34;&#34;&#34;Test when data payload is too big&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    some_large_text = b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    with caplog.at_level(logging.DEBUG):
+        with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+            iface.sendData(some_large_text)
+            assert re.search(&#34;Data payload too big&#34;, caplog.text, re.MULTILINE)
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+    iface.close()
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendData_unknown_app(capsys):
+    &#34;&#34;&#34;Test sendData when unknown app&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        iface.sendData(b&#34;hello&#34;, portNum=0)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Warning: A non-zero port number&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPosition_with_a_position(caplog):
+    &#34;&#34;&#34;Test sendPosition when lat/long/alt&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface.sendPosition(latitude=40.8, longitude=-111.86, altitude=201)
+        assert re.search(r&#34;p.latitude_i:408&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;p.longitude_i:-11186&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;p.altitude:201&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_no_destination(capsys):
+    &#34;&#34;&#34;Test _sendPacket()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        iface._sendPacket(b&#34;&#34;, destinationId=None)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Warning: destinationId must not be None&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_int(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with int as a destination&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=123)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_starting_with_a_bang(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with int as a destination&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=&#34;!1234&#34;)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_BROADCAST_ADDR(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with BROADCAST_ADDR as a destination&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=BROADCAST_ADDR)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo(capsys):
+    &#34;&#34;&#34;Test _sendPacket() with LOCAL_ADDR as a destination with no myInfo&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=LOCAL_ADDR)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Warning: No myInfo&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with LOCAL_ADDR as a destination with myInfo&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    myInfo = MagicMock()
+    iface.myInfo = myInfo
+    iface.myInfo.my_node_num = 1
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=LOCAL_ADDR)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_is_blank_with_nodes(capsys, iface_with_nodes):
+    &#34;&#34;&#34;Test _sendPacket() with &#39;&#39; as a destination with myInfo&#34;&#34;&#34;
+    iface = iface_with_nodes
+    meshPacket = mesh_pb2.MeshPacket()
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        iface._sendPacket(meshPacket, destinationId=&#34;&#34;)
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1
+    out, err = capsys.readouterr()
+    assert re.match(r&#34;Warning: NodeId  not found in DB&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_is_blank_without_nodes(caplog, iface_with_nodes):
+    &#34;&#34;&#34;Test _sendPacket() with &#39;&#39; as a destination with myInfo&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.nodes = None
+    meshPacket = mesh_pb2.MeshPacket()
+    with caplog.at_level(logging.WARNING):
+        iface._sendPacket(meshPacket, destinationId=&#34;&#34;)
+    assert re.search(r&#34;Warning: There were no self.nodes.&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getMyNodeInfo():
+    &#34;&#34;&#34;Test getMyNodeInfo()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = iface.getNode(LOCAL_ADDR)
+    iface.nodesByNum = {1: anode}
+    assert iface.nodesByNum.get(1) == anode
+    myInfo = MagicMock()
+    iface.myInfo = myInfo
+    iface.myInfo.my_node_num = 1
+    myinfo = iface.getMyNodeInfo()
+    assert myinfo == anode
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_generatePacketId(capsys):
+    &#34;&#34;&#34;Test _generatePacketId() when no currentPacketId (not connected)&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    # not sure when this condition would ever happen... but we can simulate it
+    iface.currentPacketId = None
+    assert iface.currentPacketId is None
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface._generatePacketId()
+        out, err = capsys.readouterr()
+        assert re.search(
+            r&#34;Not connected yet, can not generate packet&#34;, out, re.MULTILINE
+        )
+        assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_fixupPosition_empty_pos():
+    &#34;&#34;&#34;Test _fixupPosition()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    pos = {}
+    newpos = iface._fixupPosition(pos)
+    assert newpos == pos
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_fixupPosition_no_changes_needed():
+    &#34;&#34;&#34;Test _fixupPosition()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    pos = {&#34;latitude&#34;: 101, &#34;longitude&#34;: 102}
+    newpos = iface._fixupPosition(pos)
+    assert newpos == pos
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_fixupPosition():
+    &#34;&#34;&#34;Test _fixupPosition()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    pos = {&#34;latitudeI&#34;: 1010000000, &#34;longitudeI&#34;: 1020000000}
+    newpos = iface._fixupPosition(pos)
+    assert newpos == {
+        &#34;latitude&#34;: 101.0,
+        &#34;latitudeI&#34;: 1010000000,
+        &#34;longitude&#34;: 102.0,
+        &#34;longitudeI&#34;: 1020000000,
+    }
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_nodeNumToId(iface_with_nodes):
+    &#34;&#34;&#34;Test _nodeNumToId()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    someid = iface._nodeNumToId(2475227164)
+    assert someid == &#34;!9388f81c&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_nodeNumToId_not_found(iface_with_nodes):
+    &#34;&#34;&#34;Test _nodeNumToId()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    someid = iface._nodeNumToId(123)
+    assert someid is None
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_nodeNumToId_to_all(iface_with_nodes):
+    &#34;&#34;&#34;Test _nodeNumToId()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    someid = iface._nodeNumToId(0xFFFFFFFF)
+    assert someid == &#34;^all&#34;
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getOrCreateByNum_minimal(iface_with_nodes):
+    &#34;&#34;&#34;Test _getOrCreateByNum()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    tmp = iface._getOrCreateByNum(123)
+    assert tmp == {&#34;num&#34;: 123, &#34;user&#34;: {&#34;hwModel&#34;: &#34;UNSET&#34;, &#34;id&#34;: &#34;!0000007b&#34;, &#34;shortName&#34;: &#34;007b&#34;, &#34;longName&#34;: &#34;Meshtastic 007b&#34;}}
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getOrCreateByNum_not_found(iface_with_nodes):
+    &#34;&#34;&#34;Test _getOrCreateByNum()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface._getOrCreateByNum(0xFFFFFFFF)
+    assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+
+
+@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getOrCreateByNum(iface_with_nodes):
+    &#34;&#34;&#34;Test _getOrCreateByNum()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    tmp = iface._getOrCreateByNum(2475227164)
+    assert tmp[&#34;num&#34;] == 2475227164
+
+
+# TODO
+# @pytest.mark.unit
+# def test_enter():
+#    &#34;&#34;&#34;Test __enter__()&#34;&#34;&#34;
+#    iface = MeshInterface(noProto=True)
+#    assert iface == iface.__enter__()
+
+
+@pytest.mark.unit
+def test_exit_with_exception(caplog):
+    &#34;&#34;&#34;Test __exit__()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.ERROR):
+        iface.__exit__(&#34;foo&#34;, &#34;bar&#34;, &#34;baz&#34;)
+        assert re.search(
+            r&#34;An exception of type foo with value bar has occurred&#34;,
+            caplog.text,
+            re.MULTILINE,
+        )
+        assert re.search(r&#34;Traceback: baz&#34;, caplog.text, re.MULTILINE)
+
+
+@pytest.mark.unit
+def test_showNodes_exclude_self(capsys, caplog, iface_with_nodes):
+    &#34;&#34;&#34;Test that we hit that continue statement&#34;&#34;&#34;
+    with caplog.at_level(logging.DEBUG):
+        iface = iface_with_nodes
+        iface.localNode.nodeNum = 2475227164
+        iface.showNodes()
+        iface.showNodes(includeSelf=False)
+        capsys.readouterr()
+
+
+@pytest.mark.unitslow
+def test_waitForConfig(capsys):
+    &#34;&#34;&#34;Test waitForConfig()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    # override how long to wait
+    iface._timeout = Timeout(0.01)
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface.waitForConfig()
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+        out, err = capsys.readouterr()
+        assert re.search(
+            r&#34;Exception: Timed out waiting for interface config&#34;, err, re.MULTILINE
+        )
+        assert out == &#34;&#34;
+
+
+@pytest.mark.unit
+def test_waitConnected_raises_an_exception(capsys):
+    &#34;&#34;&#34;Test waitConnected()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface.failure = MeshInterface.MeshInterfaceError(&#34;warn about something&#34;)
+        iface._waitConnected(0.01)
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+        out, err = capsys.readouterr()
+        assert re.search(r&#34;warn about something&#34;, err, re.MULTILINE)
+        assert out == &#34;&#34;
+
+
+@pytest.mark.unit
+def test_waitConnected_isConnected_timeout(capsys):
+    &#34;&#34;&#34;Test waitConnected()&#34;&#34;&#34;
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface = MeshInterface()
+        iface._waitConnected(0.01)
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+        out, err = capsys.readouterr()
+        assert re.search(r&#34;warn about something&#34;, err, re.MULTILINE)
+        assert out == &#34;&#34;
+
+
+@pytest.mark.unit
+def test_timeago():
+    &#34;&#34;&#34;Test that the _timeago function returns sane values&#34;&#34;&#34;
+    assert _timeago(0) == &#34;now&#34;
+    assert _timeago(1) == &#34;1 sec ago&#34;
+    assert _timeago(15) == &#34;15 secs ago&#34;
+    assert _timeago(333) == &#34;5 mins ago&#34;
+    assert _timeago(99999) == &#34;1 day ago&#34;
+    assert _timeago(9999999) == &#34;3 months ago&#34;
+    assert _timeago(-999) == &#34;now&#34;
+
+@given(seconds=st.integers())
+def test_timeago_fuzz(seconds):
+    &#34;&#34;&#34;Fuzz _timeago to ensure it works with any integer&#34;&#34;&#34;
+    val = _timeago(seconds)
+    assert re.match(r&#34;(now|\d+ (secs?|mins?|hours?|days?|months?|years?))&#34;, val)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="meshtastic.tests.test_mesh_interface.test_MeshInterface"><code class="name flex">
+<span>def <span class="ident">test_MeshInterface</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that we can instantiate a MeshInterface</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_MeshInterface(capsys):
+    &#34;&#34;&#34;Test that we can instantiate a MeshInterface&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+
+    NODE_ID = &#34;!9388f81c&#34;
+    NODE_NUM = 2475227164
+    node = {
+            &#34;num&#34;: NODE_NUM,
+            &#34;user&#34;: {
+                &#34;id&#34;: NODE_ID,
+                &#34;longName&#34;: &#34;Unknown f81c&#34;,
+                &#34;shortName&#34;: &#34;?1C&#34;,
+                &#34;macaddr&#34;: &#34;RBeTiPgc&#34;,
+                &#34;hwModel&#34;: &#34;TBEAM&#34;,
+            },
+            &#34;position&#34;: {},
+            &#34;lastHeard&#34;: 1640204888,
+        }
+
+
+    iface.nodes = {NODE_ID: node}
+    iface.nodesByNum = {NODE_NUM: node}
+
+    myInfo = MagicMock()
+    iface.myInfo = myInfo
+
+    iface.localNode.localConfig.lora.CopyFrom(config_pb2.Config.LoRaConfig())
+
+    # Also get some coverage of the structured logging/power meter stuff by turning it on as well
+    log_set = LogSet(iface, None, SimPowerSupply())
+
+    iface.showInfo()
+    iface.localNode.showInfo()
+    iface.showNodes()
+    iface.sendText(&#34;hello&#34;)
+    iface.close()
+    log_set.close()
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Owner: None \(None\)&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Nodes&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Preferences&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Channels&#34;, out, re.MULTILINE)
+    assert re.search(r&#34;Primary channel URL&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_MeshInterface_sendToRadioImpl"><code class="name flex">
+<span>def <span class="ident">test_MeshInterface_sendToRadioImpl</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendToRadioImp()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_MeshInterface_sendToRadioImpl(caplog):
+    &#34;&#34;&#34;Test _sendToRadioImp()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._sendToRadioImpl(&#34;foo&#34;)
+    assert re.search(r&#34;Subclass must provide toradio&#34;, caplog.text, re.MULTILINE)
+    iface.close()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_MeshInterface_sendToRadio_no_proto"><code class="name flex">
+<span>def <span class="ident">test_MeshInterface_sendToRadio_no_proto</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test sendToRadio()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_MeshInterface_sendToRadio_no_proto(caplog):
+    &#34;&#34;&#34;Test sendToRadio()&#34;&#34;&#34;
+    iface = MeshInterface()
+    with caplog.at_level(logging.DEBUG):
+        iface._sendToRadioImpl(&#34;foo&#34;)
+    assert re.search(r&#34;Subclass must provide toradio&#34;, caplog.text, re.MULTILINE)
+    iface.close()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_exit_with_exception"><code class="name flex">
+<span>def <span class="ident">test_exit_with_exception</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test <strong>exit</strong>()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+def test_exit_with_exception(caplog):
+    &#34;&#34;&#34;Test __exit__()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.ERROR):
+        iface.__exit__(&#34;foo&#34;, &#34;bar&#34;, &#34;baz&#34;)
+        assert re.search(
+            r&#34;An exception of type foo with value bar has occurred&#34;,
+            caplog.text,
+            re.MULTILINE,
+        )
+        assert re.search(r&#34;Traceback: baz&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_fixupPosition"><code class="name flex">
+<span>def <span class="ident">test_fixupPosition</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _fixupPosition()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_fixupPosition():
+    &#34;&#34;&#34;Test _fixupPosition()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    pos = {&#34;latitudeI&#34;: 1010000000, &#34;longitudeI&#34;: 1020000000}
+    newpos = iface._fixupPosition(pos)
+    assert newpos == {
+        &#34;latitude&#34;: 101.0,
+        &#34;latitudeI&#34;: 1010000000,
+        &#34;longitude&#34;: 102.0,
+        &#34;longitudeI&#34;: 1020000000,
+    }</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_fixupPosition_empty_pos"><code class="name flex">
+<span>def <span class="ident">test_fixupPosition_empty_pos</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _fixupPosition()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_fixupPosition_empty_pos():
+    &#34;&#34;&#34;Test _fixupPosition()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    pos = {}
+    newpos = iface._fixupPosition(pos)
+    assert newpos == pos</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_fixupPosition_no_changes_needed"><code class="name flex">
+<span>def <span class="ident">test_fixupPosition_no_changes_needed</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _fixupPosition()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_fixupPosition_no_changes_needed():
+    &#34;&#34;&#34;Test _fixupPosition()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    pos = {&#34;latitude&#34;: 101, &#34;longitude&#34;: 102}
+    newpos = iface._fixupPosition(pos)
+    assert newpos == pos</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_generatePacketId"><code class="name flex">
+<span>def <span class="ident">test_generatePacketId</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _generatePacketId() when no currentPacketId (not connected)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_generatePacketId(capsys):
+    &#34;&#34;&#34;Test _generatePacketId() when no currentPacketId (not connected)&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    # not sure when this condition would ever happen... but we can simulate it
+    iface.currentPacketId = None
+    assert iface.currentPacketId is None
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface._generatePacketId()
+        out, err = capsys.readouterr()
+        assert re.search(
+            r&#34;Not connected yet, can not generate packet&#34;, out, re.MULTILINE
+        )
+        assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getLongName"><code class="name flex">
+<span>def <span class="ident">test_getLongName</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getLongName()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getLongName(iface_with_nodes):
+    &#34;&#34;&#34;Test getLongName()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    mylongname = iface.getLongName()
+    assert mylongname == &#34;Unknown f81c&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getMyNodeInfo"><code class="name flex">
+<span>def <span class="ident">test_getMyNodeInfo</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getMyNodeInfo()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getMyNodeInfo():
+    &#34;&#34;&#34;Test getMyNodeInfo()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = iface.getNode(LOCAL_ADDR)
+    iface.nodesByNum = {1: anode}
+    assert iface.nodesByNum.get(1) == anode
+    myInfo = MagicMock()
+    iface.myInfo = myInfo
+    iface.myInfo.my_node_num = 1
+    myinfo = iface.getMyNodeInfo()
+    assert myinfo == anode</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getMyUser"><code class="name flex">
+<span>def <span class="ident">test_getMyUser</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getMyUser()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getMyUser(iface_with_nodes):
+    &#34;&#34;&#34;Test getMyUser()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    myuser = iface.getMyUser()
+    assert myuser is not None
+    assert myuser[&#34;id&#34;] == &#34;!9388f81c&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getNode_not_local"><code class="name flex">
+<span>def <span class="ident">test_getNode_not_local</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getNode not local</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_not_local(caplog):
+    &#34;&#34;&#34;Test getNode not local&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = MagicMock(autospec=Node)
+    with caplog.at_level(logging.DEBUG):
+        with patch(&#34;meshtastic.node.Node&#34;, return_value=anode):
+            another_node = iface.getNode(&#34;bar2&#34;)
+            assert another_node != iface.localNode
+    assert re.search(r&#34;About to requestChannels&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getNode_not_local_timeout"><code class="name flex">
+<span>def <span class="ident">test_getNode_not_local_timeout</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getNode not local, simulate timeout</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_not_local_timeout(capsys):
+    &#34;&#34;&#34;Test getNode not local, simulate timeout&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = MagicMock(autospec=Node)
+    anode.waitForConfig.return_value = False
+    with patch(&#34;meshtastic.node.Node&#34;, return_value=anode):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            iface.getNode(&#34;bar2&#34;)
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 1
+        out, err = capsys.readouterr()
+        assert re.match(r&#34;Timed out trying to retrieve channel info, retrying&#34;, out)
+        assert err == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getNode_not_local_timeout_attempts"><code class="name flex">
+<span>def <span class="ident">test_getNode_not_local_timeout_attempts</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getNode not local, simulate timeout</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_not_local_timeout_attempts(capsys):
+    &#34;&#34;&#34;Test getNode not local, simulate timeout&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = MagicMock(autospec=Node)
+    anode.waitForConfig.return_value = False
+    with patch(&#34;meshtastic.node.Node&#34;, return_value=anode):
+        with pytest.raises(SystemExit) as pytest_wrapped_e:
+            iface.getNode(&#34;bar2&#34;, requestChannelAttempts=2)
+        assert pytest_wrapped_e.type == SystemExit
+        assert pytest_wrapped_e.value.code == 1
+        out, err = capsys.readouterr()
+        assert out == &#39;Timed out trying to retrieve channel info, retrying\nError: Timed out waiting for channels, giving up\n&#39;
+        assert err == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getNode_with_local"><code class="name flex">
+<span>def <span class="ident">test_getNode_with_local</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getNode</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getNode_with_local():
+    &#34;&#34;&#34;Test getNode&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    anode = iface.getNode(LOCAL_ADDR)
+    assert anode == iface.localNode</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getOrCreateByNum"><code class="name flex">
+<span>def <span class="ident">test_getOrCreateByNum</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _getOrCreateByNum()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getOrCreateByNum(iface_with_nodes):
+    &#34;&#34;&#34;Test _getOrCreateByNum()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    tmp = iface._getOrCreateByNum(2475227164)
+    assert tmp[&#34;num&#34;] == 2475227164</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getOrCreateByNum_minimal"><code class="name flex">
+<span>def <span class="ident">test_getOrCreateByNum_minimal</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _getOrCreateByNum()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getOrCreateByNum_minimal(iface_with_nodes):
+    &#34;&#34;&#34;Test _getOrCreateByNum()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    tmp = iface._getOrCreateByNum(123)
+    assert tmp == {&#34;num&#34;: 123, &#34;user&#34;: {&#34;hwModel&#34;: &#34;UNSET&#34;, &#34;id&#34;: &#34;!0000007b&#34;, &#34;shortName&#34;: &#34;007b&#34;, &#34;longName&#34;: &#34;Meshtastic 007b&#34;}}</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getOrCreateByNum_not_found"><code class="name flex">
+<span>def <span class="ident">test_getOrCreateByNum_not_found</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _getOrCreateByNum()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getOrCreateByNum_not_found(iface_with_nodes):
+    &#34;&#34;&#34;Test _getOrCreateByNum()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface._getOrCreateByNum(0xFFFFFFFF)
+    assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_getShortName"><code class="name flex">
+<span>def <span class="ident">test_getShortName</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test getShortName().</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_getShortName(iface_with_nodes):
+    &#34;&#34;&#34;Test getShortName().&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    myshortname = iface.getShortName()
+    assert myshortname == &#34;?1C&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_my_info"><code class="name flex">
+<span>def <span class="ident">test_handleFromRadio_with_my_info</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handleFromRadio with my_info</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_my_info(caplog):
+    &#34;&#34;&#34;Test _handleFromRadio with my_info&#34;&#34;&#34;
+    # Note: I captured the &#39;--debug --info&#39; for the bytes below.
+    # It &#34;translates&#34; to this:
+    # my_info {
+    #  my_node_num: 682584012
+    #  firmware_version: &#34;1.2.49.5354c49&#34;
+    #  reboot_count: 13
+    #  bitrate: 17.088470458984375
+    #  message_timeout_msec: 300000
+    #  min_app_version: 20200
+    #  max_channels: 8
+    #  has_wifi: true
+    # }
+    from_radio_bytes = b&#34;\x1a,\x08\xcc\xcf\xbd\xc5\x02\x18\r2\x0e1.2.49.5354c49P\r]0\xb5\x88Ah\xe0\xa7\x12p\xe8\x9d\x01x\x08\x90\x01\x01&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._handleFromRadio(from_radio_bytes)
+    iface.close()
+    assert re.search(r&#34;Received from radio: my_info {&#34;, caplog.text, re.MULTILINE)
+    assert re.search(r&#34;my_node_num: 682584012&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info"><code class="name flex">
+<span>def <span class="ident">test_handleFromRadio_with_node_info</span></span>(<span>caplog, capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handleFromRadio with node_info</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_node_info(caplog, capsys):
+    &#34;&#34;&#34;Test _handleFromRadio with node_info&#34;&#34;&#34;
+    # Note: I captured the &#39;--debug --info&#39; for the bytes below.
+    # It &#34;translates&#34; to this:
+    # node_info {
+    #  num: 682584012
+    #  user {
+    #    id: &#34;!28af67cc&#34;
+    #    long_name: &#34;Unknown 67cc&#34;
+    #    short_name: &#34;?CC&#34;
+    #    macaddr: &#34;$o(\257g\314&#34;
+    #    hw_model: HELTEC_V2_1
+    #  }
+    #  position {
+    #    }
+    #  }
+
+    from_radio_bytes = b&#39;&#34;2\x08\xcc\xcf\xbd\xc5\x02\x12(\n\t!28af67cc\x12\x0cUnknown 67cc\x1a\x03?CC&#34;\x06$o(\xafg\xcc0\n\x1a\x00&#39;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._startConfig()
+        iface._handleFromRadio(from_radio_bytes)
+        assert re.search(r&#34;Received from radio: node_info {&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;682584012&#34;, caplog.text, re.MULTILINE)
+        # validate some of showNodes() output
+        iface.showNodes()
+        out, err = capsys.readouterr()
+        assert re.search(r&#34; 1 &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│ Unknown 67cc │ &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│\s+!28af67cc\s+│\s+67cc\s+|&#34;, out, re.MULTILINE)
+        assert err == &#34;&#34;
+        iface.close()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info_tbeam1"><code class="name flex">
+<span>def <span class="ident">test_handleFromRadio_with_node_info_tbeam1</span></span>(<span>caplog, capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handleFromRadio with node_info</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_node_info_tbeam1(caplog, capsys):
+    &#34;&#34;&#34;Test _handleFromRadio with node_info&#34;&#34;&#34;
+    # Note: Captured the &#39;--debug --info&#39; for the bytes below.
+    # pylint: disable=C0301
+    from_radio_bytes = b&#39;&#34;=\x08\x80\xf8\xc8\xf6\x07\x12&#34;\n\t!7ed23c00\x12\x07TBeam 1\x1a\x02T1&#34;\x06\x94\xb9~\xd2&lt;\x000\x04\x1a\x07 ]MN\x01\xbea%\xad\x01\xbea=\x00\x00,A&#39;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._startConfig()
+        iface._handleFromRadio(from_radio_bytes)
+        assert re.search(r&#34;Received nodeinfo&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;TBeam 1&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;2127707136&#34;, caplog.text, re.MULTILINE)
+        # validate some of showNodes() output
+        iface.showNodes()
+        out, err = capsys.readouterr()
+        assert re.search(r&#34; 1 &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│ TBeam 1 │ &#34;, out, re.MULTILINE)
+        assert re.search(r&#34;│ !7ed23c00 │&#34;, out, re.MULTILINE)
+        assert err == &#34;&#34;
+        iface.close()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info_tbeam_with_bad_data"><code class="name flex">
+<span>def <span class="ident">test_handleFromRadio_with_node_info_tbeam_with_bad_data</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handleFromRadio with node_info with some bad data (issue#172) - ensure we do not throw exception</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handleFromRadio_with_node_info_tbeam_with_bad_data(caplog):
+    &#34;&#34;&#34;Test _handleFromRadio with node_info with some bad data (issue#172) - ensure we do not throw exception&#34;&#34;&#34;
+    # Note: Captured the &#39;--debug --info&#39; for the bytes below.
+    from_radio_bytes = b&#39;&#34;\x17\x08\xdc\x8a\x8a\xae\x02\x12\x08&#34;\x06\x00\x00\x00\x00\x00\x00\x1a\x00=\x00\x00\xb8@&#39;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface._startConfig()
+        iface._handleFromRadio(from_radio_bytes)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_no_from"><code class="name flex">
+<span>def <span class="ident">test_handlePacketFromRadio_no_from</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handlePacketFromRadio with no 'from' in the mesh packet.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handlePacketFromRadio_no_from(capsys):
+    &#34;&#34;&#34;Test _handlePacketFromRadio with no &#39;from&#39; in the mesh packet.&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    meshPacket = mesh_pb2.MeshPacket()
+    iface._handlePacketFromRadio(meshPacket)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Device returned a packet we sent, ignoring&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_no_portnum"><code class="name flex">
+<span>def <span class="ident">test_handlePacketFromRadio_no_portnum</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handlePacketFromRadio without a portnum</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handlePacketFromRadio_no_portnum(caplog):
+    &#34;&#34;&#34;Test _handlePacketFromRadio without a portnum&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    meshPacket = mesh_pb2.MeshPacket()
+    meshPacket.decoded.payload = b&#34;&#34;
+    with caplog.at_level(logging.WARNING):
+        iface._handlePacketFromRadio(meshPacket, hack=True)
+    assert re.search(r&#34;Not populating fromId&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_with_a_portnum"><code class="name flex">
+<span>def <span class="ident">test_handlePacketFromRadio_with_a_portnum</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _handlePacketFromRadio with a portnum
+Since we have an attribute called 'from', we cannot simply 'set' it.
+Had to implement a hack just to be able to test some code.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_handlePacketFromRadio_with_a_portnum(caplog):
+    &#34;&#34;&#34;Test _handlePacketFromRadio with a portnum
+    Since we have an attribute called &#39;from&#39;, we cannot simply &#39;set&#39; it.
+    Had to implement a hack just to be able to test some code.
+    &#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    meshPacket = mesh_pb2.MeshPacket()
+    meshPacket.decoded.payload = b&#34;&#34;
+    meshPacket.decoded.portnum = 1
+    with caplog.at_level(logging.WARNING):
+        iface._handlePacketFromRadio(meshPacket, hack=True)
+    assert re.search(r&#34;Not populating fromId&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_nodeNumToId"><code class="name flex">
+<span>def <span class="ident">test_nodeNumToId</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _nodeNumToId()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_nodeNumToId(iface_with_nodes):
+    &#34;&#34;&#34;Test _nodeNumToId()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    someid = iface._nodeNumToId(2475227164)
+    assert someid == &#34;!9388f81c&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_nodeNumToId_not_found"><code class="name flex">
+<span>def <span class="ident">test_nodeNumToId_not_found</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _nodeNumToId()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_nodeNumToId_not_found(iface_with_nodes):
+    &#34;&#34;&#34;Test _nodeNumToId()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    someid = iface._nodeNumToId(123)
+    assert someid is None</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_nodeNumToId_to_all"><code class="name flex">
+<span>def <span class="ident">test_nodeNumToId_to_all</span></span>(<span>iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _nodeNumToId()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_nodeNumToId_to_all(iface_with_nodes):
+    &#34;&#34;&#34;Test _nodeNumToId()&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.myInfo.my_node_num = 2475227164
+    someid = iface._nodeNumToId(0xFFFFFFFF)
+    assert someid == &#34;^all&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendData_too_long"><code class="name flex">
+<span>def <span class="ident">test_sendData_too_long</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test when data payload is too big</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendData_too_long(caplog):
+    &#34;&#34;&#34;Test when data payload is too big&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    some_large_text = b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    some_large_text += b&#34;This is a long text that will be too long for send text.&#34;
+    with caplog.at_level(logging.DEBUG):
+        with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+            iface.sendData(some_large_text)
+            assert re.search(&#34;Data payload too big&#34;, caplog.text, re.MULTILINE)
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+    iface.close()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendData_unknown_app"><code class="name flex">
+<span>def <span class="ident">test_sendData_unknown_app</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test sendData when unknown app</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendData_unknown_app(capsys):
+    &#34;&#34;&#34;Test sendData when unknown app&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        iface.sendData(b&#34;hello&#34;, portNum=0)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Warning: A non-zero port number&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_BROADCAST_ADDR"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_as_BROADCAST_ADDR</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with BROADCAST_ADDR as a destination</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_BROADCAST_ADDR(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with BROADCAST_ADDR as a destination&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=BROADCAST_ADDR)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with LOCAL_ADDR as a destination with no myInfo</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo(capsys):
+    &#34;&#34;&#34;Test _sendPacket() with LOCAL_ADDR as a destination with no myInfo&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=LOCAL_ADDR)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Warning: No myInfo&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with LOCAL_ADDR as a destination with myInfo</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with LOCAL_ADDR as a destination with myInfo&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    myInfo = MagicMock()
+    iface.myInfo = myInfo
+    iface.myInfo.my_node_num = 1
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=LOCAL_ADDR)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_int"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_as_int</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with int as a destination</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_as_int(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with int as a destination&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=123)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_is_blank_with_nodes"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_is_blank_with_nodes</span></span>(<span>capsys, iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with '' as a destination with myInfo</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_is_blank_with_nodes(capsys, iface_with_nodes):
+    &#34;&#34;&#34;Test _sendPacket() with &#39;&#39; as a destination with myInfo&#34;&#34;&#34;
+    iface = iface_with_nodes
+    meshPacket = mesh_pb2.MeshPacket()
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        iface._sendPacket(meshPacket, destinationId=&#34;&#34;)
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1
+    out, err = capsys.readouterr()
+    assert re.match(r&#34;Warning: NodeId  not found in DB&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_is_blank_without_nodes"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_is_blank_without_nodes</span></span>(<span>caplog, iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with '' as a destination with myInfo</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_is_blank_without_nodes(caplog, iface_with_nodes):
+    &#34;&#34;&#34;Test _sendPacket() with &#39;&#39; as a destination with myInfo&#34;&#34;&#34;
+    iface = iface_with_nodes
+    iface.nodes = None
+    meshPacket = mesh_pb2.MeshPacket()
+    with caplog.at_level(logging.WARNING):
+        iface._sendPacket(meshPacket, destinationId=&#34;&#34;)
+    assert re.search(r&#34;Warning: There were no self.nodes.&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_starting_with_a_bang"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_destination_starting_with_a_bang</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket() with int as a destination</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_destination_starting_with_a_bang(caplog):
+    &#34;&#34;&#34;Test _sendPacket() with int as a destination&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        meshPacket = mesh_pb2.MeshPacket()
+        iface._sendPacket(meshPacket, destinationId=&#34;!1234&#34;)
+        assert re.search(r&#34;Not sending packet&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPacket_with_no_destination"><code class="name flex">
+<span>def <span class="ident">test_sendPacket_with_no_destination</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test _sendPacket()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPacket_with_no_destination(capsys):
+    &#34;&#34;&#34;Test _sendPacket()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(SystemExit) as pytest_wrapped_e:
+        iface._sendPacket(b&#34;&#34;, destinationId=None)
+    out, err = capsys.readouterr()
+    assert re.search(r&#34;Warning: destinationId must not be None&#34;, out, re.MULTILINE)
+    assert err == &#34;&#34;
+    assert pytest_wrapped_e.type == SystemExit
+    assert pytest_wrapped_e.value.code == 1</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPosition"><code class="name flex">
+<span>def <span class="ident">test_sendPosition</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test sendPosition</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPosition(caplog):
+    &#34;&#34;&#34;Test sendPosition&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface.sendPosition()
+    iface.close()
+    # assert re.search(r&#34;p.time:&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_sendPosition_with_a_position"><code class="name flex">
+<span>def <span class="ident">test_sendPosition_with_a_position</span></span>(<span>caplog)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test sendPosition when lat/long/alt</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+@pytest.mark.usefixtures(&#34;reset_mt_config&#34;)
+def test_sendPosition_with_a_position(caplog):
+    &#34;&#34;&#34;Test sendPosition when lat/long/alt&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with caplog.at_level(logging.DEBUG):
+        iface.sendPosition(latitude=40.8, longitude=-111.86, altitude=201)
+        assert re.search(r&#34;p.latitude_i:408&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;p.longitude_i:-11186&#34;, caplog.text, re.MULTILINE)
+        assert re.search(r&#34;p.altitude:201&#34;, caplog.text, re.MULTILINE)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_showNodes_exclude_self"><code class="name flex">
+<span>def <span class="ident">test_showNodes_exclude_self</span></span>(<span>capsys, caplog, iface_with_nodes)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that we hit that continue statement</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+def test_showNodes_exclude_self(capsys, caplog, iface_with_nodes):
+    &#34;&#34;&#34;Test that we hit that continue statement&#34;&#34;&#34;
+    with caplog.at_level(logging.DEBUG):
+        iface = iface_with_nodes
+        iface.localNode.nodeNum = 2475227164
+        iface.showNodes()
+        iface.showNodes(includeSelf=False)
+        capsys.readouterr()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_timeago"><code class="name flex">
+<span>def <span class="ident">test_timeago</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that the _timeago function returns sane values</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+def test_timeago():
+    &#34;&#34;&#34;Test that the _timeago function returns sane values&#34;&#34;&#34;
+    assert _timeago(0) == &#34;now&#34;
+    assert _timeago(1) == &#34;1 sec ago&#34;
+    assert _timeago(15) == &#34;15 secs ago&#34;
+    assert _timeago(333) == &#34;5 mins ago&#34;
+    assert _timeago(99999) == &#34;1 day ago&#34;
+    assert _timeago(9999999) == &#34;3 months ago&#34;
+    assert _timeago(-999) == &#34;now&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_timeago_fuzz"><code class="name flex">
+<span>def <span class="ident">test_timeago_fuzz</span></span>(<span>) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fuzz _timeago to ensure it works with any integer</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@given(seconds=st.integers())
+def test_timeago_fuzz(seconds):
+    &#34;&#34;&#34;Fuzz _timeago to ensure it works with any integer&#34;&#34;&#34;
+    val = _timeago(seconds)
+    assert re.match(r&#34;(now|\d+ (secs?|mins?|hours?|days?|months?|years?))&#34;, val)</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_waitConnected_isConnected_timeout"><code class="name flex">
+<span>def <span class="ident">test_waitConnected_isConnected_timeout</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test waitConnected()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+def test_waitConnected_isConnected_timeout(capsys):
+    &#34;&#34;&#34;Test waitConnected()&#34;&#34;&#34;
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface = MeshInterface()
+        iface._waitConnected(0.01)
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+        out, err = capsys.readouterr()
+        assert re.search(r&#34;warn about something&#34;, err, re.MULTILINE)
+        assert out == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_waitConnected_raises_an_exception"><code class="name flex">
+<span>def <span class="ident">test_waitConnected_raises_an_exception</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test waitConnected()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unit
+def test_waitConnected_raises_an_exception(capsys):
+    &#34;&#34;&#34;Test waitConnected()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface.failure = MeshInterface.MeshInterfaceError(&#34;warn about something&#34;)
+        iface._waitConnected(0.01)
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+        out, err = capsys.readouterr()
+        assert re.search(r&#34;warn about something&#34;, err, re.MULTILINE)
+        assert out == &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.tests.test_mesh_interface.test_waitForConfig"><code class="name flex">
+<span>def <span class="ident">test_waitForConfig</span></span>(<span>capsys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test waitForConfig()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.unitslow
+def test_waitForConfig(capsys):
+    &#34;&#34;&#34;Test waitForConfig()&#34;&#34;&#34;
+    iface = MeshInterface(noProto=True)
+    # override how long to wait
+    iface._timeout = Timeout(0.01)
+    with pytest.raises(MeshInterface.MeshInterfaceError) as pytest_wrapped_e:
+        iface.waitForConfig()
+        assert pytest_wrapped_e.type == MeshInterface.MeshInterfaceError
+        out, err = capsys.readouterr()
+        assert re.search(
+            r&#34;Exception: Timed out waiting for interface config&#34;, err, re.MULTILINE
+        )
+        assert out == &#34;&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic.tests" href="index.html">meshtastic.tests</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_MeshInterface" href="#meshtastic.tests.test_mesh_interface.test_MeshInterface">test_MeshInterface</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_MeshInterface_sendToRadioImpl" href="#meshtastic.tests.test_mesh_interface.test_MeshInterface_sendToRadioImpl">test_MeshInterface_sendToRadioImpl</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_MeshInterface_sendToRadio_no_proto" href="#meshtastic.tests.test_mesh_interface.test_MeshInterface_sendToRadio_no_proto">test_MeshInterface_sendToRadio_no_proto</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_exit_with_exception" href="#meshtastic.tests.test_mesh_interface.test_exit_with_exception">test_exit_with_exception</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_fixupPosition" href="#meshtastic.tests.test_mesh_interface.test_fixupPosition">test_fixupPosition</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_fixupPosition_empty_pos" href="#meshtastic.tests.test_mesh_interface.test_fixupPosition_empty_pos">test_fixupPosition_empty_pos</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_fixupPosition_no_changes_needed" href="#meshtastic.tests.test_mesh_interface.test_fixupPosition_no_changes_needed">test_fixupPosition_no_changes_needed</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_generatePacketId" href="#meshtastic.tests.test_mesh_interface.test_generatePacketId">test_generatePacketId</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getLongName" href="#meshtastic.tests.test_mesh_interface.test_getLongName">test_getLongName</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getMyNodeInfo" href="#meshtastic.tests.test_mesh_interface.test_getMyNodeInfo">test_getMyNodeInfo</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getMyUser" href="#meshtastic.tests.test_mesh_interface.test_getMyUser">test_getMyUser</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getNode_not_local" href="#meshtastic.tests.test_mesh_interface.test_getNode_not_local">test_getNode_not_local</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getNode_not_local_timeout" href="#meshtastic.tests.test_mesh_interface.test_getNode_not_local_timeout">test_getNode_not_local_timeout</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getNode_not_local_timeout_attempts" href="#meshtastic.tests.test_mesh_interface.test_getNode_not_local_timeout_attempts">test_getNode_not_local_timeout_attempts</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getNode_with_local" href="#meshtastic.tests.test_mesh_interface.test_getNode_with_local">test_getNode_with_local</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getOrCreateByNum" href="#meshtastic.tests.test_mesh_interface.test_getOrCreateByNum">test_getOrCreateByNum</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getOrCreateByNum_minimal" href="#meshtastic.tests.test_mesh_interface.test_getOrCreateByNum_minimal">test_getOrCreateByNum_minimal</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getOrCreateByNum_not_found" href="#meshtastic.tests.test_mesh_interface.test_getOrCreateByNum_not_found">test_getOrCreateByNum_not_found</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_getShortName" href="#meshtastic.tests.test_mesh_interface.test_getShortName">test_getShortName</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_my_info" href="#meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_my_info">test_handleFromRadio_with_my_info</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info" href="#meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info">test_handleFromRadio_with_node_info</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info_tbeam1" href="#meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info_tbeam1">test_handleFromRadio_with_node_info_tbeam1</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info_tbeam_with_bad_data" href="#meshtastic.tests.test_mesh_interface.test_handleFromRadio_with_node_info_tbeam_with_bad_data">test_handleFromRadio_with_node_info_tbeam_with_bad_data</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_no_from" href="#meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_no_from">test_handlePacketFromRadio_no_from</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_no_portnum" href="#meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_no_portnum">test_handlePacketFromRadio_no_portnum</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_with_a_portnum" href="#meshtastic.tests.test_mesh_interface.test_handlePacketFromRadio_with_a_portnum">test_handlePacketFromRadio_with_a_portnum</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_nodeNumToId" href="#meshtastic.tests.test_mesh_interface.test_nodeNumToId">test_nodeNumToId</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_nodeNumToId_not_found" href="#meshtastic.tests.test_mesh_interface.test_nodeNumToId_not_found">test_nodeNumToId_not_found</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_nodeNumToId_to_all" href="#meshtastic.tests.test_mesh_interface.test_nodeNumToId_to_all">test_nodeNumToId_to_all</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendData_too_long" href="#meshtastic.tests.test_mesh_interface.test_sendData_too_long">test_sendData_too_long</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendData_unknown_app" href="#meshtastic.tests.test_mesh_interface.test_sendData_unknown_app">test_sendData_unknown_app</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_BROADCAST_ADDR" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_BROADCAST_ADDR">test_sendPacket_with_destination_as_BROADCAST_ADDR</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo">test_sendPacket_with_destination_as_LOCAL_ADDR_no_myInfo</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo">test_sendPacket_with_destination_as_LOCAL_ADDR_with_myInfo</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_int" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_as_int">test_sendPacket_with_destination_as_int</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_is_blank_with_nodes" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_is_blank_with_nodes">test_sendPacket_with_destination_is_blank_with_nodes</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_is_blank_without_nodes" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_is_blank_without_nodes">test_sendPacket_with_destination_is_blank_without_nodes</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_starting_with_a_bang" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_destination_starting_with_a_bang">test_sendPacket_with_destination_starting_with_a_bang</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPacket_with_no_destination" href="#meshtastic.tests.test_mesh_interface.test_sendPacket_with_no_destination">test_sendPacket_with_no_destination</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPosition" href="#meshtastic.tests.test_mesh_interface.test_sendPosition">test_sendPosition</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_sendPosition_with_a_position" href="#meshtastic.tests.test_mesh_interface.test_sendPosition_with_a_position">test_sendPosition_with_a_position</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_showNodes_exclude_self" href="#meshtastic.tests.test_mesh_interface.test_showNodes_exclude_self">test_showNodes_exclude_self</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_timeago" href="#meshtastic.tests.test_mesh_interface.test_timeago">test_timeago</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_timeago_fuzz" href="#meshtastic.tests.test_mesh_interface.test_timeago_fuzz">test_timeago_fuzz</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_waitConnected_isConnected_timeout" href="#meshtastic.tests.test_mesh_interface.test_waitConnected_isConnected_timeout">test_waitConnected_isConnected_timeout</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_waitConnected_raises_an_exception" href="#meshtastic.tests.test_mesh_interface.test_waitConnected_raises_an_exception">test_waitConnected_raises_an_exception</a></code></li>
+<li><code><a title="meshtastic.tests.test_mesh_interface.test_waitForConfig" href="#meshtastic.tests.test_mesh_interface.test_waitForConfig">test_waitForConfig</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

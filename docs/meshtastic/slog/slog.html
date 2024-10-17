@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>meshtastic.slog.slog API documentation</title>
+<meta name="description" content="code logging power consumption of meshtastic devices." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>meshtastic.slog.slog</code></h1>
+</header>
+<section id="section-intro">
+<p>code logging power consumption of meshtastic devices.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;code logging power consumption of meshtastic devices.&#34;&#34;&#34;
+
+import atexit
+import io
+import logging
+import os
+import re
+import threading
+import time
+from dataclasses import dataclass
+from datetime import datetime
+from functools import reduce
+from typing import Optional, List, Tuple
+
+import parse  # type: ignore[import-untyped]
+import platformdirs
+import pyarrow as pa
+from pubsub import pub  # type: ignore[import-untyped]
+
+from meshtastic.mesh_interface import MeshInterface
+from meshtastic.powermon import PowerMeter
+
+from .arrow import FeatherWriter
+
+
+def root_dir() -&gt; str:
+    &#34;&#34;&#34;Return the root directory for slog files.&#34;&#34;&#34;
+
+    app_name = &#34;meshtastic&#34;
+    app_author = &#34;meshtastic&#34;
+    app_dir = platformdirs.user_data_dir(app_name, app_author)
+    dir_name = f&#34;{app_dir}/slogs&#34;
+    os.makedirs(dir_name, exist_ok=True)
+    return dir_name
+
+
+@dataclass(init=False)
+class LogDef:
+    &#34;&#34;&#34;Log definition.&#34;&#34;&#34;
+
+    code: str  # i.e. PM or B or whatever... see meshtastic slog documentation
+    fields: List[Tuple[str, pa.DataType]]  # A list of field names and their arrow types
+    format: parse.Parser  # A format string that can be used to parse the arguments
+
+    def __init__(self, code: str, fields: List[Tuple[str, pa.DataType]]) -&gt; None:
+        &#34;&#34;&#34;Initialize the LogDef object.
+
+        code (str): The code.
+        format (str): The format.
+
+        &#34;&#34;&#34;
+        self.code = code
+        self.fields = fields
+
+        fmt = &#34;&#34;
+        for idx, f in enumerate(fields):
+            if idx != 0:
+                fmt += &#34;,&#34;
+
+            # make the format string
+            suffix = (
+                &#34;&#34; if f[1] == pa.string() else &#34;:d&#34;
+            )  # treat as a string or an int (the only types we have so far)
+            fmt += &#34;{&#34; + f[0] + suffix + &#34;}&#34;
+        self.format = parse.compile(
+            fmt
+        )  # We include a catchall matcher at the end - to ignore stuff we don&#39;t understand
+
+
+&#34;&#34;&#34;A dictionary mapping from logdef code to logdef&#34;&#34;&#34;
+log_defs = {
+    d.code: d
+    for d in [
+        LogDef(&#34;B&#34;, [(&#34;board_id&#34;, pa.uint32()), (&#34;sw_version&#34;, pa.string())]),
+        LogDef(&#34;PM&#34;, [(&#34;pm_mask&#34;, pa.uint64()), (&#34;pm_reason&#34;, pa.string())]),
+        LogDef(&#34;PS&#34;, [(&#34;ps_state&#34;, pa.uint32())]),
+    ]
+}
+log_regex = re.compile(&#34;.*S:([0-9A-Za-z]+):(.*)&#34;)
+
+
+class PowerLogger:
+    &#34;&#34;&#34;Logs current watts reading periodically using PowerMeter and ArrowWriter.&#34;&#34;&#34;
+
+    def __init__(self, pMeter: PowerMeter, file_path: str, interval=0.002) -&gt; None:
+        &#34;&#34;&#34;Initialize the PowerLogger object.&#34;&#34;&#34;
+        self.pMeter = pMeter
+        self.writer = FeatherWriter(file_path)
+        self.interval = interval
+        self.is_logging = True
+        self.thread = threading.Thread(
+            target=self._logging_thread, name=&#34;PowerLogger&#34;, daemon=True
+        )
+        self.thread.start()
+
+    def store_current_reading(self, now: Optional[datetime] = None) -&gt; None:
+        &#34;&#34;&#34;Store current power measurement.&#34;&#34;&#34;
+        if now is None:
+            now = datetime.now()
+        d = {
+            &#34;time&#34;: now,
+            &#34;average_mW&#34;: self.pMeter.get_average_current_mA(),
+            &#34;max_mW&#34;: self.pMeter.get_max_current_mA(),
+            &#34;min_mW&#34;: self.pMeter.get_min_current_mA(),
+        }
+        self.pMeter.reset_measurements()
+        self.writer.add_row(d)
+
+    def _logging_thread(self) -&gt; None:
+        &#34;&#34;&#34;Background thread for logging the current watts reading.&#34;&#34;&#34;
+        while self.is_logging:
+            self.store_current_reading()
+            time.sleep(self.interval)
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Close the PowerLogger and stop logging.&#34;&#34;&#34;
+        if self.is_logging:
+            self.pMeter.close()
+            self.is_logging = False
+            self.thread.join()
+            self.writer.close()
+
+
+# FIXME move these defs somewhere else
+TOPIC_MESHTASTIC_LOG_LINE = &#34;meshtastic.log.line&#34;
+
+
+class StructuredLogger:
+    &#34;&#34;&#34;Sniffs device logs for structured log messages, extracts those into apache arrow format.
+    Also writes the raw log messages to raw.txt&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        client: MeshInterface,
+        dir_path: str,
+        power_logger: Optional[PowerLogger] = None,
+        include_raw=True,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialize the StructuredLogger object.
+
+        client (MeshInterface): The MeshInterface object to monitor.
+        &#34;&#34;&#34;
+        self.client = client
+        self.power_logger = power_logger
+
+        # Setup the arrow writer (and its schema)
+        self.writer = FeatherWriter(f&#34;{dir_path}/slog&#34;)
+        all_fields = reduce(
+            (lambda x, y: x + y), map(lambda x: x.fields, log_defs.values())
+        )
+
+        self.include_raw = include_raw
+        if self.include_raw:
+            all_fields.append((&#34;raw&#34;, pa.string()))
+
+        # Use timestamp as the first column
+        all_fields.insert(0, (&#34;time&#34;, pa.timestamp(&#34;us&#34;)))
+
+        # pass in our name-&gt;type tuples a pa.fields
+        self.writer.set_schema(
+            pa.schema(map(lambda x: pa.field(x[0], x[1]), all_fields))
+        )
+
+        self.raw_file: Optional[
+            io.TextIOWrapper
+        ] = open(  # pylint: disable=consider-using-with
+            f&#34;{dir_path}/raw.txt&#34;, &#34;w&#34;, encoding=&#34;utf8&#34;
+        )
+
+        # We need a closure here because the subscription API is very strict about exact arg matching
+        def listen_glue(line, interface):  # pylint: disable=unused-argument
+            self._onLogMessage(line)
+
+        self._listen_glue = (
+            listen_glue  # we must save this so it doesn&#39;t get garbage collected
+        )
+        self._listener = pub.subscribe(listen_glue, TOPIC_MESHTASTIC_LOG_LINE)
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Stop logging.&#34;&#34;&#34;
+        pub.unsubscribe(self._listener, TOPIC_MESHTASTIC_LOG_LINE)
+        self.writer.close()
+        f = self.raw_file
+        self.raw_file = None  # mark that we are shutting down
+        if f:
+            f.close()  # Close the raw.txt file
+
+    def _onLogMessage(self, line: str) -&gt; None:
+        &#34;&#34;&#34;Handle log messages.
+
+        line (str): the line of log output
+        &#34;&#34;&#34;
+
+        di = {}  # the dictionary of the fields we found to log
+
+        m = log_regex.match(line)
+        if m:
+            src = m.group(1)
+            args = m.group(2)
+            logging.debug(f&#34;SLog {src}, args: {args}&#34;)
+
+            d = log_defs.get(src)
+            if d:
+                last_field = d.fields[-1]
+                last_is_str = last_field[1] == pa.string()
+                if last_is_str:
+                    args += &#34; &#34;
+                    # append a space so that if the last arg is an empty str
+                    # it will still be accepted as a match for a str
+
+                r = d.format.parse(args)  # get the values with the correct types
+                if r:
+                    di = r.named
+                    if last_is_str:
+                        di[last_field[0]] = di[
+                            last_field[0]
+                        ].strip()  # remove the trailing space we added
+                        if di[last_field[0]] == &#34;&#34;:
+                            # If the last field is an empty string, remove it
+                            del di[last_field[0]]
+                else:
+                    logging.warning(f&#34;Failed to parse slog {line} with {d.format}&#34;)
+            else:
+                logging.warning(f&#34;Unknown Structured Log: {line}&#34;)
+
+        # Store our structured log record
+        if di or self.include_raw:
+            now = datetime.now()
+            di[&#34;time&#34;] = now
+            if self.include_raw:
+                di[&#34;raw&#34;] = line
+            self.writer.add_row(di)
+
+            # If we have a sibling power logger, make sure we have a power measurement with the EXACT same timestamp
+            if self.power_logger:
+                self.power_logger.store_current_reading(now)
+
+        if self.raw_file:
+            self.raw_file.write(line + &#34;\n&#34;)  # Write the raw log
+
+
+class LogSet:
+    &#34;&#34;&#34;A complete set of meshtastic log/metadata for a particular run.&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        client: MeshInterface,
+        dir_name: Optional[str] = None,
+        power_meter: Optional[PowerMeter] = None,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialize the PowerMonClient object.
+
+        power (PowerSupply): The power supply object.
+        client (MeshInterface): The MeshInterface object to monitor.
+        &#34;&#34;&#34;
+
+        if not dir_name:
+            app_dir = root_dir()
+            dir_name = f&#34;{app_dir}/{datetime.now().strftime(&#39;%Y%m%d-%H%M%S&#39;)}&#34;
+            os.makedirs(dir_name, exist_ok=True)
+
+            # Also make a &#39;latest&#39; directory that always points to the most recent logs
+            # symlink might fail on some platforms, if it does fail silently
+            if os.path.exists(f&#34;{app_dir}/latest&#34;):
+                os.unlink(f&#34;{app_dir}/latest&#34;)
+            os.symlink(dir_name, f&#34;{app_dir}/latest&#34;, target_is_directory=True)
+
+        self.dir_name = dir_name
+
+        logging.info(f&#34;Writing slogs to {dir_name}&#34;)
+
+        self.power_logger: Optional[PowerLogger] = (
+            None
+            if not power_meter
+            else PowerLogger(power_meter, f&#34;{self.dir_name}/power&#34;)
+        )
+
+        self.slog_logger: Optional[StructuredLogger] = StructuredLogger(
+            client, self.dir_name, power_logger=self.power_logger
+        )
+
+        # Store a lambda so we can find it again to unregister
+        self.atexit_handler = lambda: self.close()  # pylint: disable=unnecessary-lambda
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Close the log set.&#34;&#34;&#34;
+
+        if self.slog_logger:
+            logging.info(f&#34;Closing slogs in {self.dir_name}&#34;)
+            atexit.unregister(
+                self.atexit_handler
+            )  # docs say it will silently ignore if not found
+            self.slog_logger.close()
+            if self.power_logger:
+                self.power_logger.close()
+            self.slog_logger = None</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="meshtastic.slog.slog.root_dir"><code class="name flex">
+<span>def <span class="ident">root_dir</span></span>(<span>) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Return the root directory for slog files.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def root_dir() -&gt; str:
+    &#34;&#34;&#34;Return the root directory for slog files.&#34;&#34;&#34;
+
+    app_name = &#34;meshtastic&#34;
+    app_author = &#34;meshtastic&#34;
+    app_dir = platformdirs.user_data_dir(app_name, app_author)
+    dir_name = f&#34;{app_dir}/slogs&#34;
+    os.makedirs(dir_name, exist_ok=True)
+    return dir_name</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="meshtastic.slog.slog.LogDef"><code class="flex name class">
+<span>class <span class="ident">LogDef</span></span>
+<span>(</span><span>code: str, fields: List[Tuple[str, pyarrow.lib.DataType]])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Log definition.</p>
+<p>Initialize the LogDef object.</p>
+<p>code (str): The code.
+format (str): The format.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(init=False)
+class LogDef:
+    &#34;&#34;&#34;Log definition.&#34;&#34;&#34;
+
+    code: str  # i.e. PM or B or whatever... see meshtastic slog documentation
+    fields: List[Tuple[str, pa.DataType]]  # A list of field names and their arrow types
+    format: parse.Parser  # A format string that can be used to parse the arguments
+
+    def __init__(self, code: str, fields: List[Tuple[str, pa.DataType]]) -&gt; None:
+        &#34;&#34;&#34;Initialize the LogDef object.
+
+        code (str): The code.
+        format (str): The format.
+
+        &#34;&#34;&#34;
+        self.code = code
+        self.fields = fields
+
+        fmt = &#34;&#34;
+        for idx, f in enumerate(fields):
+            if idx != 0:
+                fmt += &#34;,&#34;
+
+            # make the format string
+            suffix = (
+                &#34;&#34; if f[1] == pa.string() else &#34;:d&#34;
+            )  # treat as a string or an int (the only types we have so far)
+            fmt += &#34;{&#34; + f[0] + suffix + &#34;}&#34;
+        self.format = parse.compile(
+            fmt
+        )  # We include a catchall matcher at the end - to ignore stuff we don&#39;t understand</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="meshtastic.slog.slog.LogDef.code"><code class="name">var <span class="ident">code</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="meshtastic.slog.slog.LogDef.fields"><code class="name">var <span class="ident">fields</span> : List[Tuple[str, pyarrow.lib.DataType]]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="meshtastic.slog.slog.LogDef.format"><code class="name">var <span class="ident">format</span> : parse.Parser</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="meshtastic.slog.slog.LogSet"><code class="flex name class">
+<span>class <span class="ident">LogSet</span></span>
+<span>(</span><span>client: <a title="meshtastic.mesh_interface.MeshInterface" href="../mesh_interface.html#meshtastic.mesh_interface.MeshInterface">MeshInterface</a>, dir_name: Optional[str] = None, power_meter: Optional[<a title="meshtastic.powermon.power_supply.PowerMeter" href="../powermon/power_supply.html#meshtastic.powermon.power_supply.PowerMeter">PowerMeter</a>] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A complete set of meshtastic log/metadata for a particular run.</p>
+<p>Initialize the PowerMonClient object.</p>
+<p>power (PowerSupply): The power supply object.
+client (MeshInterface): The MeshInterface object to monitor.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LogSet:
+    &#34;&#34;&#34;A complete set of meshtastic log/metadata for a particular run.&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        client: MeshInterface,
+        dir_name: Optional[str] = None,
+        power_meter: Optional[PowerMeter] = None,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialize the PowerMonClient object.
+
+        power (PowerSupply): The power supply object.
+        client (MeshInterface): The MeshInterface object to monitor.
+        &#34;&#34;&#34;
+
+        if not dir_name:
+            app_dir = root_dir()
+            dir_name = f&#34;{app_dir}/{datetime.now().strftime(&#39;%Y%m%d-%H%M%S&#39;)}&#34;
+            os.makedirs(dir_name, exist_ok=True)
+
+            # Also make a &#39;latest&#39; directory that always points to the most recent logs
+            # symlink might fail on some platforms, if it does fail silently
+            if os.path.exists(f&#34;{app_dir}/latest&#34;):
+                os.unlink(f&#34;{app_dir}/latest&#34;)
+            os.symlink(dir_name, f&#34;{app_dir}/latest&#34;, target_is_directory=True)
+
+        self.dir_name = dir_name
+
+        logging.info(f&#34;Writing slogs to {dir_name}&#34;)
+
+        self.power_logger: Optional[PowerLogger] = (
+            None
+            if not power_meter
+            else PowerLogger(power_meter, f&#34;{self.dir_name}/power&#34;)
+        )
+
+        self.slog_logger: Optional[StructuredLogger] = StructuredLogger(
+            client, self.dir_name, power_logger=self.power_logger
+        )
+
+        # Store a lambda so we can find it again to unregister
+        self.atexit_handler = lambda: self.close()  # pylint: disable=unnecessary-lambda
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Close the log set.&#34;&#34;&#34;
+
+        if self.slog_logger:
+            logging.info(f&#34;Closing slogs in {self.dir_name}&#34;)
+            atexit.unregister(
+                self.atexit_handler
+            )  # docs say it will silently ignore if not found
+            self.slog_logger.close()
+            if self.power_logger:
+                self.power_logger.close()
+            self.slog_logger = None</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.slog.slog.LogSet.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Close the log set.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self) -&gt; None:
+    &#34;&#34;&#34;Close the log set.&#34;&#34;&#34;
+
+    if self.slog_logger:
+        logging.info(f&#34;Closing slogs in {self.dir_name}&#34;)
+        atexit.unregister(
+            self.atexit_handler
+        )  # docs say it will silently ignore if not found
+        self.slog_logger.close()
+        if self.power_logger:
+            self.power_logger.close()
+        self.slog_logger = None</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="meshtastic.slog.slog.PowerLogger"><code class="flex name class">
+<span>class <span class="ident">PowerLogger</span></span>
+<span>(</span><span>pMeter: <a title="meshtastic.powermon.power_supply.PowerMeter" href="../powermon/power_supply.html#meshtastic.powermon.power_supply.PowerMeter">PowerMeter</a>, file_path: str, interval=0.002)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Logs current watts reading periodically using PowerMeter and ArrowWriter.</p>
+<p>Initialize the PowerLogger object.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PowerLogger:
+    &#34;&#34;&#34;Logs current watts reading periodically using PowerMeter and ArrowWriter.&#34;&#34;&#34;
+
+    def __init__(self, pMeter: PowerMeter, file_path: str, interval=0.002) -&gt; None:
+        &#34;&#34;&#34;Initialize the PowerLogger object.&#34;&#34;&#34;
+        self.pMeter = pMeter
+        self.writer = FeatherWriter(file_path)
+        self.interval = interval
+        self.is_logging = True
+        self.thread = threading.Thread(
+            target=self._logging_thread, name=&#34;PowerLogger&#34;, daemon=True
+        )
+        self.thread.start()
+
+    def store_current_reading(self, now: Optional[datetime] = None) -&gt; None:
+        &#34;&#34;&#34;Store current power measurement.&#34;&#34;&#34;
+        if now is None:
+            now = datetime.now()
+        d = {
+            &#34;time&#34;: now,
+            &#34;average_mW&#34;: self.pMeter.get_average_current_mA(),
+            &#34;max_mW&#34;: self.pMeter.get_max_current_mA(),
+            &#34;min_mW&#34;: self.pMeter.get_min_current_mA(),
+        }
+        self.pMeter.reset_measurements()
+        self.writer.add_row(d)
+
+    def _logging_thread(self) -&gt; None:
+        &#34;&#34;&#34;Background thread for logging the current watts reading.&#34;&#34;&#34;
+        while self.is_logging:
+            self.store_current_reading()
+            time.sleep(self.interval)
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Close the PowerLogger and stop logging.&#34;&#34;&#34;
+        if self.is_logging:
+            self.pMeter.close()
+            self.is_logging = False
+            self.thread.join()
+            self.writer.close()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.slog.slog.PowerLogger.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Close the PowerLogger and stop logging.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self) -&gt; None:
+    &#34;&#34;&#34;Close the PowerLogger and stop logging.&#34;&#34;&#34;
+    if self.is_logging:
+        self.pMeter.close()
+        self.is_logging = False
+        self.thread.join()
+        self.writer.close()</code></pre>
+</details>
+</dd>
+<dt id="meshtastic.slog.slog.PowerLogger.store_current_reading"><code class="name flex">
+<span>def <span class="ident">store_current_reading</span></span>(<span>self, now: Optional[datetime.datetime] = None) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Store current power measurement.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def store_current_reading(self, now: Optional[datetime] = None) -&gt; None:
+    &#34;&#34;&#34;Store current power measurement.&#34;&#34;&#34;
+    if now is None:
+        now = datetime.now()
+    d = {
+        &#34;time&#34;: now,
+        &#34;average_mW&#34;: self.pMeter.get_average_current_mA(),
+        &#34;max_mW&#34;: self.pMeter.get_max_current_mA(),
+        &#34;min_mW&#34;: self.pMeter.get_min_current_mA(),
+    }
+    self.pMeter.reset_measurements()
+    self.writer.add_row(d)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="meshtastic.slog.slog.StructuredLogger"><code class="flex name class">
+<span>class <span class="ident">StructuredLogger</span></span>
+<span>(</span><span>client: <a title="meshtastic.mesh_interface.MeshInterface" href="../mesh_interface.html#meshtastic.mesh_interface.MeshInterface">MeshInterface</a>, dir_path: str, power_logger: Optional[<a title="meshtastic.slog.slog.PowerLogger" href="#meshtastic.slog.slog.PowerLogger">PowerLogger</a>] = None, include_raw=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sniffs device logs for structured log messages, extracts those into apache arrow format.
+Also writes the raw log messages to raw.txt</p>
+<p>Initialize the StructuredLogger object.</p>
+<p>client (MeshInterface): The MeshInterface object to monitor.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StructuredLogger:
+    &#34;&#34;&#34;Sniffs device logs for structured log messages, extracts those into apache arrow format.
+    Also writes the raw log messages to raw.txt&#34;&#34;&#34;
+
+    def __init__(
+        self,
+        client: MeshInterface,
+        dir_path: str,
+        power_logger: Optional[PowerLogger] = None,
+        include_raw=True,
+    ) -&gt; None:
+        &#34;&#34;&#34;Initialize the StructuredLogger object.
+
+        client (MeshInterface): The MeshInterface object to monitor.
+        &#34;&#34;&#34;
+        self.client = client
+        self.power_logger = power_logger
+
+        # Setup the arrow writer (and its schema)
+        self.writer = FeatherWriter(f&#34;{dir_path}/slog&#34;)
+        all_fields = reduce(
+            (lambda x, y: x + y), map(lambda x: x.fields, log_defs.values())
+        )
+
+        self.include_raw = include_raw
+        if self.include_raw:
+            all_fields.append((&#34;raw&#34;, pa.string()))
+
+        # Use timestamp as the first column
+        all_fields.insert(0, (&#34;time&#34;, pa.timestamp(&#34;us&#34;)))
+
+        # pass in our name-&gt;type tuples a pa.fields
+        self.writer.set_schema(
+            pa.schema(map(lambda x: pa.field(x[0], x[1]), all_fields))
+        )
+
+        self.raw_file: Optional[
+            io.TextIOWrapper
+        ] = open(  # pylint: disable=consider-using-with
+            f&#34;{dir_path}/raw.txt&#34;, &#34;w&#34;, encoding=&#34;utf8&#34;
+        )
+
+        # We need a closure here because the subscription API is very strict about exact arg matching
+        def listen_glue(line, interface):  # pylint: disable=unused-argument
+            self._onLogMessage(line)
+
+        self._listen_glue = (
+            listen_glue  # we must save this so it doesn&#39;t get garbage collected
+        )
+        self._listener = pub.subscribe(listen_glue, TOPIC_MESHTASTIC_LOG_LINE)
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Stop logging.&#34;&#34;&#34;
+        pub.unsubscribe(self._listener, TOPIC_MESHTASTIC_LOG_LINE)
+        self.writer.close()
+        f = self.raw_file
+        self.raw_file = None  # mark that we are shutting down
+        if f:
+            f.close()  # Close the raw.txt file
+
+    def _onLogMessage(self, line: str) -&gt; None:
+        &#34;&#34;&#34;Handle log messages.
+
+        line (str): the line of log output
+        &#34;&#34;&#34;
+
+        di = {}  # the dictionary of the fields we found to log
+
+        m = log_regex.match(line)
+        if m:
+            src = m.group(1)
+            args = m.group(2)
+            logging.debug(f&#34;SLog {src}, args: {args}&#34;)
+
+            d = log_defs.get(src)
+            if d:
+                last_field = d.fields[-1]
+                last_is_str = last_field[1] == pa.string()
+                if last_is_str:
+                    args += &#34; &#34;
+                    # append a space so that if the last arg is an empty str
+                    # it will still be accepted as a match for a str
+
+                r = d.format.parse(args)  # get the values with the correct types
+                if r:
+                    di = r.named
+                    if last_is_str:
+                        di[last_field[0]] = di[
+                            last_field[0]
+                        ].strip()  # remove the trailing space we added
+                        if di[last_field[0]] == &#34;&#34;:
+                            # If the last field is an empty string, remove it
+                            del di[last_field[0]]
+                else:
+                    logging.warning(f&#34;Failed to parse slog {line} with {d.format}&#34;)
+            else:
+                logging.warning(f&#34;Unknown Structured Log: {line}&#34;)
+
+        # Store our structured log record
+        if di or self.include_raw:
+            now = datetime.now()
+            di[&#34;time&#34;] = now
+            if self.include_raw:
+                di[&#34;raw&#34;] = line
+            self.writer.add_row(di)
+
+            # If we have a sibling power logger, make sure we have a power measurement with the EXACT same timestamp
+            if self.power_logger:
+                self.power_logger.store_current_reading(now)
+
+        if self.raw_file:
+            self.raw_file.write(line + &#34;\n&#34;)  # Write the raw log</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="meshtastic.slog.slog.StructuredLogger.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Stop logging.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self) -&gt; None:
+    &#34;&#34;&#34;Stop logging.&#34;&#34;&#34;
+    pub.unsubscribe(self._listener, TOPIC_MESHTASTIC_LOG_LINE)
+    self.writer.close()
+    f = self.raw_file
+    self.raw_file = None  # mark that we are shutting down
+    if f:
+        f.close()  # Close the raw.txt file</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="meshtastic.slog" href="index.html">meshtastic.slog</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="meshtastic.slog.slog.root_dir" href="#meshtastic.slog.slog.root_dir">root_dir</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="meshtastic.slog.slog.LogDef" href="#meshtastic.slog.slog.LogDef">LogDef</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.slog.slog.LogDef.code" href="#meshtastic.slog.slog.LogDef.code">code</a></code></li>
+<li><code><a title="meshtastic.slog.slog.LogDef.fields" href="#meshtastic.slog.slog.LogDef.fields">fields</a></code></li>
+<li><code><a title="meshtastic.slog.slog.LogDef.format" href="#meshtastic.slog.slog.LogDef.format">format</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="meshtastic.slog.slog.LogSet" href="#meshtastic.slog.slog.LogSet">LogSet</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.slog.slog.LogSet.close" href="#meshtastic.slog.slog.LogSet.close">close</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="meshtastic.slog.slog.PowerLogger" href="#meshtastic.slog.slog.PowerLogger">PowerLogger</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.slog.slog.PowerLogger.close" href="#meshtastic.slog.slog.PowerLogger.close">close</a></code></li>
+<li><code><a title="meshtastic.slog.slog.PowerLogger.store_current_reading" href="#meshtastic.slog.slog.PowerLogger.store_current_reading">store_current_reading</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="meshtastic.slog.slog.StructuredLogger" href="#meshtastic.slog.slog.StructuredLogger">StructuredLogger</a></code></h4>
+<ul class="">
+<li><code><a title="meshtastic.slog.slog.StructuredLogger.close" href="#meshtastic.slog.slog.StructuredLogger.close">close</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
