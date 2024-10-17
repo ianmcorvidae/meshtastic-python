@@ -28,6 +28,11 @@ jobs:
         run: >-
           poetry version patch
 
+      - name: Rebuild docs
+        run: >-
+          rm -f docs/meshtastic
+          poetry run pdoc3 --html -f --output-dir docs meshtastic --skip-errors
+
       - name: Get version
         id: get_version
         run: >-
@@ -40,7 +45,8 @@ jobs:
           git config --global user.email 'bot@noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add pyproject.toml
-          git commit -m "bump version to ${{ steps.get_version.outputs.version }}" && git push || echo "No changes to commit"
+          git add -A docs/
+          git commit -m "bump version to ${{ steps.get_version.outputs.version }} and update docs" && git push || echo "No changes to commit"
           git log -n 1 --pretty=format:"%H" | tail -n 1 | awk '{print "::set-output name=sha::"$0}'
 
       - name: Create GitHub release
